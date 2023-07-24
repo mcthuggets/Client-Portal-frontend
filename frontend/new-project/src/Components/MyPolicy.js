@@ -9,14 +9,21 @@ import { SectionProvider } from './sectionContext';
 
 import { useSectionContext } from './sectionContext';
 
-const Child = ({ name }) => {
+const Child = ({ name,section,renderIcon}) => {
   const { setSectionName } = useSectionContext();
   const { sectionName } = useSectionContext();
   const handleClick = () => {
     setSectionName(name);
   };
 
-  return <button onClick={handleClick}>{sectionName}</button>;
+  return <button onClick={handleClick}>
+ 
+  <div className="separator">{renderIcon}</div>
+  <p>Premium: R{section.totalPremiumAmount}</p>
+  {section.risks && (
+    <p>{section.risks.length > 1 ? `${section.risks.length} risks` : '1 risk'}</p>
+  )}
+  </button>
 };
 
 
@@ -167,17 +174,7 @@ const OverviewComponent = ({ sections }) => {
           return (
           
             <div className="img-content" key={sectionKey}>
-            <button>
-           
-              {renderIcon(sectionKey)}
-              <div className="separator"></div>
-              <p>Premium: R{section.totalPremiumAmount}</p>
-              {section.risks && (
-                <p>{section.risks.length > 1 ? `${section.risks.length} risks` : '1 risk'}</p>
-              )}
-              </button>
-
-              <Child name={sectionKey}></Child>
+             <Child name={sectionKey} section={section} renderIcon={renderIcon(sectionKey)}></Child>
             </div>
             
           );

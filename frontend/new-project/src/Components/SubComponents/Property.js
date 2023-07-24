@@ -1,5 +1,5 @@
-import Propertyimg from './Propertyimg.jpg';
-import data from "../../Data/Data";
+/*import Propertyimg from './Propertyimg.jpg';
+import data from "../Data";
 import {MdArrowBack} from 'react-icons/md';
 const Property=()=>{
     return(
@@ -45,4 +45,4 @@ const Property=()=>{
         </>
     )
 }
-export default Property;
+export default Property; */

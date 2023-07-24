@@ -1,36 +1,78 @@
-import policies from '../Data/Data';
-
-import {policy} from "../Data/Data.js";
-
 import '../Css/policy.css';
 import { HiOutlineHome } from "react-icons/hi";
 import { IoMdBoat } from "react-icons/io";
 import { HiDeviceMobile } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
+const policy={
+  "policyNumber": "POL-12345",
+  "policyHolder": "John Doe",
+  "totalPremium": 2500.00,
+  "policyStart": "2023-07-01",
+  "intermediaryFee": 150.00,
+  "sections": {
+    "allRiskSection": {
+      "totalPremiumAmount": 500.00,
+      "risks": [
+        "Mobile phone",
+        "Laptop",
+        "Camera"
+      ]
+    },
+    "buildingSection": {
+      "totalPremiumAmount": 1500.00,
+      "risks": [
+        "Building",
+        "Contents"
+      ]
+    },
+    "vehicleSection": {
+      "totalPremiumAmount": 1000.00,
+      "risks": [
+        "Car",
+        "Contents"
+      ]
+    }
+    // Add more sections if needed
+  },
+  "broker": {
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "cellNumber": "123-456-7890",
+    "profileImg": "https://example.com/broker_profile.jpg"
+  }
+}
 
 
-//request policy list
-//request first active policy and open it
 
-//secction types
-/**
- *  buildings
- * conternts
- * all risks
- * personal accident
- * personal liability
- * personal computer
- * motor
- * small crafts
- * Value added products
- * General condiitons 
- * 
- * 
- */
- 
+const policies = [
+  {
+    "id": "POL-123",
+    "status": "active"
+  },
+  {
+    "id": "POL-456",
+    "status": "inactive"
+  },
+  {
+    "id": "POL-789",
+    "status": "pending"
+  },
+  {
+    "id": "POL-234",
+    "status": "expired"
+  },
+  {
+    "id": "POL-567",
+    "status": "canceled"
+  }
+];
+
 
 const OverviewComponent = ({ sections }) => {
+
+
+
   const renderIcon = (sectionKey) => {
     switch (sectionKey) {
       case 'allRiskSection':
@@ -96,43 +138,45 @@ const OverviewComponent = ({ sections }) => {
 
   return (
     <div className="cards-container">
+    
       <div className="cover-layout">
         {Object.keys(sections).map((sectionKey) => {
           const section = sections[sectionKey];
           return (
+          
             <div className="img-content" key={sectionKey}>
+            <button>
+           
               {renderIcon(sectionKey)}
               <div className="separator"></div>
               <p>Premium: R{section.totalPremiumAmount}</p>
               {section.risks && (
                 <p>{section.risks.length > 1 ? `${section.risks.length} risks` : '1 risk'}</p>
               )}
+              </button>
             </div>
+            
           );
         })}
       </div>
     </div>
   );
 };
+
 const MyPolicy =()=>{
 
-  const [statusSelector, setStatusSelector] = useState('All')
+  const [statusSelector, setStatusSelector] = useState('All');
 
-  useEffect(() => {
-    // URL for the GET request
-   
+const [test,setTest]=useState(true);
 
-    // Making the GET request using Axios
-   
-  }, []);
-  
     return( 
      
         <>
 
-        {true ?
+        {test?
 <div>
-        <h1>Policy</h1>
+
+      
         <div className="main">
         <div className="card">
         <div className="card-content">
@@ -173,7 +217,7 @@ const MyPolicy =()=>{
       </div>
   <h3>You are Covered for:</h3>
    <div className="cards-container">
-   <OverviewComponent sections={policy.sections} />
+   <OverviewComponent sections={policy.sections}  />
  
        </div>
 

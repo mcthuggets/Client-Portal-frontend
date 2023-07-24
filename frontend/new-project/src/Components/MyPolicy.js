@@ -4,6 +4,29 @@ import { IoMdBoat } from "react-icons/io";
 import { HiDeviceMobile } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
+
+import { SectionProvider } from './sectionContext';
+
+import { useSectionContext } from './sectionContext';
+
+const Child = ({ name }) => {
+  const { setSectionName } = useSectionContext();
+  const { sectionName } = useSectionContext();
+  const handleClick = () => {
+    setSectionName(name);
+  };
+
+  return <button onClick={handleClick}>{sectionName}</button>;
+};
+
+
+
+
+
+
+
+
+
 const policy={
   "policyNumber": "POL-12345",
   "policyHolder": "John Doe",
@@ -71,8 +94,6 @@ const policies = [
 
 const OverviewComponent = ({ sections }) => {
 
-
-
   const renderIcon = (sectionKey) => {
     switch (sectionKey) {
       case 'allRiskSection':
@@ -137,6 +158,7 @@ const OverviewComponent = ({ sections }) => {
   };
 
   return (
+    
     <div className="cards-container">
     
       <div className="cover-layout">
@@ -154,75 +176,96 @@ const OverviewComponent = ({ sections }) => {
                 <p>{section.risks.length > 1 ? `${section.risks.length} risks` : '1 risk'}</p>
               )}
               </button>
+
+              <Child name={sectionKey}></Child>
             </div>
             
           );
         })}
       </div>
     </div>
+  
   );
 };
 
+const MyPolicyShell  =()=>{
+  
+  
+return(
+  
+  <SectionProvider>
+    <MyPolicy></MyPolicy>
+  </SectionProvider>)
+}
 const MyPolicy =()=>{
+  
+  const { sectionName } = useSectionContext();
 
   const [statusSelector, setStatusSelector] = useState('All');
 
-const [test,setTest]=useState(true);
+  const [bannerTracker,setBannerTracker]=useState('Policy');
 
     return( 
      
         <>
+       
+        {(bannerTracker == 'Policy')?
+          
+          <div id='policy-banner'>
+            <div className="main">
+            <div className="card">
+            <div className="card-content">
+             
+              <img
+                className="policy-img"
+                src="https://www.moonstone.co.za/wp-content/uploads/Advance-your-career-in-short-term-insurance-with-Moonstones-new-qualification.jpg"
+                alt="policy"
+                style={{ height: "250px" }}
+              />
+              
+                <span key={policy}>
+                  <p className="top">{policy.policyNumber}</p>
+                  <h1 className="top-left">Policy Information</h1>
+                  <div className="text-container">
+                    <div>
+                
+                      <p>{sectionName}</p>
+                      <span>{policy.policyHolder}</span>
+                    </div>
+                    <div>
+                      <p>Total Premium:</p>
+                      <p>R{policy.totalPremium}</p>
+                    </div>
+                    <div>
+                      <p>Policy start:</p>
+                      <p>{policy.policyStart}</p>
+                    </div>
+                    <div>
+                      <p>Intermediary fee:</p>
+                      <p>R{policy.intermidiaryFee}</p>
+                    </div>
+                  </div>
+                </span>
+              
+              <div class="separator"></div>
+              <button>Documents</button>
+            </div>
+          </div>
 
-        {test?
-<div>
+            </div>
+          </div>
+        :
+          <div id='section-banner'> <h2> section </h2></div>
+        }
 
-      
-        <div className="main">
-        <div className="card">
-        <div className="card-content">
-          
-          <img
-            className="policy-img"
-            src="https://www.moonstone.co.za/wp-content/uploads/Advance-your-career-in-short-term-insurance-with-Moonstones-new-qualification.jpg"
-            alt="policy"
-            style={{ height: "250px" }}
-          />
-          
-            <span key={policy}>
-              <p className="top">{policy.policyNumber}</p>
-              <h1 className="top-left">Policy Information</h1>
-              <div className="text-container">
-                <div>
-                  <p>Policy holder:</p>
-                  <span>{policy.policyHolder}</span>
-                </div>
-                <div>
-                  <p>Total Premium:</p>
-                  <p>R{policy.totalPremium}</p>
-                </div>
-                <div>
-                  <p>Policy start:</p>
-                  <p>{policy.policyStart}</p>
-                </div>
-                <div>
-                  <p>Intermediary fee:</p>
-                  <p>R{policy.intermidiaryFee}</p>
-                </div>{" "}
-              </div>
-            </span>
-          
-          <div class="separator"></div>
-          <button>Documents</button>
+        <h3>You are Covered for:</h3>
+        <div className="cards-container">
+        <OverviewComponent sections={policy.sections}  />
+    
+
+        <button> click me </button>
         </div>
-      </div>
-  <h3>You are Covered for:</h3>
-   <div className="cards-container">
-   <OverviewComponent sections={policy.sections}  />
- 
-       </div>
 
-        </div>
-</div> :<h1>section</h1>}
         <div className="side">
 
         <div className="brokercard">
@@ -265,8 +308,9 @@ const [test,setTest]=useState(true);
                
     </div>
             
-        
+          
         </>
+       
     )
 }
-export default MyPolicy;
+export default MyPolicyShell;

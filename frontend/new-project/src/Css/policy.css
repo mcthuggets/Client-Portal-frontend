@@ -1,0 +1,132 @@
+.main{
+    width: 900px;
+    margin: 10px;
+}
+.side{
+    margin-left: 900px;
+    position: fixed;
+    top: 0;
+    border-left: 1px solid rgb(24, 16, 169);
+    border-left-width: 1px;
+    height: 100%;
+}
+.card {
+    border: 1px solid rgb(24, 16, 169);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    position: relative;
+    transition: background-color 0.3s ease;
+    background-color: #fff;
+    
+  }
+  .separator {
+    border-top: 1px solid rgb(136, 135, 135);
+    margin: 20px 0; 
+  }
+  
+  .text-container{
+  display:flex;
+  justify-content: space-between; 
+}
+  .card:hover{
+    background-color: #d9dee3;
+    
+  }
+  .top-left {
+    position: absolute;
+    top: 40px;
+    left: 16px;
+    font-size: 50px;
+    color: #154FBF;
+    
+  }
+  
+  .top {
+    position: absolute;
+    top: 30px;
+    left: 16px;
+    font-size: 24px;
+  }
+  
+  .card-content {
+    position: relative;
+  }
+  
+  
+  
+  .policy-img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .cards-container{
+    /* height: fit-content; */
+    width: 90%;
+    /* background-color: #d9dee3; */
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  .cover-layout{
+    display: flex;
+  }
+
+  .img-content {
+    border: 1px solid rgb(45, 18, 223);
+    border-radius: 4px;
+    background-color: #d9dee3;
+    padding: 10px;
+    margin: 10px;
+    display:block;
+    align-items: center;
+    width:fit-content;
+    border-left-width: 10px;
+    height: fit-content;
+
+    /* transition: scale 0.6s, rotate 0.6s, filter 1s; */
+  }
+
+  .cheading{
+    font-size: larger;
+  }
+
+  .contact{
+    margin-left: 10px;
+  }
+
+  .brokercard{
+    border: 1px solid rgb(45, 18, 223);
+    border-radius: 4px;
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 10px;
+    display:block;
+    align-items: center;
+    width:100%;
+    height: fit-content;
+  }
+  .filter{
+    width: 210px;
+    margin-left: 20px;
+    font-size: 20px;
+  }
+
+  .policy{
+    /* margin-left: 10px;  */
+    /* background-color: #cacdd4;*/
+    color: #154FBF;
+    /* padding: 15px; */
+    font-size: 20px;
+    
+    
+  }
+
+  .policy li{
+    list-style: none;
+  }
+
+
+  

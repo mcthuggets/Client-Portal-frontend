@@ -1,0 +1,104 @@
+{
+  "policy": {
+    "id": "string",
+    "status": "string",
+    "client": {
+      "id": "string" 
+    },
+    "policyFee": 0
+  },
+  "sections": {
+    "allRiskSection": {
+      "totalSumInsuredAmount": 0,
+      "totalPremiumAmount": 0
+    },
+    "buildingSection": {
+      "risks": [
+        {
+          "riskId": "string",
+          "premium": {
+            "totalSumInsuredAmount": 0,
+            "totalPremiumAmount": 0
+          }
+        }
+      ]
+    },
+    "contentSection": {
+      "risks": [
+        {
+          "riskId": "string",
+          "premium": {
+            "totalSumInsuredAmount": 0,
+            "totalPremiumAmount": 0
+          }
+        }
+      ]
+    },
+    "vehicleSection": {
+      "risks": [
+        {
+          "riskId": "string",
+          "premium": {
+            "totalSumInsuredAmount": 0,
+            "totalPremiumAmount": 0
+          }
+        }
+      ]
+    },
+    "personalLiabilitySection": {
+      "risks": [
+        {
+          "riskId": "string",
+          "totalPremiumAmount": 0,
+          "totalSumInsuredAmount": 0
+        }
+      ]
+    },
+    "specialCoverSection": {
+      "risks": [
+        {
+          "riskId": "string",
+          "totalPremiumAmount": 0,
+          "totalSumInsuredAmount": 0
+        }
+      ]
+    },
+    "personalComputerSection": {
+      "risks": [
+        {
+          "riskId": "string",
+          "totalPremiumAmount": 0,
+          "totalSumInsuredAmount": 0
+        }
+      ]
+    },
+    "generalConditionsSection": {
+      "conditions": [
+        {
+          "items": [
+            {
+              "memoCode": {
+                "code": "string",
+                "description": "string"
+              },
+              "partialConditionWording": "string",
+              "inceptionDate": "2023-06-29T07:08:17.548Z",
+              "message": "string",
+              "printOnSchedule": true
+            }
+          ],
+          "conditionId": "string"
+        }
+      ]
+    },
+    "personalAccidentSection": {
+      "risks": [
+        {
+          "riskId": "string",
+          "totalPremiumAmount": 0,
+          "totalSumInsuredAmount": 0
+        }
+      ]
+    }
+  }
+}

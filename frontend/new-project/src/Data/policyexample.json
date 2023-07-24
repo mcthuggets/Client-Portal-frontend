@@ -1,0 +1,186 @@
+{
+            "policyNo": "P123456",
+            "status": "Active",
+            "client": {
+                "id": "C7890"
+            },
+            "policyFee": 50.0,
+            "brokerFee": 100.0,
+            "commission": 150.0,
+            "sections": {
+                "allRiskSection": {
+                    "risks": [
+                        {
+                            "riskId": "R123",
+                            "items": [
+                                {
+                                    "itemId": "I123",
+                                    "rateCode": {
+                                        "code": "RC001",
+                                        "description": "Rate Code 001"
+                                    },
+                                    "premiumAmount": 200.0,
+                                    "message": "Item 1 message",
+                                    "coverType": "Cover Type 1",
+                                    "premium": {
+                                        "original": 200.0,
+                                        "discounted": 180.0,
+                                        "loaded": 0.0,
+                                        "discountPerc": 10.0,
+                                        "loadingPerc": 0.0,
+                                        "nettPremium": 180.0,
+                                        "grossPremium": 180.0,
+                                        "sasriaCategory": "Category 1",
+                                        "sasriaPremium": 20.0,
+                                        "sumInsuredAmount": 1000.0
+                                    },
+                                    "inceptionDate": "2023-06-29T07:08:17.547Z",
+                                    "sumInsuredAmount": 1000.0,
+                                    "description": "Item 1 description",
+                                    "isValuationAvailable": true,
+                                    "serialNumber": "SN001"
+                                }
+                            ],
+                            "totalSumInsuredAmount": 1000.0,
+                            "totalPremiumAmount": 200.0,
+                            "premium": {
+                                "original": 200.0,
+                                "discounted": 180.0,
+                                "loaded": 0.0,
+                                "discountPerc": 10.0,
+                                "loadingPerc": 0.0,
+                                "nettPremium": 180.0,
+                                "grossPremium": 180.0,
+                                "sasriaCategory": "Category 1",
+                                "sasriaPremium": 20.0,
+                                "sumInsuredAmount": 1000.0
+                            },
+                            "riskExcess": {
+                                "title": "Risk Excess",
+                                "details": "Risk excess details",
+                                "message": "Risk excess message",
+                                "items": [
+                                    {
+                                        "id": "E001",
+                                        "code": "EC001",
+                                        "description": "Excess Code 001",
+                                        "type": "Type 1",
+                                        "percentage": 5.0,
+                                        "minimumAmount": 50.0,
+                                        "maximumAmount": 200.0
+                                    }
+                                ]
+                            },
+                            "riskInfoQuestions": [
+                                {
+                                    "code": "Q001",
+                                    "question": "Question 1",
+                                    "answer": {}
+                                }
+                            ],
+                            "postalCode": "12345"
+                        }
+                    ]
+                },
+                "buildingSection": {
+                    "risks": [
+                        {
+                            "riskId": "R456",
+                            "politicalRiotPremiumAmount": 50.0,
+                            "riskPremiumAmount": 300.0,
+                            "riskFactors": [
+                                {
+                                    "code": "RF001",
+                                    "message": "Risk Factor 1",
+                                    "premium": 100.0
+                                }
+                            ],
+                            "extensions": [
+                                {
+                                    "id": "E001",
+                                    "code": "EC001",
+                                    "sumInsuredAmount": 5000.0,
+                                    "premiumAmount": 100.0,
+                                    "message": "Extension 1"
+                                }
+                            ],
+                            "riskExcess": {
+                                "title": "Risk Excess",
+                                "details": "Risk excess details",
+                                "message": "Risk excess message",
+                                "items": [
+                                    {
+                                        "id": "E001",
+                                        "code": "EC001",
+                                        "description": "Excess Code 001",
+                                        "type": "Type 1",
+                                        "percentage": 5.0,
+                                        "minimumAmount": 50.0,
+                                        "maximumAmount": 200.0
+                                    }
+                                ]
+                            },
+                            "message": "Risk message",
+                            "riskInfoQuestions": [
+                                {
+                                    "code": "Q001",
+                                    "question": "Question 1",
+                                    "answer": {}
+                                }
+                            ],
+                            "premium": {
+                                "original": 300.0,
+                                "discounted": 270.0,
+                                "loaded": 0.0,
+                                "discountPerc": 10.0,
+                                "loadingPerc": 0.0,
+                                "nettPremium": 270.0,
+                                "grossPremium": 270.0,
+                                "sasriaCategory": "Category 1",
+                                "sasriaPremium": 30.0,
+                                "sumInsuredAmount": 5000.0
+                            },
+                            "inceptionDate": "2023-06-29T07:08:17.547Z",
+                            "registeredOwner": "Owner 1",
+                            "residentialAddress": {
+                                "line1": "Address Line 1",
+                                "line2": "Address Line 2",
+                                "line3": "Address Line 3",
+                                "line4": "Address Line 4",
+                                "postalCodeId": "PC001"
+                            },
+                            "occupationDate": "2023-06-29T07:08:17.547Z",
+                            "numberOfConsecutiveUnoccupiedDays": 10,
+                            "dwellingType": "Dwelling Type 1",
+                            "wallConstruction": "Wall Construction 1",
+                            "roofType": "Roof Type 1",
+                            "claimFreeGroup": 1,
+                            "voluntaryExcess": 100.0,
+                            "sumInsuredAmount": 5000.0,
+                            "memos": {
+                                "rateTableMemos": [
+                                    {
+                                        "isMapped": "Yes",
+                                        "message": "Rate Table Memo 1",
+                                        "sourceMemoCode": "SM001",
+                                        "MemoCode": "Memo001",
+                                        "PartialConditionWording": "Partial Condition Wording 1"
+                                    }
+                                ],
+                                "blackBoxMemos": [
+                                    {
+                                        "itemNo": "Item001",
+                                        "printed": true,
+                                        "inceptionDate": "2023-06-29T07:08:17.547Z",
+                                        "status": "Status 1",
+                                        "isCancelAllowed": true,
+                                        "MemoCode": "Memo001",
+                                        "PartialConditionWording": "Partial Condition Wording 1"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }

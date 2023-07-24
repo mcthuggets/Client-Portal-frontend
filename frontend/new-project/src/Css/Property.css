@@ -1,0 +1,11 @@
+.card {
+    border: 1px solid rgb(24, 16, 169);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    position: relative;
+    transition: background-color 0.3s ease;
+    background-color: #fff;
+    
+  }

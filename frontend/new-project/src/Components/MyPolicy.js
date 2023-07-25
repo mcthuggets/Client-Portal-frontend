@@ -9,32 +9,109 @@ import { SectionProvider } from './sectionContext';
 
 import { useSectionContext } from './sectionContext';
 
-const Child = ({ name,section,renderIcon}) => {
+const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();
-  const { sectionName } = useSectionContext();
+
   const handleClick = () => {
     setSectionName(name);
   };
 
   return <button onClick={handleClick}>
- 
-  <div className="separator">{renderIcon}</div>
-  <p>Premium: R{section.totalPremiumAmount}</p>
-  {section.risks && (
-    <p>{section.risks.length > 1 ? `${section.risks.length} risks` : '1 risk'}</p>
-  )}
+
+    <div className="separator">{renderIcon}</div>
+    <p>Premium: R{section.totalPremiumAmount}</p>
+    {section.risks && (
+      <p>{section.risks.length > 1 ? `${section.risks.length} risks` : '1 risk'}</p>
+    )}
   </button>
+};
+const renderIcon = (sectionKey) => {
+  switch (sectionKey) {
+    case 'allRiskSection':
+      return (
+        <>
+          <HiDeviceMobile className="device" />
+          <p className="cheading">All risk</p>
+        </>
+      );
+    case 'buildingSection':
+      return (
+        <>
+          <HiOutlineHome className="house" />
+          <p className="cheading">Property</p>
+        </>
+      );
+    case 'vehicleSection':
+      return (
+        <>
+          <FaCarSide className="caricon" />
+          <p className="cheading">Vehicle</p>
+        </>
+      );
+    case 'personalLiabilitySection':
+      return (
+        <>
+
+          <p className="cheading">Personal Liability</p>
+        </>
+      );
+    case 'specialCoverSection':
+      return (
+        <>
+          <p className="cheading">Special Cover</p>
+        </>
+      );
+    case 'personalComputerSection':
+      return (
+        <>
+
+          <p className="cheading">Personal Computer</p>
+        </>
+      );
+    case 'generalConditionsSection':
+      return (
+        <>
+
+          <p className="cheading">General Conditions</p>
+        </>
+      );
+    case 'personalAccidentSection':
+      return (
+        <>
+
+          <p className="cheading">Personal Accident</p>
+        </>
+      );
+    default:
+      return null;
+  }
+};
+
+
+
+const SectionParent= ({sectionKey}) => {
+  const { setSectionName } = useSectionContext();
+
+
+console.log(sectionKey);
+  const handleClick = () => {
+    setSectionName("Policy");
+  };
+  console.log( policy.sections[sectionKey]);
+ 
+
+  return (
+    <div>
+    
+  <button onClick={handleClick}>back to policy</button>
+  </div>)
+  
 };
 
 
 
 
-
-
-
-
-
-const policy={
+const policy = {
   "policyNumber": "POL-12345",
   "policyHolder": "John Doe",
   "totalPremium": 2500.00,
@@ -62,7 +139,8 @@ const policy={
         "Car",
         "Contents"
       ]
-    }
+    },
+
     // Add more sections if needed
   },
   "broker": {
@@ -98,216 +176,162 @@ const policies = [
   }
 ];
 
-
 const OverviewComponent = ({ sections }) => {
 
-  const renderIcon = (sectionKey) => {
-    switch (sectionKey) {
-      case 'allRiskSection':
-        return (
-          <>
-            <HiDeviceMobile className="device" />
-            <p className="cheading">All risk</p>
-          </>
-        );
-      case 'buildingSection':
-        return (
-          <>
-            <HiOutlineHome className="house" />
-            <p className="cheading">Property</p>
-          </>
-        );
-      case 'vehicleSection':
-        return (
-          <>
-            <FaCarSide className="caricon" />
-            <p className="cheading">Vehicle</p>
-          </>
-        );
-      case 'personalLiabilitySection':
-        return (
-          <>
-            
-            <p className="cheading">Personal Liability</p>
-          </>
-        );
-      case 'specialCoverSection':
-        return (
-          <>
-        
-            <p className="cheading">Special Cover</p>
-          </>
-        );
-      case 'personalComputerSection':
-        return (
-          <>
-           
-            <p className="cheading">Personal Computer</p>
-          </>
-        );
-      case 'generalConditionsSection':
-        return (
-          <>
-           
-            <p className="cheading">General Conditions</p>
-          </>
-        );
-      case 'personalAccidentSection':
-        return (
-          <>
-            
-            <p className="cheading">Personal Accident</p>
-          </>
-        );
-      default:
-        return null; // Handle the case where the sectionKey doesn't match any case
-    }
-  };
+
 
   return (
-    
+
     <div className="cards-container">
-    
+
       <div className="cover-layout">
         {Object.keys(sections).map((sectionKey) => {
           const section = sections[sectionKey];
           return (
-          
+
             <div className="img-content" key={sectionKey}>
-             <Child name={sectionKey} section={section} renderIcon={renderIcon(sectionKey)}></Child>
+              <Child name={sectionKey} section={section} renderIcon={renderIcon(sectionKey)} ></Child>
             </div>
-            
+
           );
         })}
       </div>
     </div>
-  
+
   );
 };
 
-const MyPolicyShell  =()=>{
-  
-  
-return(
-  
-  <SectionProvider>
-    <MyPolicy></MyPolicy>
-  </SectionProvider>)
+const MyPolicyShell = () => {
+
+
+  return (
+
+    <SectionProvider>
+      <MyPolicy></MyPolicy>
+    </SectionProvider>)
 }
-const MyPolicy =()=>{
-  
+const MyPolicy = () => {
+
   const { sectionName } = useSectionContext();
 
   const [statusSelector, setStatusSelector] = useState('All');
 
-  const [bannerTracker,setBannerTracker]=useState('Policy');
+ 
 
-    return( 
-     
-        <>
-       
-        {(bannerTracker == 'Policy')?
-          
-          <div id='policy-banner'>
-            <div className="main">
-            <div className="card">
+  return (
+
+
+
+
+
+    <div>
+    {(sectionName==="Policy")?
+      <div id='policy-banner'>
+        <div className="main">
+          <div className="card">
             <div className="card-content">
-             
+
               <img
                 className="policy-img"
                 src="https://www.moonstone.co.za/wp-content/uploads/Advance-your-career-in-short-term-insurance-with-Moonstones-new-qualification.jpg"
                 alt="policy"
                 style={{ height: "250px" }}
               />
-              
-                <span key={policy}>
-                  <p className="top">{policy.policyNumber}</p>
-                  <h1 className="top-left">Policy Information</h1>
-                  <div className="text-container">
-                    <div>
-                
-                      <p>{sectionName}</p>
-                      <span>{policy.policyHolder}</span>
-                    </div>
-                    <div>
-                      <p>Total Premium:</p>
-                      <p>R{policy.totalPremium}</p>
-                    </div>
-                    <div>
-                      <p>Policy start:</p>
-                      <p>{policy.policyStart}</p>
-                    </div>
-                    <div>
-                      <p>Intermediary fee:</p>
-                      <p>R{policy.intermidiaryFee}</p>
-                    </div>
+
+              <span key={policy}>
+                <p className="top">{policy.policyNumber}</p>
+                <h1 className="top-left">Policy Information</h1>
+                <div className="text-container">
+                  <div>
+
+                    <p>{sectionName}</p>
+                    <span>{policy.policyHolder}</span>
                   </div>
-                </span>
-              
+                  <div>
+                    <p>Total Premium:</p>
+                    <p>R{policy.totalPremium}</p>
+                  </div>
+                  <div>
+                    <p>Policy start:</p>
+                    <p>{policy.policyStart}</p>
+                  </div>
+                  <div>
+                    <p>Intermediary fee:</p>
+                    <p>R{policy.intermidiaryFee}</p>
+                  </div>
+                </div>
+              </span>
+
               <div class="separator"></div>
               <button>Documents</button>
             </div>
           </div>
 
-            </div>
-          </div>
-        :
-          <div id='section-banner'> <h2> section </h2></div>
-        }
+        </div>
+
+
+
+
 
         <h3>You are Covered for:</h3>
         <div className="cards-container">
-        <OverviewComponent sections={policy.sections}  />
-    
+          <OverviewComponent sections={policy.sections} />
+        </div>
+
 
         <button> click me </button>
-        </div>
+      </div>
+:
+      <div>
+        <SectionParent sectionKey={sectionName}></SectionParent>
+      </div>}
 
-        <div className="side">
+      <div className="side">
 
         <div className="brokercard">
-        <h2 style={{textAlign: 'center'}}>Select Policy</h2>
-        <p> {statusSelector} </p>
-        <div class="separator"></div>
-        <select className="filter" onChange={ (event) => setStatusSelector(event.target.value)}>
-          <option value="All">All</option>
-          <option value="Active">Active</option>
-          <option value="Closed">Closed</option>
-        </select>
-        <div className="policy">
-        
-        <ul>
-        {policies.map(policy => (
-        <li key={policy.id}>
-          Policy no. {policy.id}, Status: {policy.status}
-        </li>
-      ))}
-        </ul>
-        
-      </div>
-      </div>
+          <h2 style={{ textAlign: 'center' }}>Select Policy</h2>
+          <p> {statusSelector} </p>
+          <div class="separator"></div>
+          <select className="filter" onChange={(event) => setStatusSelector(event.target.value)}>
+            <option value="All">All</option>
+            <option value="Active">Active</option>
+            <option value="Closed">Closed</option>
+          </select>
+          <div className="policy">
+
+            <ul>
+              {policies.map(policy => (
+                <li key={policy.id}>
+                  Policy no. {policy.id}, Status: {policy.status}
+                </li>
+              ))}
+            </ul>
+
+          </div>
+        </div>
 
         <div className="contact">
-       
-                  <h3 id="my">Need help?</h3>
-      <h1>Contact your broker</h1>
-      <div className="brokercard">
-      <div class="image-with-text">
-        <img src="{profileimg}" alt="brokerimg" className="bkimg" />
-        <div className="text">
+
+          <h3 id="my">Need help?</h3>
+          <h1>Contact your broker</h1>
+          <div className="brokercard">
+            <div class="image-with-text">
+              <img src="{profileimg}" alt="brokerimg" className="bkimg" />
+              <div className="text">
+              </div>
+            </div>
+            <p>name</p>
+            <p>email</p>
+            <p>cellnumber</p>
+          </div>
         </div>
-        </div>
-        <p>name</p>
-        <p>email</p>
-        <p>cellnumber</p>
+
       </div>
+
+
     </div>
-               
-    </div>
-            
-          
-        </>
-       
-    )
+
+
+  )
 }
 export default MyPolicyShell;

@@ -14,7 +14,7 @@ const useSectionContext = () => {
 
 // Create a provider to wrap the components that need access to the context
 const SectionProvider = ({ children }) => {
-  const [sectionName, setSectionName] = useState('');
+  const [sectionName, setSectionName] = useState('Policy');
 
   return (
     <SectionContext.Provider value={{ sectionName, setSectionName }}>

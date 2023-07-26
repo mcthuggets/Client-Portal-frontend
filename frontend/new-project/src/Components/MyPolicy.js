@@ -4,7 +4,7 @@ import { IoMdBoat } from "react-icons/io";
 import { HiDeviceMobile } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
-
+import VehicleDisplay from './VehicleSection';
 import { SectionProvider } from './sectionContext';
 
 import { useSectionContext } from './sectionContext';
@@ -93,16 +93,26 @@ const SectionParent= ({sectionKey}) => {
   const { setSectionName } = useSectionContext();
 
 
-console.log(sectionKey);
+  const RenderComponentBasedOnCondition = () => {
+    switch (sectionKey) {
+      case 'vehicleSection':
+        return <VehicleDisplay vehicleData={policy.sections.vehicleSection} />;
+      case 'otherCase':
+        // Add more cases here for other conditions if needed.
+        return <div>Other Case Content</div>;
+      default:
+        return null;
+    }
+  }
   const handleClick = () => {
     setSectionName("Policy");
   };
-  console.log( policy.sections[sectionKey]);
  
 
   return (
     <div>
-    
+      
+    <RenderComponentBasedOnCondition></RenderComponentBasedOnCondition>
   <button onClick={handleClick}>back to policy</button>
   </div>)
   
@@ -133,13 +143,151 @@ const policy = {
         "Contents"
       ]
     },
-    "vehicleSection": {
-      "totalPremiumAmount": 1000.00,
-      "risks": [
-        "Car",
-        "Contents"
-      ]
-    },
+ "vehicleSection": {
+    "risks": [
+      {
+        "riskId": "RISK1234",
+        "vehicleType": "Car",
+        "riskPremiumAmount": 500,
+        "riskExcess": {
+          "title": "Risk Excess",
+          "details": "Details about the risk excess",
+          "message": "Risk excess information",
+          "items": [
+            {
+              "id": "EXC001",
+              "code": "EXC_CODE_001",
+              "description": "Accident Excess",
+              "type": "Fixed",
+              "percentage": 0,
+              "minimumAmount": 100,
+              "maximumAmount": 1000
+            },
+            {
+              "id": "EXC002",
+              "code": "EXC_CODE_002",
+              "description": "Theft Excess",
+              "type": "Percentage",
+              "percentage": 5,
+              "minimumAmount": 0,
+              "maximumAmount": 500
+            }
+          ]
+        },
+        "inceptionDate": "2023-07-25T11:22:48.427Z",
+        "vehicleDetails": {
+          "makeCode": "MAK001",
+          "makeDescription": "Toyota",
+          "modelDescription": "Corolla",
+          "yearManufactured": 2020,
+          "registrationNumber": "ABC123",
+          "engineNumber": "ENG456",
+          "vinNumber": "VIN789"
+        },
+        "registeredOwner": {
+          "name": "John Doe",
+          "idNumber": "ID123456789",
+          "dateOfBirth": "1990-01-15T00:00:00.000Z"
+        },
+        "useType": "Personal",
+        "residentialAddress": {
+          "line1": "123 Main Street",
+          "line2": "Apartment 4B",
+          "line3": "Suburbia",
+          "line4": "Cityville",
+          "postalCodeId": "PST123"
+        },
+        "claimFreeGroup": 3,
+        "hasProofOfClaimFreeGroup": true,
+        "voluntaryExcess": 250,
+        "sumInsuredType": "Comprehensive",
+        "sumInsuredAmount": 30000,
+        "coverType": "Third Party",
+        "premium": {
+          "original": 600,
+          "discounted": 550,
+          "loaded": 0,
+          "discountPerc": 10,
+          "loadingPerc": 0,
+          "nettPremium": 550,
+          "grossPremium": 600,
+          "sasriaCategory": "Category A",
+          "sasriaPremium": 50,
+          "sumInsuredAmount": 30000
+        }
+      },{
+        "riskId": "RISK1234",
+        "vehicleType": "Car",
+        "riskPremiumAmount": 500,
+        "riskExcess": {
+          "title": "Risk Excess",
+          "details": "Details about the risk excess",
+          "message": "Risk excess information",
+          "items": [
+            {
+              "id": "EXC001",
+              "code": "EXC_CODE_001",
+              "description": "Accident Excess",
+              "type": "Fixed",
+              "percentage": 0,
+              "minimumAmount": 100,
+              "maximumAmount": 1000
+            },
+            {
+              "id": "EXC002",
+              "code": "EXC_CODE_002",
+              "description": "Theft Excess",
+              "type": "Percentage",
+              "percentage": 5,
+              "minimumAmount": 0,
+              "maximumAmount": 500
+            }
+          ]
+        },
+        "inceptionDate": "2023-07-25T11:22:48.427Z",
+        "vehicleDetails": {
+          "makeCode": "MAK001",
+          "makeDescription": "Toyota",
+          "modelDescription": "Corolla",
+          "yearManufactured": 2020,
+          "registrationNumber": "ABC123",
+          "engineNumber": "ENG456",
+          "vinNumber": "VIN789"
+        },
+        "registeredOwner": {
+          "name": "John Doe",
+          "idNumber": "ID123456789",
+          "dateOfBirth": "1990-01-15T00:00:00.000Z"
+        },
+        "useType": "Personal",
+        "residentialAddress": {
+          "line1": "123 Main Street",
+          "line2": "Apartment 4B",
+          "line3": "Suburbia",
+          "line4": "Cityville",
+          "postalCodeId": "PST123"
+        },
+        "claimFreeGroup": 3,
+        "hasProofOfClaimFreeGroup": true,
+        "voluntaryExcess": 250,
+        "sumInsuredType": "Comprehensive",
+        "sumInsuredAmount": 30000,
+        "coverType": "Third Party",
+        "premium": {
+          "original": 600,
+          "discounted": 550,
+          "loaded": 0,
+          "discountPerc": 10,
+          "loadingPerc": 0,
+          "nettPremium": 550,
+          "grossPremium": 600,
+          "sasriaCategory": "Category A",
+          "sasriaPremium": 50,
+          "sumInsuredAmount": 30000
+        }
+      }
+    ]
+  }
 
     // Add more sections if needed
   },

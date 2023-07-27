@@ -10,7 +10,7 @@ import Property from './SubComponents/Property';
 const Policy = () => {
   return (
     <div>
-      <div className="navbar">
+      {/* <div className="navbar">
         <ul>
           <li>
             <Link to= "/policy/policies">Policy</Link>
@@ -26,7 +26,7 @@ const Policy = () => {
           </li>
     
         </ul>
-      </div>
+      </div> */}
 
       <div className="main-content">
 

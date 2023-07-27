@@ -14,10 +14,11 @@
 }
 
 .main-content {
-    margin-left: 200px;
-    /* font-size: 15px; */
-    padding: 0px 10px;
-  }
+  margin-left: 100px;
+  margin-top: 5px;
+  padding: 0px 10px;
+  height: 100%;
+}
 
   .sidebar li{
     /* padding: 6px 8px 6px 16px; */

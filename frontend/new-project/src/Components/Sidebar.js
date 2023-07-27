@@ -11,7 +11,16 @@ const Sidebar = () => {
           <Link to="/">Dashboard</Link>
         </li>
         <li>
-          <Link to="/policy">Policy</Link>
+          <Link to="/policy/policies">Policy</Link>
+        </li>
+        <li>
+          <Link to="/policy/claims" >Claims</Link>
+        </li>
+        <li>
+          <Link to="/policy/payments">Payments</Link>
+        </li>
+        <li>
+          <Link to="/policy/clientdetails">My Details</Link>
         </li>
         <li>
           <Link to="/broker">Broker</Link>

@@ -1,4 +1,5 @@
 import '../Css/policy.css';
+import PolicyImg from './PolicyImg.jpg';
 import { HiOutlineHome } from "react-icons/hi";
 import { IoMdBoat } from "react-icons/io";
 import { HiDeviceMobile } from "react-icons/hi";
@@ -6,7 +7,8 @@ import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import VehicleDisplay from './VehicleSection';
 import { SectionProvider } from './sectionContext';
-
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 import { useSectionContext } from './sectionContext';
 
 const Child = ({ name, section, renderIcon }) => {
@@ -111,9 +113,9 @@ const SectionParent= ({sectionKey}) => {
 
   return (
     <div>
-      
+      <button onClick={handleClick}>back to policy</button>
     <RenderComponentBasedOnCondition></RenderComponentBasedOnCondition>
-  <button onClick={handleClick}>back to policy</button>
+  
   </div>)
   
 };
@@ -364,13 +366,13 @@ const MyPolicy = () => {
 
   const [statusSelector, setStatusSelector] = useState('All');
 
- 
 
   return (
 
 
 
-
+<div className="app-container">
+      <div className='main-content'>
 
     <div>
     {(sectionName==="Policy")?
@@ -381,7 +383,7 @@ const MyPolicy = () => {
 
               <img
                 className="policy-img"
-                src="https://www.moonstone.co.za/wp-content/uploads/Advance-your-career-in-short-term-insurance-with-Moonstones-new-qualification.jpg"
+                src={PolicyImg}
                 alt="policy"
                 style={{ height: "250px" }}
               />
@@ -422,9 +424,15 @@ const MyPolicy = () => {
 
 
         <h3>You are Covered for:</h3>
-        <div className="cards-container">
+        
+      
+        <div className="card-container">
+        <Carousel showThumbs={false} showStatus={false}>
           <OverviewComponent sections={policy.sections} />
+          </Carousel>
         </div>
+       
+     
 
 
         <button> click me </button>
@@ -433,10 +441,11 @@ const MyPolicy = () => {
       <div>
         <SectionParent sectionKey={sectionName}></SectionParent>
       </div>}
+      </div></div>
 
-      <div className="side">
+      <div className="right-sidebar">
 
-        <div className="brokercard">
+        <div className="policy-card">
           <h2 style={{ textAlign: 'center' }}>Select Policy</h2>
           <p> {statusSelector} </p>
           <div class="separator"></div>
@@ -458,11 +467,11 @@ const MyPolicy = () => {
           </div>
         </div>
 
-        <div className="contact">
+        <div className="broker-contact-card">
 
           <h3 id="my">Need help?</h3>
           <h1>Contact your broker</h1>
-          <div className="brokercard">
+          
             <div class="image-with-text">
               <img src="{profileimg}" alt="brokerimg" className="bkimg" />
               <div className="text">
@@ -471,7 +480,7 @@ const MyPolicy = () => {
             <p>name</p>
             <p>email</p>
             <p>cellnumber</p>
-          </div>
+         
         </div>
 
       </div>

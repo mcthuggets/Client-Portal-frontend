@@ -1,6 +1,7 @@
 const Dashboard = ()=>{
     return (
-        <>
+        <><div className="app-container">
+        <div className='main-content'>
         <div className="heading">
             <h1>Welcome, David</h1>
             <p>July 19, 2023</p>
@@ -11,6 +12,8 @@ const Dashboard = ()=>{
             <p>123456789</p>
             <div className="separator"></div>
             
+        </div>
+        </div>
         </div>
         </div>
         </>

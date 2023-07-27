@@ -1,4 +1,4 @@
-.main{
+/* .main{
     width: 900px;
     margin: 10px;
 }
@@ -9,7 +9,29 @@
     border-left: 1px solid rgb(24, 16, 169);
     border-left-width: 1px;
     height: 100%;
+} */
+
+
+.app-container {
+  top: 0;
+display: flex;
+justify-content: space-between;
+background-color:rgb(211, 211, 211);
 }
+
+.main-content {
+flex: 1;
+/* padding: 20px; */
+margin-right: 20px;
+}
+
+.right-sidebar {
+
+flex: 0 0 250px;
+padding: 20px;
+background-color: rgb(211, 211, 211);
+}
+
 .card {
     border: 1px solid rgb(24, 16, 169);
     border-radius: 4px;
@@ -64,11 +86,43 @@
 
   .cards-container{
     /* height: fit-content; */
-    width: 90%;
+    /* width: 90%; */
     /* background-color: #d9dee3; */
-    overflow-x: scroll;
-    white-space: nowrap;
+    /* overflow-x: scroll;
+    white-space: nowrap; */
+
+    display: flex;
+    transition: transform 0.3s ease;
   }
+
+
+  .card-carousel {
+    position: relative;
+    width: 90%;
+    overflow: hidden;
+    margin: 0 ;
+    max-width:fit-content;
+    
+  }
+
+  
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(5, 80, 229);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.next-btn {
+  right: 0;
+}
 
   .cover-layout{
     display: flex;
@@ -93,11 +147,17 @@
     font-size: larger;
   }
 
-  .contact{
+  /* .contact{
     margin-left: 10px;
-  }
+  } */
 
-  .brokercard{
+  .broker-contact-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    }
+
+  /* .brokercard{
     border: 1px solid rgb(45, 18, 223);
     border-radius: 4px;
     background-color: #ffffff;
@@ -107,7 +167,14 @@
     align-items: center;
     width:100%;
     height: fit-content;
-  }
+  } */
+  .policy-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    }
+
   .filter{
     width: 210px;
     margin-left: 20px;
@@ -129,4 +196,16 @@
   }
 
 
-  
+  .vehicle-card {
+    border: 1px solid rgb(24, 16, 169);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    transition: background-color 0.3s ease;
+    background-color: #fff;
+    
+    
+  }

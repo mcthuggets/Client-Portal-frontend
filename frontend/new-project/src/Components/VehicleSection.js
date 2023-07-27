@@ -1,10 +1,11 @@
 import React from 'react';
+import '../Css/vehicle.css';
 
 const VehicleDisplay = ({ vehicleData }) => {
   return (
-    <div>
+    <div className="sectionMain">
       {vehicleData.risks.map((risk) => (
-        <div key={risk.riskId} className="vehicle-card">
+        <div key={risk.riskId} className="sectionCard">
           <h2>{risk.vehicleType} Details</h2>
           <p>
             <strong>Make:</strong> {risk.vehicleDetails.makeDescription}
@@ -35,25 +36,31 @@ const VehicleDisplay = ({ vehicleData }) => {
           <p>
             <strong>Sum Insured Type:</strong> {risk.sumInsuredType}
           </p>
+          <div className="premium-detailsParent">
           <h3>Premium Details</h3>
-          <p>
-            <strong>Original Premium:</strong> ${risk.premium.original}
-          </p>
-          <p>
-            <strong>Discounted Premium:</strong> ${risk.premium.discounted}
-          </p>
-          <p>
-            <strong>Nett Premium:</strong> ${risk.premium.nettPremium}
-          </p>
+          <div className="premium-detailsChild">
+            <p>
+              <strong>Original Premium:</strong> R{risk.premium.original}
+            </p>
+            <p>
+              <strong>Discounted Premium:</strong> R{risk.premium.discounted}
+            </p>
+            <p>
+              <strong>Nett Premium:</strong> R{risk.premium.nettPremium}
+            </p>
+          </div>
+          </div>
           <h3>Risk Excess Details</h3>
-          {risk.riskExcess.items.map((item) => (
-            <div key={item.id}>
-              <p>
-                <strong>{item.description} Excess:</strong> ${item.minimumAmount} to $
-                {item.maximumAmount} ({item.type === 'Percentage' ? `${item.percentage}%` : 'Fixed'})
-              </p>
-            </div>
-          ))}
+          <div className="excess-detailsParent">
+            {risk.riskExcess.items.map((item) => (
+              <div className='excess-detailsChild' key={item.id}>
+                <p>
+                  <strong>{item.description} Excess:</strong> R{item.minimumAmount} to R
+                  {item.maximumAmount} ({item.type === 'Percentage' ? `${item.percentage}%` : 'Fixed'})
+                </p>
+              </div>
+            ))}
+          </div>
           <hr />
         </div>
       ))}

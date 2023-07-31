@@ -38,10 +38,8 @@
       "risks": [
         {
           "riskId": "string",
-          "premium": {
-            "totalSumInsuredAmount": 0,
-            "totalPremiumAmount": 0
-          }
+          "totalPremiumAmount": 0,
+          "totalSumInsuredAmount": 0
         }
       ]
     },

@@ -1,15 +1,3 @@
-/* .main{
-    width: 900px;
-    margin: 10px;
-}
-.side{
-    margin-left: 900px;
-    position: fixed;
-    top: 0;
-    border-left: 1px solid rgb(24, 16, 169);
-    border-left-width: 1px;
-    height: 100%;
-} */
 
 
 .app-container {
@@ -21,7 +9,7 @@ background-color:rgb(211, 211, 211);
 
 .main-content {
 flex: 1;
-/* padding: 20px; */
+
 margin-right: 20px;
 }
 
@@ -80,16 +68,12 @@ background-color: rgb(211, 211, 211);
   
   .policy-img {
     width: 100%;
-    height: auto;
+    height: 10px;
     border-radius: 4px;
   }
 
   .cards-container{
-    /* height: fit-content; */
-    /* width: 90%; */
-    /* background-color: #d9dee3; */
-    /* overflow-x: scroll;
-    white-space: nowrap; */
+ 
 
     display: flex;
     transition: transform 0.3s ease;
@@ -132,24 +116,22 @@ background-color: rgb(211, 211, 211);
     border: 1px solid rgb(45, 18, 223);
     border-radius: 4px;
     background-color: #d9dee3;
-    padding: 10px;
-    margin: 10px;
+    padding: 60px;
+    margin: 15px;
     display:block;
     align-items: center;
     width:fit-content;
     border-top-width: 10px;
     height: fit-content;
 
-    /* transition: scale 0.6s, rotate 0.6s, filter 1s; */
+
   }
 
   .cheading{
     font-size: larger;
   }
 
-  /* .contact{
-    margin-left: 10px;
-  } */
+
 
   .broker-contact-card {
     background-color: #f9f9f9;
@@ -157,17 +139,7 @@ background-color: rgb(211, 211, 211);
     border-radius: 5px;
     }
 
-  /* .brokercard{
-    border: 1px solid rgb(45, 18, 223);
-    border-radius: 4px;
-    background-color: #ffffff;
-    padding: 10px;
-    margin: 10px;
-    display:block;
-    align-items: center;
-    width:100%;
-    height: fit-content;
-  } */
+
   .policy-card {
     background-color: #f9f9f9;
     padding: 15px;
@@ -182,10 +154,9 @@ background-color: rgb(211, 211, 211);
   }
 
   .policy{
-    /* margin-left: 10px;  */
-    /* background-color: #cacdd4;*/
+    
     color: #154FBF;
-    /* padding: 15px; */
+ 
     font-size: 20px;
     
     

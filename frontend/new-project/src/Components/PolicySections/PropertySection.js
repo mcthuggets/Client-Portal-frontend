@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Css/vehicle.css';
+import './vehicle.css';
 
 const PropertySection = ({ PropertyData }) => {
   return (

@@ -13,11 +13,11 @@ import { SectionProvider } from './sectionContext';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { useSectionContext } from './sectionContext';
-import PropertySection from './PropertySection';
+import PropertySection from './PolicySections/PropertySection';
 import policy from './data';
-import PersonalAccident from './PersonalAccident';
-import AllRisk from './AllRiskSection';
-import PersonalComputer from './PersonalComputerSection';
+import PersonalAccident from './PolicySections/PersonalAccident';
+import AllRisk from './PolicySections/AllRiskSection';
+import PersonalComputer from './PolicySections/PersonalComputerSection';
 
 const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();

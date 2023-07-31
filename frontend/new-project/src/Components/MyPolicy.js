@@ -1,11 +1,14 @@
 import '../Css/policy.css';
 import PolicyImg from './PolicyImg.jpg';
 import { HiOutlineHome } from "react-icons/hi";
-import { IoMdBoat } from "react-icons/io";
 import { HiDeviceMobile } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
-import VehicleDisplay from './VehicleSection';
+//
+import VehicleDisplay from './PolicySections/VehicleSection';
+import PersonalLiabilityDisplay from './PolicySections/PersonalLiabilityDisplay';
+import SpecialCoverDisplay from './PolicySections/SpecialCoverDisplay';
+import GeneralConditionsDisplay from './PolicySections/GeneralConditionsDisplay';
 import { SectionProvider } from './sectionContext';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -118,6 +121,7 @@ const SectionParent= ({sectionKey}) => {
         return null;
     }
   }
+  
   const handleClick = () => {
     setSectionName("Policy");
   };

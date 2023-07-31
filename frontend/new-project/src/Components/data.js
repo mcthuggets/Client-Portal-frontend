@@ -84,7 +84,18 @@ const policy = {
             "premium": {
               "totalSumInsuredAmount": 500000,
               "totalPremiumAmount": 450.50
-            }
+            },
+            "items": [
+              {
+                "itemId": "item001",
+                "rateCode": {
+                  "code": "TP001",
+                  "description": "Third Party Liability - Basic"
+                },
+                "sumInsuredAmount": 500000,
+                "premiumAmount": 450.50
+              }
+            ]
           },
           {
             "riskId": "PL_RISK002",
@@ -92,7 +103,18 @@ const policy = {
             "premium": {
               "totalSumInsuredAmount": 300000,
               "totalPremiumAmount": 440.00
-            }
+            },
+            "items": [
+              {
+                "itemId": "item002",
+                "rateCode": {
+                  "code": "PL001",
+                  "description": "Public Liability - Standard"
+                },
+                "sumInsuredAmount": 300000,
+                "premiumAmount": 440.00
+              }
+            ]
           }
         ]
       },

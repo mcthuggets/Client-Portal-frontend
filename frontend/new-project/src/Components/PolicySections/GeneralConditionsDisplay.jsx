@@ -1,7 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-export default function GeneralConditionsDisplay() {
+const GeneralConditionsDisplay = ({ conditionsData }) => {
+  // Extract the necessary data from the 'conditionsData' prop
+  // to display relevant information in the component.
+  // Example: const { risks, premium, ... } = conditionsData;
+    console.log(conditionsData);
   return (
-    <div>GeneralConditionsDisplay</div>
-  )
-}
+    <div>
+      {/* Display the relevant information here */}
+      {/* Example: */}
+      <h2>General Conditions Section</h2>
+      {/* Display the extracted data */}
+    </div>
+  );
+};
+
+export default GeneralConditionsDisplay;

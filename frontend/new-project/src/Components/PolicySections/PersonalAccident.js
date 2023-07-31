@@ -1,10 +1,10 @@
 import React from 'react';
-import '../Css/vehicle.css';
+import './vehicle.css';
 
-const AllRisk = ({ AllRiskData }) => {
+const PersonalAccident = ({ PersonalAccidentData }) => {
   return (
     <div className="sectionMain">
-      {AllRiskData.risks.map((risk) => (
+      {PersonalAccidentData.risks.map((risk) => (
         <div key={risk.riskId} className="sectionCard">
           <h2>{risk.Address}</h2>
           
@@ -38,4 +38,4 @@ const AllRisk = ({ AllRiskData }) => {
   );
 };
 
-export default AllRisk;
+export default PersonalAccident;

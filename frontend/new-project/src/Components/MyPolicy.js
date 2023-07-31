@@ -163,27 +163,38 @@ const policies = [
 ];
 
 const OverviewComponent = ({ sections }) => {
+  const groupSectionsIntoSets = (items, groupSize) => {
+    const groupedItems = [];
+    for (let i = 0; i < items.length; i += groupSize) {
+      groupedItems.push(items.slice(i, i + groupSize));
+    }
+    return groupedItems;
+  };
 
-  console.log(sections);
+  const groupedSections = groupSectionsIntoSets(Object.keys(sections), 4);
 
   return (
-<div className="cover-layout">
-    <div className="cards-container">
-
-      
-        {Object.keys(sections).map((sectionKey) => {
-          const section = sections[sectionKey];
-          return (
-
-            <div className="img-content" key={sectionKey}>
-              <Child name={sectionKey} section={section} renderIcon={renderIcon(sectionKey)} ></Child>
-            </div>
-
-          );
-        })}
-   
-    </div>   </div>
-
+    <div className="cover-layout">
+      <Carousel  showThumbs={false} showStatus={false}>
+        {groupedSections.map((group, groupIndex) => (
+          <li className="cards-container" key={`group-${groupIndex}`}>
+            {group.map((sectionKey) => {
+              const section = sections[sectionKey];
+              return (
+                <div className='img-content'>
+                <Child
+                  key={sectionKey}
+                  name={sectionKey}
+                  section={section}
+                  renderIcon={renderIcon(sectionKey)}
+                />
+                </div>
+              );
+            })}
+          </li>
+        ))}
+      </Carousel>
+    </div>
   );
 };
 
@@ -258,13 +269,14 @@ const MyPolicy = () => {
 
         <h3>You are Covered for:</h3>
         
-      <Carousel showThumbs={false} showStatus={false}>
-        <div className="card-container">
+     
+
+      
         
           <OverviewComponent sections={policy.sections} />
          
-        </div> </Carousel>
-        
+      
+      
      
 
 

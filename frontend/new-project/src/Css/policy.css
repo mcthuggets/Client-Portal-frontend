@@ -60,10 +60,7 @@ background-color: rgb(211, 211, 211);
     font-size: 24px;
   }
   
-  .card-content {
-    position: relative;
-  }
-  
+ 
   
   
   .policy-img {
@@ -75,19 +72,15 @@ background-color: rgb(211, 211, 211);
   .cards-container{
  
 
-    display: flex;
+display: grid;
+    
+    grid-template-columns: repeat(4, 1fr);
+  width: 100%;
     transition: transform 0.3s ease;
   }
 
 
-  .card-carousel {
-    position: relative;
-    width: 90%;
-    overflow: hidden;
-    margin: 0 ;
-    max-width:fit-content;
-    
-  }
+ 
 
   
 .prev-btn,
@@ -113,14 +106,15 @@ background-color: rgb(211, 211, 211);
   }
 
   .img-content {
+    width: 50%;
     border: 1px solid rgb(45, 18, 223);
     border-radius: 4px;
     background-color: #d9dee3;
-    padding: 60px;
+    padding: 10px;
     margin: 15px;
     display:block;
     align-items: center;
-    width:fit-content;
+ 
     border-top-width: 10px;
     height: fit-content;
 

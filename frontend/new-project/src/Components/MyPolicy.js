@@ -259,7 +259,7 @@ const MyPolicy = () => {
           <OverviewComponent sections={policy.sections} />
          
         </div> </Carousel>
-       
+        
      
 
 

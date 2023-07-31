@@ -1,9 +1,10 @@
+//css imports
 import '../Css/policy.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import PolicyImg from './PolicyImg.jpg';
-import { HiOutlineHome } from "react-icons/hi";
-import { HiDeviceMobile } from "react-icons/hi";
+//icon imports
+import { HiOutlineHome, HiDesktopComputer, HiDeviceMobile, HiClipboardList, HiScale, HiStar, HiOutlineUserGroup } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
-import React, { useState, useEffect } from "react";
 //section imports
 import VehicleDisplay from './PolicySections/VehicleSection';
 import PersonalLiabilityDisplay from './PolicySections/PersonalLiabilityDisplay';
@@ -15,10 +16,11 @@ import PersonalComputer from './PolicySections/PersonalComputerSection';
 import PropertySection from './PolicySections/PropertySection';
 //
 import { SectionProvider } from './sectionContext';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { useSectionContext } from './sectionContext';
 import policy from './data';
+//react imports
+import React, { useState, useEffect } from "react";
 
 const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();
@@ -64,32 +66,35 @@ const renderIcon = (sectionKey) => {
     case 'personalLiabilitySection':
       return (
         <>
-
+          <HiScale />
           <p className="cheading">Personal Liability</p>
         </>
       );
     case 'specialCoverSection':
       return (
         <>
+          <HiStar />
           <p className="cheading">Special Cover</p>
         </>
       );
     case 'personalComputerSection':
       return (
         <>
-
+          <HiDesktopComputer />
           <p className="cheading">Personal Computer</p>
         </>
       );
     case 'generalConditionsSection':
       return (
         <>
+          <HiClipboardList />
           <p className="cheading">General Conditions</p>
         </>
       );
     case 'personalAccidentSection':
       return (
         <>
+          <HiOutlineUserGroup />
           <p className="cheading">Personal Accident</p>
         </>
       );

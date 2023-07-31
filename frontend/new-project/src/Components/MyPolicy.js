@@ -1,11 +1,14 @@
 import '../Css/policy.css';
 import PolicyImg from './PolicyImg.jpg';
 import { HiOutlineHome } from "react-icons/hi";
-import { IoMdBoat } from "react-icons/io";
 import { HiDeviceMobile } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
-import VehicleDisplay from './VehicleSection';
+//
+import VehicleDisplay from './PolicySections/VehicleSection';
+import PersonalLiabilityDisplay from './PolicySections/PersonalLiabilityDisplay';
+import SpecialCoverDisplay from './PolicySections/SpecialCoverDisplay';
+import GeneralConditionsDisplay from './PolicySections/GeneralConditionsDisplay';
 import { SectionProvider } from './sectionContext';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -99,6 +102,12 @@ const SectionParent= ({sectionKey}) => {
     switch (sectionKey) {
       case 'vehicleSection':
         return <VehicleDisplay vehicleData={policy.sections.vehicleSection} />;
+      case 'personalLiabilitySection':
+        return <PersonalLiabilityDisplay liabilityData={policy.sections.personalLiabilitySection} />;
+      case 'specialCoverSection':
+        return <SpecialCoverDisplay coverData={policy.sections.specialCoverSection} />;
+      case 'generalConditionsSection':
+        return <GeneralConditionsDisplay conditionsData={policy.sections.generalConditionsSection} />;
       case 'otherCase':
         // Add more cases here for other conditions if needed.
         return <div>Other Case Content</div>;
@@ -106,6 +115,7 @@ const SectionParent= ({sectionKey}) => {
         return null;
     }
   }
+  
   const handleClick = () => {
     setSectionName("Policy");
   };

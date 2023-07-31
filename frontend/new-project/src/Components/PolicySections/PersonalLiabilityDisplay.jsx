@@ -1,7 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-export default function PersonalLiabilityDisplay() {
+const PersonalLiabilityDisplay = ({ liabilityData }) => {
+  // Extract the necessary data from the 'liabilityData' prop
+  // to display relevant information in the component.
+  // Example: const { riskId, items, premium, ... } = liabilityData;
+
   return (
-    <div>PersonalLiabilityDisplay</div>
-  )
-}
+    <div>
+      {/* Display the relevant information here */}
+      {/* Example: */}
+      <h2>Personal Liability Section</h2>
+      {/* Display the extracted data */}
+    </div>
+  );
+};
+
+export default PersonalLiabilityDisplay;

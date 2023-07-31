@@ -83,7 +83,6 @@ const renderIcon = (sectionKey) => {
     case 'generalConditionsSection':
       return (
         <>
-
           <p className="cheading">General Conditions</p>
         </>
       );

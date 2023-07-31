@@ -3,6 +3,9 @@ import './vehicle.css';
 
 
 const VehicleDisplay = ({ vehicleData }) => {
+
+  console.log(vehicleData);
+
   return (
     <div className="sectionMain">
       {vehicleData.risks.map((risk) => (

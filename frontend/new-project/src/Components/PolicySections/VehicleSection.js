@@ -1,5 +1,6 @@
 import React from 'react';
-import '../Css/vehicle.css';
+import './vehicle.css';
+
 
 const VehicleDisplay = ({ vehicleData }) => {
   return (

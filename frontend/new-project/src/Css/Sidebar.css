@@ -1,109 +1,44 @@
-.sidebar{
- 
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-    text-decoration: none;
-    background-color: #e6e6e6;
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  
+}
 
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+  font-size: 24px;
+}
+
+.sidebar ul li a {
+  display: block;
+  color: rgb(48, 120, 220);
+  text-decoration: none;
+  padding: 10px;
+}
+
+.sidebar ul li ul {
+  display: none;
+}
+
+.sidebar ul li:hover ul {
+  display: block;
+}
+
+.sidebar ul li ul li a {
+  background-color: rgb(207, 204, 204);
 }
 
 .main-content {
-  margin-left: 100px;
-  margin-top: 5px;
-  padding: 0px 10px;
-  height: 100%;
-}
-
-  .sidebar li{
-    /* padding: 6px 8px 6px 16px; */
-  text-decoration: none;
-  font-size: 30px;
-  color: #818181;
-  display: block;
-  text-decoration: none;
-  color: black;
-  padding: 10px;
-  text-decoration: none;
+    margin-left: 100px;
+    margin-top: 5px;
+    padding: 0px 10px;
+    height: 100%;
   }
-  
-
-  .navbar{
-    float: left;
-    display: flex;
-    background-color: #c7c0c0;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    border-bottom: 3px solid transparent;
-    
-  }
-
-  .navbar li{
-    display: flex;
-    float: left;
-    font-size: 20px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    
-  }
-
-  .sidebar ul {
-  
-    padding: 5;
-    margin: 0;
-  }
-
-  .sidebar ul li a {
-    display: flex;
-    text-decoration: none;
-    color: black;
-    
-  }
-  
-  .navbar ul li a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: black;
-  }
-
-  .sidebar a.active{
-    background-color: rgb(0, 0, 0);
-    color: white;
-  }
-
-  .sidebar a:hover:not(.active){
-    background-color: rgb(0, 0, 0);
-    color: white;
-  }
-
-  .back-arrow{
-    font-size: larger;
-  }
-
-  @media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
-    }
-
-    @media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
-}

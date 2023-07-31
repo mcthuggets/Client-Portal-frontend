@@ -1,7 +1,5 @@
-
-
 .app-container {
-  top: 0;
+top: 0;
 display: flex;
 justify-content: space-between;
 background-color:rgb(211, 211, 211);
@@ -21,162 +19,127 @@ background-color: rgb(211, 211, 211);
 }
 
 .card {
-    border: 1px solid rgb(24, 16, 169);
-    border-radius: 4px;
-    padding: 10px;
-    margin: 10px;
-    width: 80%;
-    position: relative;
-    transition: background-color 0.3s ease;
-    background-color: #fff;
-    
-  }
-  .separator {
-    border-top: 1px solid rgb(136, 135, 135);
-    margin: 20px 0; 
-  }
-  
-  .text-container{
-  display:flex;
-  justify-content: space-between; 
+border: 1px solid rgb(24, 16, 169);
+border-radius: 4px;
+padding: 10px;
+margin: 10px;
+width: 80%;
+position: relative;
+transition: background-color 0.3s ease;
+background-color: #fff;
+
 }
-  .card:hover{
-    background-color: #d9dee3;
-    
-  }
-  .top-left {
-    position: absolute;
-    top: 40px;
-    left: 16px;
-    font-size: 50px;
-    color: #154FBF;
-    
-  }
-  
-  .top {
-    position: absolute;
-    top: 30px;
-    left: 16px;
-    font-size: 24px;
-  }
-  
-  .card-content {
-    position: relative;
-  }
-  
-  
-  
-  .policy-img {
-    width: 100%;
-    height: 10px;
-    border-radius: 4px;
-  }
-
-  .cards-container{
- 
-
-    display: flex;
-    transition: transform 0.3s ease;
-  }
-
-
-  .card-carousel {
-    position: relative;
-    width: 90%;
-    overflow: hidden;
-    margin: 0 ;
-    max-width:fit-content;
-    
-  }
-
-  
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgb(5, 80, 229);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 30px;
+.separator {
+border-top: 1px solid rgb(136, 135, 135);
+margin: 20px 0;
 }
 
-.next-btn {
-  right: 0;
+.text-container{
+display:flex;
+justify-content: space-between;
+}
+.card:hover{
+background-color: #d9dee3;
+
+}
+.top-left {
+position: absolute;
+top: 40px;
+left: 16px;
+font-size: 50px;
+color: #154FBF;
 }
 
-  .cover-layout{
-    display: flex;
-  }
+.top {
+position: absolute;
+top: 30px;
+left: 16px;
+font-size: 24px;
+}
 
-  .img-content {
-    border: 1px solid rgb(45, 18, 223);
-    border-radius: 4px;
-    background-color: #d9dee3;
-    padding: 60px;
-    margin: 15px;
-    display:block;
-    align-items: center;
-    width:fit-content;
-    border-top-width: 10px;
-    height: fit-content;
+.card-content {
+position: relative;
+}
 
+.policy-img {
+width: 100%;
+height: 10px;
+border-radius: 4px;
+}
 
-  }
-
-  .cheading{
-    font-size: larger;
-  }
+.cards-container{
 
 
+display: flex;
+transition: transform 0.3s ease;
+}
 
-  .broker-contact-card {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    }
+.card-carousel {
+position: relative;
+width: 90%;
+overflow: hidden;
+margin: 0 ;
+max-width:fit-content;
 
+}
 
-  .policy-card {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    }
+.cover-layout{
+display: flex;
+}
 
-  .filter{
-    width: 210px;
-    margin-left: 20px;
-    font-size: 20px;
-  }
-
-  .policy{
-    
-    color: #154FBF;
- 
-    font-size: 20px;
-    
-    
-  }
-
-  .policy li{
-    list-style: none;
-  }
+.img-content {
+background-color: #f9f9f9;
+border-radius: 4px;
+align-items: center;
+height: fit-content;
+flex-shrink: 0;
+display:block;
+border: 1px solid black;
+padding: 10px;
+margin: 10px ;
+border-top-width: 10px;
+border-top-color: #154FBF;
+width:fit-content;
 
 
-  .vehicle-card {
-    border: 1px solid rgb(24, 16, 169);
-    border-radius: 4px;
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
-    height: auto;
-    position: relative;
-    transition: background-color 0.3s ease;
-    background-color: #fff;
-    
-    
-  }
+}
+
+.cheading{
+font-size: larger;
+}
+
+
+
+.broker-contact-card {
+background-color: #f9f9f9;
+padding: 15px;
+border-radius: 5px;
+}
+
+
+.policy-card {
+background-color: #f9f9f9;
+padding: 15px;
+border-radius: 5px;
+margin-bottom: 20px;
+}
+
+.filter{
+width: 210px;
+margin-left: 20px;
+font-size: 20px;
+}
+
+.policy{
+
+color: #154FBF;
+
+font-size: 20px;
+
+
+}
+
+.policy li{
+list-style: none;
+}
+

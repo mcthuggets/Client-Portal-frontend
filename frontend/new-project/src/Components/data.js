@@ -31,7 +31,27 @@ const policy = {
         
         ]
       },
-      
+      "generalConditionsSection": {
+        "totalPremiumAmount": 120.00,
+        "risks": [
+          {
+            "riskId": "GC_RISK001",
+            "description": "General Condition A",
+            "premium": {
+              "totalSumInsuredAmount": 0,
+              "totalPremiumAmount": 60.00
+            }
+          },
+          {
+            "riskId": "GC_RISK002",
+            "description": "General Condition B",
+            "premium": {
+              "totalSumInsuredAmount": 0,
+              "totalPremiumAmount": 60.00
+            }
+          }
+        ]
+      },      
       "personalComputerSection": {
         "totalPremiumAmount": 847.00,
         "risks": [
@@ -55,6 +75,70 @@ const policy = {
           "Car","Contents"
         ]
       },
+      "personalLiabilitySection": {
+        "totalPremiumAmount": 890.50,
+        "risks": [
+          {
+            "riskId": "PL_RISK001",
+            "description": "Third Party Liability",
+            "premium": {
+              "totalSumInsuredAmount": 500000,
+              "totalPremiumAmount": 450.50
+            },
+            "items": [
+              {
+                "itemId": "item001",
+                "rateCode": {
+                  "code": "TP001",
+                  "description": "Third Party Liability - Basic"
+                },
+                "sumInsuredAmount": 500000,
+                "premiumAmount": 450.50
+              }
+            ]
+          },
+          {
+            "riskId": "PL_RISK002",
+            "description": "Public Liability",
+            "premium": {
+              "totalSumInsuredAmount": 300000,
+              "totalPremiumAmount": 440.00
+            },
+            "items": [
+              {
+                "itemId": "item002",
+                "rateCode": {
+                  "code": "PL001",
+                  "description": "Public Liability - Standard"
+                },
+                "sumInsuredAmount": 300000,
+                "premiumAmount": 440.00
+              }
+            ]
+          }
+        ]
+      },
+      "specialCoverSection": {
+        "totalPremiumAmount": 425.00,
+        "risks": [
+          {
+            "riskId": "SC_RISK001",
+            "description": "Special Coverage A",
+            "premium": {
+              "totalSumInsuredAmount": 10000,
+              "totalPremiumAmount": 200.00
+            }
+          },
+          {
+            "riskId": "SC_RISK002",
+            "description": "Special Coverage B",
+            "premium": {
+              "totalSumInsuredAmount": 15000,
+              "totalPremiumAmount": 225.00
+            }
+          }
+        ]
+      },            
    "vehicleSection": {
       "risks": [
         {

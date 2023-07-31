@@ -63,3 +63,7 @@
     margin: 5px 0;
   }
   
+  .sectionCard-subsection{
+    background-color: lightblue;
+    width: 100%;
+  }

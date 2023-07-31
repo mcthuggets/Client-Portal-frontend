@@ -38,10 +38,8 @@
       "risks": [
         {
           "riskId": "string",
-          "premium": {
-            "totalSumInsuredAmount": 0,
-            "totalPremiumAmount": 0
-          }
+          "totalPremiumAmount": 0,
+          "totalSumInsuredAmount": 0
         }
       ]
     },
@@ -50,7 +48,18 @@
         {
           "riskId": "string",
           "totalPremiumAmount": 0,
-          "totalSumInsuredAmount": 0
+          "totalSumInsuredAmount": 0,
+          "items": [
+            {
+              "itemId": "string",
+              "rateCode": {
+                "code": "string",
+                "description": "string"
+              },
+              "sumInsuredAmount": 0,
+              "premiumAmount": 0
+            }
+          ]
         }
       ]
     },

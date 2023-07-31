@@ -4,20 +4,21 @@ import { HiOutlineHome } from "react-icons/hi";
 import { HiDeviceMobile } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
-//
+//section imports
 import VehicleDisplay from './PolicySections/VehicleSection';
 import PersonalLiabilityDisplay from './PolicySections/PersonalLiabilityDisplay';
 import SpecialCoverDisplay from './PolicySections/SpecialCoverDisplay';
 import GeneralConditionsDisplay from './PolicySections/GeneralConditionsDisplay';
+import PersonalAccident from './PolicySections/PersonalAccident';
+import AllRisk from './PolicySections/AllRiskSection';
+import PersonalComputer from './PolicySections/PersonalComputerSection';
+import PropertySection from './PolicySections/PropertySection';
+//
 import { SectionProvider } from './sectionContext';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { useSectionContext } from './sectionContext';
-import PropertySection from './PolicySections/PropertySection';
 import policy from './data';
-import PersonalAccident from './PolicySections/PersonalAccident';
-import AllRisk from './PolicySections/AllRiskSection';
-import PersonalComputer from './PolicySections/PersonalComputerSection';
 
 const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();
@@ -89,7 +90,6 @@ const renderIcon = (sectionKey) => {
     case 'personalAccidentSection':
       return (
         <>
-
           <p className="cheading">Personal Accident</p>
         </>
       );
@@ -111,11 +111,17 @@ const SectionParent= ({sectionKey}) => {
       case 'buildingSection':
         return <PropertySection PropertyData={policy.sections.buildingSection}/>;
       case 'personalAccidentSection':
-        return<PersonalAccident PersonalAccidentData={policy.sections.personalAccidentSection}/>;
+        return <PersonalAccident PersonalAccidentData={policy.sections.personalAccidentSection}/>;
       case 'PersonalComputerSection':
-        return<PersonalComputer PersonalComputerData={policy.sections.personalComputerSection}/>;
+        return <PersonalComputer PersonalComputerData={policy.sections.personalComputerSection}/>;
       case 'allRiskSection':
-        return<AllRisk AllRiskData={policy.sections.allRiskSection}/>;
+        return <AllRisk AllRiskData={policy.sections.allRiskSection}/>;
+      case 'specialCoverSection':
+        return <SpecialCoverDisplay coverData={policy.sections.specialCoverSection} />;
+      case 'generalConditionsSection':
+        return <GeneralConditionsDisplay conditionsData={policy.sections.generalConditionsSection} />;
+      case 'personalLiabilitySection':
+        return <PersonalLiabilityDisplay liabilityData={policy.sections.personalLiabilitySection} />;
       default:
         return null;
     }
@@ -128,10 +134,9 @@ const SectionParent= ({sectionKey}) => {
   return (
     <div>
       <button onClick={handleClick}>back to policy</button>
-    <RenderComponentBasedOnCondition></RenderComponentBasedOnCondition>
-  
-  </div>)
-  
+      <RenderComponentBasedOnCondition></RenderComponentBasedOnCondition>
+    </div>
+  )
 };
 
 const policies = [
@@ -158,27 +163,38 @@ const policies = [
 ];
 
 const OverviewComponent = ({ sections }) => {
+  const groupSectionsIntoSets = (items, groupSize) => {
+    const groupedItems = [];
+    for (let i = 0; i < items.length; i += groupSize) {
+      groupedItems.push(items.slice(i, i + groupSize));
+    }
+    return groupedItems;
+  };
 
-
+  const groupedSections = groupSectionsIntoSets(Object.keys(sections), 4);
 
   return (
-<div className="cover-layout">
-    <div className="cards-container">
-
-      
-        {Object.keys(sections).map((sectionKey) => {
-          const section = sections[sectionKey];
-          return (
-
-            <div className="img-content" key={sectionKey}>
-              <Child name={sectionKey} section={section} renderIcon={renderIcon(sectionKey)} ></Child>
-            </div>
-
-          );
-        })}
-   
-    </div>   </div>
-
+    <div className="cover-layout">
+      <Carousel  showThumbs={false} showStatus={false}>
+        {groupedSections.map((group, groupIndex) => (
+          <li className="cards-container" key={`group-${groupIndex}`}>
+            {group.map((sectionKey) => {
+              const section = sections[sectionKey];
+              return (
+                <div className='img-content'>
+                <Child
+                  key={sectionKey}
+                  name={sectionKey}
+                  section={section}
+                  renderIcon={renderIcon(sectionKey)}
+                />
+                </div>
+              );
+            })}
+          </li>
+        ))}
+      </Carousel>
+    </div>
   );
 };
 
@@ -253,13 +269,14 @@ const MyPolicy = () => {
 
         <h3>You are Covered for:</h3>
         
-      <Carousel showThumbs={false} showStatus={false}>
-        <div className="card-container">
+     
+
+      
         
           <OverviewComponent sections={policy.sections} />
          
-        </div> </Carousel>
-        
+      
+      
      
 
 

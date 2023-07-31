@@ -180,7 +180,7 @@ const OverviewComponent = ({ sections }) => {
 
   return (
     <div className="cover-layout">
-      <Carousel  showThumbs={false} showStatus={false}>
+      <Carousel  showThumbs={true} showStatus={false}>
         {groupedSections.map((group, groupIndex) => (
           <li className="cards-container" key={`group-${groupIndex}`}>
             {group.map((sectionKey) => {

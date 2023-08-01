@@ -19,7 +19,6 @@ background-color: rgba(23, 42, 217, 0.658);
 }
 
 .card {
-<<<<<<< HEAD
     border: 1px solid rgb(24, 16, 169);
     border-radius: 4px;
     padding: 10px;
@@ -100,21 +99,6 @@ display: grid;
   font-size: 20px;
   cursor: pointer;
   border-radius: 30px;
-=======
-border: 1px solid rgb(24, 16, 169);
-border-radius: 4px;
-padding: 10px;
-margin: 10px;
-width: 80%;
-position: relative;
-transition: background-color 0.3s ease;
-background-color: #fff;
-
-}
-.separator {
-border-top: 1px solid rgb(136, 135, 135);
-margin: 20px 0;
->>>>>>> f82797369499ad44238799adeb432324688abbbc
 }
 
 .text-container{
@@ -218,9 +202,8 @@ font-size: 20px;
 color: #154FBF;
 
 font-size: 20px;
+}
 
-
-<<<<<<< HEAD
   .vehicle-card {
     border: 1px solid rgb(24, 16, 169);
     border-radius: 4px;
@@ -239,11 +222,3 @@ font-size: 20px;
 
     color: #154FBF;
   }
-=======
-}
-
-.policy li{
-list-style: none;
-}
-
->>>>>>> f82797369499ad44238799adeb432324688abbbc

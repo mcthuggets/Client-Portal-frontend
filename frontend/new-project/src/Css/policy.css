@@ -178,6 +178,8 @@ font-size: larger;
 button{
   background-color:#202de9;
   color: #fff;
+  border: none;
+  border-radius: 5px;
 }
 
 

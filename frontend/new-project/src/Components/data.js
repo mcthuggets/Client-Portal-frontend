@@ -14,7 +14,7 @@ const policy = {
         ]
       },
       "buildingSection": {
-       
+        "totalPremiumAmount": 1400.00,
         "risks": [
           {
           "riskId": "RISK1234",

@@ -259,10 +259,10 @@ const MyPolicy = () => {
 
   return (
     <div className="app-container">
-      <div className="main-content">
+      <div className="policy-content">
         <div>
           {sectionName === "Policy" ? (
-            <div id="policy-banner">
+            <div>
               <div className="main">
                 <div className="card">
                   <div className="card-content">
@@ -294,11 +294,13 @@ const MyPolicy = () => {
                           <p>R{policy.intermediaryFee}</p>
                         </div>
                       </div>
+
+                      <hr />
+
+                      <button style={ {margin: "5px"}}>Documents</button>
                     </span>
 
-                    <div class="separator"></div>
-                    <button>Documents</button>
-                  </div>
+                    </div>
                 </div>
               </div>
 
@@ -318,7 +320,6 @@ const MyPolicy = () => {
         {/* Policy card */}
         <div className="policy-card">
           <h2 style={{ textAlign: "center" }}>Select Policy</h2>
-          {/* <p>{statusSelector}</p> */}
           <div class="separator"></div>
           <select
             className="filter"

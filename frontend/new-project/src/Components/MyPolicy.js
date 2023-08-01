@@ -1,7 +1,7 @@
 import "../Css/policy.css";
 import PolicyImg from "./PolicyImg.jpg";
-import { HiOutlineHome } from "react-icons/hi";
-import { HiDeviceMobile } from "react-icons/hi";
+//icon imports
+import { HiOutlineHome, HiDesktopComputer, HiDeviceMobile, HiClipboardList, HiScale, HiStar, HiOutlineUserGroup } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 //section imports
@@ -46,54 +46,59 @@ const Child = ({ name, section, renderIcon }) => {
 // Helper function to render icons based on sectionKey
 const renderIcon = (sectionKey) => {
   switch (sectionKey) {
-    case "allRiskSection":
+    case 'allRiskSection':
       return (
         <>
           <HiDeviceMobile className="device" />
           <p className="cheading">All risk</p>
         </>
       );
-    case "buildingSection":
+    case 'buildingSection':
       return (
         <>
           <HiOutlineHome className="house" />
           <p className="cheading">Property</p>
         </>
       );
-    case "vehicleSection":
+    case 'vehicleSection':
       return (
         <>
           <FaCarSide className="caricon" />
           <p className="cheading">Vehicle</p>
         </>
       );
-    case "personalLiabilitySection":
+    case 'personalLiabilitySection':
       return (
         <>
+          <HiScale />
           <p className="cheading">Personal Liability</p>
         </>
       );
-    case "specialCoverSection":
+    case 'specialCoverSection':
       return (
         <>
+          <HiStar />
           <p className="cheading">Special Cover</p>
         </>
       );
-    case "personalComputerSection":
+    case 'personalComputerSection':
       return (
         <>
+          <HiDesktopComputer />
           <p className="cheading">Personal Computer</p>
         </>
       );
-    case "generalConditionsSection":
+    case 'generalConditionsSection':
       return (
         <>
+          <HiClipboardList />
           <p className="cheading">General Conditions</p>
         </>
       );
-    case "personalAccidentSection":
+    case 'personalAccidentSection':
       return (
         <>
+          <HiOutlineUserGroup />
           <p className="cheading">Personal Accident</p>
         </>
       );
@@ -142,9 +147,12 @@ const SectionParent = ({ sectionKey }) => {
         );
       case "personalLiabilitySection":
         return (
+          <>
+          <HiScale />
           <PersonalLiabilityDisplay
             liabilityData={policy.sections.personalLiabilitySection}
           />
+          </>
         );
       default:
         return null;

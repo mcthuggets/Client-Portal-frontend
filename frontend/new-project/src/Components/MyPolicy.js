@@ -1,18 +1,9 @@
-//css imports
 import "../Css/policy.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PolicyImg from "./PolicyImg.jpg";
-//icon imports
-import {
-  HiOutlineHome,
-  HiDesktopComputer,
-  HiDeviceMobile,
-  HiClipboardList,
-  HiScale,
-  HiStar,
-  HiOutlineUserGroup,
-} from "react-icons/hi";
+import { HiOutlineHome } from "react-icons/hi";
+import { HiDeviceMobile } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
 //section imports
 import VehicleDisplay from "./PolicySections/VehicleSection";
 import PersonalLiabilityDisplay from "./PolicySections/PersonalLiabilityDisplay";
@@ -24,12 +15,12 @@ import PersonalComputer from "./PolicySections/PersonalComputerSection";
 import PropertySection from "./PolicySections/PropertySection";
 //
 import { SectionProvider } from "./sectionContext";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useSectionContext } from "./sectionContext";
 import policy from "./data";
-//react imports
-import React, { useState, useEffect } from "react";
 
+// Child Component
 const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();
 
@@ -52,6 +43,7 @@ const Child = ({ name, section, renderIcon }) => {
   );
 };
 
+// Helper function to render icons based on sectionKey
 const renderIcon = (sectionKey) => {
   switch (sectionKey) {
     case "allRiskSection":
@@ -78,35 +70,30 @@ const renderIcon = (sectionKey) => {
     case "personalLiabilitySection":
       return (
         <>
-          <HiScale />
           <p className="cheading">Personal Liability</p>
         </>
       );
     case "specialCoverSection":
       return (
         <>
-          <HiStar />
           <p className="cheading">Special Cover</p>
         </>
       );
     case "personalComputerSection":
       return (
         <>
-          <HiDesktopComputer />
           <p className="cheading">Personal Computer</p>
         </>
       );
     case "generalConditionsSection":
       return (
         <>
-          <HiClipboardList />
           <p className="cheading">General Conditions</p>
         </>
       );
     case "personalAccidentSection":
       return (
         <>
-          <HiOutlineUserGroup />
           <p className="cheading">Personal Accident</p>
         </>
       );
@@ -115,6 +102,7 @@ const renderIcon = (sectionKey) => {
   }
 };
 
+// SectionParent Component
 const SectionParent = ({ sectionKey }) => {
   const { setSectionName } = useSectionContext();
 
@@ -132,7 +120,7 @@ const SectionParent = ({ sectionKey }) => {
             PersonalAccidentData={policy.sections.personalAccidentSection}
           />
         );
-      case "PersonalComputerSection":
+      case "personalComputerSection":
         return (
           <PersonalComputer
             PersonalComputerData={policy.sections.personalComputerSection}
@@ -170,34 +158,12 @@ const SectionParent = ({ sectionKey }) => {
   return (
     <div>
       <button onClick={handleClick}>back to policy</button>
-      <RenderComponentBasedOnCondition></RenderComponentBasedOnCondition>
+      <RenderComponentBasedOnCondition />
     </div>
   );
 };
 
-const policies = [
-  {
-    id: "POL-123",
-    status: "active",
-  },
-  {
-    id: "POL-456",
-    status: "inactive",
-  },
-  {
-    id: "POL-789",
-    status: "pending",
-  },
-  {
-    id: "POL-234",
-    status: "expired",
-  },
-  {
-    id: "POL-567",
-    status: "canceled",
-  },
-];
-
+// OverviewComponent
 const OverviewComponent = ({ sections }) => {
   const groupSectionsIntoSets = (items, groupSize) => {
     const groupedItems = [];
@@ -217,9 +183,8 @@ const OverviewComponent = ({ sections }) => {
             {group.map((sectionKey) => {
               const section = sections[sectionKey];
               return (
-                <div className="img-content">
+                <div className="img-content" key={sectionKey}>
                   <Child
-                    key={sectionKey}
                     name={sectionKey}
                     section={section}
                     renderIcon={renderIcon(sectionKey)}
@@ -234,17 +199,63 @@ const OverviewComponent = ({ sections }) => {
   );
 };
 
+// MyPolicyShell Component
 const MyPolicyShell = () => {
   return (
     <SectionProvider>
-      <MyPolicy></MyPolicy>
+      <MyPolicy />
     </SectionProvider>
   );
 };
+
+// MyPolicy Component
 const MyPolicy = () => {
   const { sectionName } = useSectionContext();
 
-  const [statusSelector, setStatusSelector] = useState("All");
+  const [statusSelector, setStatusSelector] = useState("all");
+
+  const policies = [
+    {
+      id: "POL-123",
+      status: "active",
+    },
+    {
+      id: "POL-289",
+      status: "active",
+    },
+    {
+      id: "POL-456",
+      status: "inactive",
+    },
+    {
+      id: "POL-789",
+      status: "pending",
+    },
+    {
+      id: "POL-234",
+      status: "expired",
+    },
+    {
+      id: "POL-567",
+      status: "canceled",
+    },
+  ];
+
+  const [filteredPolicies, setFilteredPolicies] = useState(policies);
+
+  const handleStatusChange = (event) => {
+    const selectedStatus = event.target.value;
+    setStatusSelector(selectedStatus);
+
+    if (selectedStatus === "all") {
+      setFilteredPolicies(policies);
+    } else {
+      const filtered = policies.filter(
+        (policy) => policy.status === selectedStatus
+      );
+      setFilteredPolicies(filtered);
+    }
+  };
 
   return (
     <div className="app-container">
@@ -267,7 +278,7 @@ const MyPolicy = () => {
                       <h1 className="top-left">Policy Information</h1>
                       <div className="text-container">
                         <div>
-                          <p>{sectionName}</p>
+                          <p>Policy Holder:</p>
                           <span>{policy.policyHolder}</span>
                         </div>
                         <div>
@@ -280,7 +291,7 @@ const MyPolicy = () => {
                         </div>
                         <div>
                           <p>Intermediary fee:</p>
-                          <p>R{policy.intermidiaryFee}</p>
+                          <p>R{policy.intermediaryFee}</p>
                         </div>
                       </div>
 
@@ -299,7 +310,7 @@ const MyPolicy = () => {
             </div>
           ) : (
             <div>
-              <SectionParent sectionKey={sectionName}></SectionParent>
+              <SectionParent sectionKey={sectionName} />
             </div>
           )}
         </div>
@@ -312,18 +323,20 @@ const MyPolicy = () => {
           <div class="separator"></div>
           <select
             className="filter"
-            onChange={(event) => setStatusSelector(event.target.value)}
+            onChange={handleStatusChange}
+            value={statusSelector}
           >
-            <option value="All">All</option>
-            <option value="Active">Active</option>
-            <option value="Closed">Closed</option>
+            <option value="all">All</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+            <option value="canceled">Canceled</option>
+            <option value="pending">Pending</option>
+            <option value="expired">Expired</option>
           </select>
-          <div className="policy">
-            <ul>
-              {policies.map((policy) => (
-                <li key={policy.id}>
-                  Policy no. {policy.id}, Status: {policy.status}
-                </li>
+          <div className="filter">
+            <ul  className="policy">
+              {filteredPolicies.map((policy) => (
+                <li key={policy.id}><br/> Policy: {policy.id}</li>
               ))}
             </ul>
           </div>
@@ -346,4 +359,5 @@ const MyPolicy = () => {
     </div>
   );
 };
+
 export default MyPolicyShell;

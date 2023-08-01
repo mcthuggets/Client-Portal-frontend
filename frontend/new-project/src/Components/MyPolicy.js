@@ -287,7 +287,7 @@ const MyPolicy = () => {
                       <div className="text-container">
                         <div>
                           <p>Policy Holder:</p>
-                          <span>{policy.policyHolder}</span>
+                          <p>{policy.client.firstName} {policy.client.surnameOnId}</p>
                         </div>
                         <div>
                           <p>Total Premium:</p>

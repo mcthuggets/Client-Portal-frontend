@@ -27,7 +27,7 @@ background-color: rgba(23, 42, 217, 0.658);
     border-radius: 4px;
     padding: 10px;
     margin: 10px;
-    width: 100%;
+    width: 85%;
     position: relative;
     transition: background-color 0.3s ease;
     background-color: rgb(255, 255, 255);
@@ -62,9 +62,6 @@ background-color: rgba(23, 42, 217, 0.658);
     font-size: 24px;
   }
   
- 
-  
-  
   .policy-img {
     width: 100%;
     height: 10px;
@@ -86,24 +83,6 @@ display: grid;
       width: 100%;
 
       }
-
-
- 
-
-  
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgb(5, 80, 229);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 30px;
-}
 
 .text-container{
 display:flex;

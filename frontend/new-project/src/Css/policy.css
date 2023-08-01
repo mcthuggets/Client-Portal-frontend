@@ -248,6 +248,8 @@ font-size: 20px;
   .vehicle-head {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    align-items: center;
   }
 
   /* Style for left column items */
@@ -265,4 +267,17 @@ font-size: 20px;
     position: absolute;
     left: 0;
     bottom: 0;
+  }
+
+  .item-heading {
+    font-size: 28px;
+    margin: 0;
+    color: #17258a;
+  }
+
+  .item-subheading {
+    font-size: 24px;
+    margin: 0;
+    color:rgb(113, 113, 113);
+    font-style: italic;
   }

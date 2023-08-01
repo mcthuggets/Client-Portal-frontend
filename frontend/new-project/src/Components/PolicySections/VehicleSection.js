@@ -3,6 +3,7 @@ import './vehicle.css';
 //images
 import  car from '../images/Car.svg'
 import VehicleSectionImage from '../images/VehicleSection.jpg'
+import { FaCarSide } from "react-icons/fa";
 
 const VehicleDisplay = ({ vehicleData }) => {
 
@@ -10,48 +11,44 @@ const VehicleDisplay = ({ vehicleData }) => {
 
   return (
     <>
-<div className="main">
-                <div className="card">
-                  <div className="card-content">
-                    <img
-                      className="policy-img"
-                      src={VehicleSectionImage}
-                      alt="policy"
-                      style={{ height: "250px" }}
-                    />
 
-                    <span>
-                      <p className="top"></p>
-                      <h1 className="top-left">Policy Information</h1>
-                      <div className="text-container">
-                        <div>
-                          <p>Policy Holder:</p>
-                          <p></p>
-                        </div>
-                        <div>
-                          <p>Total Premium:</p>
-                          <p>R</p>
-                        </div>
-                        <div>
-                          <p>Policy start:</p>
-                          <p></p>
-                        </div>
-                        <div>
-                          <p>Intermediary fee:</p>
-                          <p></p>
-                        </div>
-                      </div>
+    <div className="card">
+      <div className="card-content">
+        <img
+          className="policy-img"
+          src={VehicleSectionImage}
+          alt="policy"
+          style={{ height: "250px" }}
+        />
 
-                      <hr />
+        <span>
+          <h1 className="top-left">Vehicle Coverage</h1>
+          <div className="text-container">
+            <div>
+              <p>Policy Holder:</p>
+              <p></p>
+            </div>
+            <div>
+              <p>Total Premium:</p>
+              <p>R</p>
+            </div>
+            <div>
+              <p>Policy start:</p>
+              <p></p>
+            </div>
+            <div>
+              <p>Intermediary fee:</p>
+              <p></p>
+            </div>
+          </div>
 
-                      <button style={ {margin: "5px"}}>Documents</button>
-                    </span>
+          <hr />
 
-                    </div>
-                </div>
-              </div>
+          <button style={ {margin: "5px"}}>Documents</button>
+        </span>
 
-
+        </div>
+    </div>
 
     <div className="sectionMain">
       {vehicleData.risks.map((risk) => (
@@ -62,16 +59,20 @@ const VehicleDisplay = ({ vehicleData }) => {
 
         <div className='vehicle-head'>
           <div className='left-column'>
-            <h2> {risk.vehicleDetails.makeDescription + ' ' + risk.vehicleDetails.modelDescription} </h2>
-            <h2> {risk.vehicleDetails.yearManufactured}</h2>
-            <h2> {risk.vehicleDetails.registrationNumber}</h2>
+            <h1 className="item-heading"> {risk.vehicleDetails.makeDescription + ' ' + risk.vehicleDetails.modelDescription} </h1>
+            <br />
+            <h2 className="item-subheading"> {risk.vehicleDetails.yearManufactured}</h2>
+            <h2 className="item-subheading"> {risk.vehicleDetails.registrationNumber}</h2>
           </div>
 
           <div className='right-column'>
             <img src={car} width={'150px'}></img>
+            {/* <FaCarSide height={"250px"} width={'250px'}/> */}
           </div>
           
         </div>
+
+        <hr />
 
           <h2>{risk.vehicleType} Details</h2>
           <p>

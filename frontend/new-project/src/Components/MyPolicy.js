@@ -259,7 +259,7 @@ const MyPolicy = () => {
 
   return (
     <div className="app-container">
-      <div className="policy-content">
+      <div className="main-content">
         <div>
           {sectionName === "Policy" ? (
             <div>

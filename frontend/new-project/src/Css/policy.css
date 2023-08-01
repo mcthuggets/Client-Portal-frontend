@@ -243,3 +243,26 @@ font-size: 20px;
   .dash-heading{
     display: block;
   }
+
+
+  .vehicle-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Style for left column items */
+  .vehicle-head .left-column {
+    text-align: left;
+  }
+  
+  /* Style for right column items */
+  .vehicle-head .right-column {
+    text-align: right;
+  }
+  
+  .vehicle-head hr {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }

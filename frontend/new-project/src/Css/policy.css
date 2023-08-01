@@ -1,8 +1,7 @@
 .app-container {
-top: 0;
 display: flex;
-justify-content: space-between;
-
+flex-direction: row;
+height: 100%;
 }
 
 .carousel{
@@ -11,9 +10,15 @@ justify-content: space-between;
 
 .main-content {
 flex: 1;
-
-margin-right: 20px;
+border: 2px solid black;
+margin-right: 40px;
 }
+
+.policy-content {
+  padding: 10px;
+  border: 2px solid black;
+  margin: 20px;
+  }
 
 .right-sidebar {
 
@@ -25,14 +30,16 @@ background-color: rgba(23, 42, 217, 0.658);
 .card {
     border: 1px solid rgb(24, 16, 169);
     border-radius: 4px;
-    padding: 10px;
-    margin: 10px;
     width: 100%;
-    position: relative;
-    transition: background-color 0.3s ease;
+    transition: background-color 5s ease;
     background-color: rgb(255, 255, 255);
-    
   }
+
+.card-content{
+  width: 100%;
+  
+}
+
   .separator {
     border-top: 1px solid rgb(136, 135, 135);
     margin: 20px 0; 
@@ -40,7 +47,9 @@ background-color: rgba(23, 42, 217, 0.658);
   
   .text-container{
   display:flex;
-  justify-content: space-between; 
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 5px;
 }
   .card:hover{
     background-color: #d9dee3;
@@ -52,7 +61,6 @@ background-color: rgba(23, 42, 217, 0.658);
     left: 16px;
     font-size: 50px;
     color: #154FBF;
-    
   }
   
   .top {
@@ -80,16 +88,6 @@ display: grid;
   width: 100%;
     transition: transform 0.3s ease;
   }
-
-  .card-content{
- 
-      width: 100%;
-
-      }
-
-
- 
-
   
 .prev-btn,
 .next-btn {

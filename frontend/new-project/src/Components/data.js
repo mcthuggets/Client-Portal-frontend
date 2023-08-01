@@ -292,7 +292,33 @@ const policy = {
       "email": "jane@example.com",
       "cellNumber": "123-456-7890",
       "profileImg": "https://example.com/broker_profile.jpg"
+    },
+    "policyNum": 
+    {
+      policies: [
+        {
+          id: "POL-123",
+          status: "active"
+        },
+        {
+          id: "POL-456",
+          status: "inactive"
+        },
+        {
+          id: "POL-789",
+          status: "pending"
+        },
+        {
+          id: "POL-234",
+          status: "expired"
+        },
+        {
+          id: "POL-567",
+          status: "canceled"
+        }
+      ]
     }
+
   }
 
   export default policy;

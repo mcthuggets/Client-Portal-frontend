@@ -28,8 +28,6 @@ const Child = ({ name, section, renderIcon }) => {
     setSectionName(name);
   };
 
- 
-
   return (
     <button onClick={handleClick}>
       <div className="separator">{renderIcon}</div>
@@ -215,33 +213,32 @@ const MyPolicy = () => {
   const { sectionName } = useSectionContext();
 
   const [statusSelector, setStatusSelector] = useState("all");
-  // const allPolicies = [
-  //   { id: 1, status: "Active" },
-  //   { id: 2, status: "Closed" },
-  //   { id: 3, status: "Cancelled" },
-  // ];
 
   const policies = [
     {
       id: "POL-123",
-      status: "active"
+      status: "active",
+    },
+    {
+      id: "POL-289",
+      status: "active",
     },
     {
       id: "POL-456",
-      status: "inactive"
+      status: "inactive",
     },
     {
       id: "POL-789",
-      status: "pending"
+      status: "pending",
     },
     {
       id: "POL-234",
-      status: "expired"
+      status: "expired",
     },
     {
       id: "POL-567",
-      status: "canceled"
-    }
+      status: "canceled",
+    },
   ];
 
   const [filteredPolicies, setFilteredPolicies] = useState(policies);
@@ -250,7 +247,7 @@ const MyPolicy = () => {
     const selectedStatus = event.target.value;
     setStatusSelector(selectedStatus);
 
-    if (selectedStatus === "All") {
+    if (selectedStatus === "all") {
       setFilteredPolicies(policies);
     } else {
       const filtered = policies.filter(
@@ -294,7 +291,7 @@ const MyPolicy = () => {
                         </div>
                         <div>
                           <p>Intermediary fee:</p>
-                          <p>R{policy.intermidiaryFee}</p>
+                          <p>R{policy.intermediaryFee}</p>
                         </div>
                       </div>
                     </span>
@@ -335,12 +332,10 @@ const MyPolicy = () => {
             <option value="pending">Pending</option>
             <option value="expired">Expired</option>
           </select>
-          <div className="policy">
-            <ul>
+          <div className="filter">
+            <ul  className="policy">
               {filteredPolicies.map((policy) => (
-                <li key={policy.id}>
-                  Policy no. {policy.id}, Status: {policy.status}
-                </li>
+                <li key={policy.id}><br/> Policy: {policy.id}</li>
               ))}
             </ul>
           </div>

@@ -68,27 +68,21 @@ border-radius: 4px;
 }
 
 .cards-container{
-
-
+margin-left: 5%;
 display: flex;
 transition: transform 0.3s ease;
+background-color: #bdbdbd;
 }
 
-.card-carousel {
-position: relative;
-width: 90%;
-overflow: hidden;
-margin: 0 ;
-max-width:fit-content;
-
-}
 
 .cover-layout{
 display: flex;
+width: 80%;
+background-color: #0530ee;
 }
 
 .img-content {
-background-color: #f9f9f9;
+background-color: #ffffff;
 border-radius: 4px;
 align-items: center;
 height: fit-content;
@@ -98,7 +92,7 @@ border: 1px solid black;
 padding: 10px;
 margin: 10px ;
 border-top-width: 10px;
-border-top-color: #154FBF;
+border-color: #0b1bf8;
 width:fit-content;
 
 
@@ -108,7 +102,31 @@ width:fit-content;
 font-size: larger;
 }
 
+.carousel {
+  border-right-color: #595f6b;
+  border-right-width: 10px;
+}
 
+button{
+  background-color:#202de9;
+  color: #fff;
+}
+
+
+.cover-layout:hover .carousel {
+  filter: blur(3px);
+  opacity: .5;
+  transform: scale(.98);
+  box-shadow: none;
+}
+  
+.cover-layout:hover .carousel:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+  color: rgb(0, 0, 0);
+}
 
 .broker-contact-card {
 background-color: #f9f9f9;
@@ -131,12 +149,8 @@ font-size: 20px;
 }
 
 .policy{
-
 color: #154FBF;
-
 font-size: 20px;
-
-
 }
 
 .policy li{

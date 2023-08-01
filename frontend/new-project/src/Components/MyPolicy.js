@@ -175,7 +175,7 @@ const OverviewComponent = ({ sections }) => {
 
   return (
     <div className="cover-layout">
-      <Carousel  showThumbs={false} showStatus={false}>
+      <Carousel className='carousel' showThumbs={false} showStatus={false}>
         {groupedSections.map((group, groupIndex) => (
           <li className="cards-container" key={`group-${groupIndex}`}>
             {group.map((sectionKey) => {
@@ -314,7 +314,6 @@ const MyPolicy = () => {
 
         {/* Broker Card */}
         <div className="broker-contact-card">
-
           <h3 id="my">Need help?</h3>
           <h1>Contact your broker</h1>
           

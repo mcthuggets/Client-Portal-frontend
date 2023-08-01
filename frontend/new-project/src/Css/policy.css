@@ -5,6 +5,10 @@ justify-content: space-between;
 
 }
 
+.carousel{
+ background-color: #e4e4e4; 
+}
+
 .main-content {
 flex: 1;
 
@@ -26,7 +30,7 @@ background-color: rgba(23, 42, 217, 0.658);
     width: 100%;
     position: relative;
     transition: background-color 0.3s ease;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     
   }
   .separator {
@@ -83,24 +87,6 @@ display: grid;
 
       }
 
-
- 
-
-  
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgb(5, 80, 229);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 30px;
-}
-
 .text-container{
 display:flex;
 justify-content: space-between;
@@ -155,7 +141,7 @@ display: flex;
 }
 
 .img-content {
-background-color: #f9f9f9;
+background-color: #c6c9d0;
 border-radius: 4px;
 align-items: center;
 height: fit-content;

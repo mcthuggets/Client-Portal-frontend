@@ -49,56 +49,56 @@ const renderIcon = (sectionKey) => {
     case 'allRiskSection':
       return (
         <>
-          <HiDeviceMobile className="device" />
+          <HiDeviceMobile className="icon" />
           <p className="cheading">All risk</p>
         </>
       );
     case 'buildingSection':
       return (
         <>
-          <HiOutlineHome className="house" />
+          <HiOutlineHome className="icon" />
           <p className="cheading">Property</p>
         </>
       );
     case 'vehicleSection':
       return (
         <>
-          <FaCarSide className="caricon" />
+          <FaCarSide className="icon" />
           <p className="cheading">Vehicle</p>
         </>
       );
     case 'personalLiabilitySection':
       return (
         <>
-          <HiScale />
+          <HiScale className="icon"/>
           <p className="cheading">Personal Liability</p>
         </>
       );
     case 'specialCoverSection':
       return (
         <>
-          <HiStar />
+          <HiStar className="icon"/>
           <p className="cheading">Special Cover</p>
         </>
       );
     case 'personalComputerSection':
       return (
         <>
-          <HiDesktopComputer />
+          <HiDesktopComputer className="icon"/>
           <p className="cheading">Personal Computer</p>
         </>
       );
     case 'generalConditionsSection':
       return (
         <>
-          <HiClipboardList />
+          <HiClipboardList className="icon"/>
           <p className="cheading">General Conditions</p>
         </>
       );
     case 'personalAccidentSection':
       return (
         <>
-          <HiOutlineUserGroup />
+          <HiOutlineUserGroup className="icon"/>
           <p className="cheading">Personal Accident</p>
         </>
       );

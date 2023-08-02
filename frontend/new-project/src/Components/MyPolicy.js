@@ -1,5 +1,6 @@
 import "../Css/policy.css";
 import PolicyImg from "./PolicyImg.jpg";
+import profile from "./images/profile.jpg";
 //icon imports
 import { HiOutlineHome, HiDesktopComputer, HiDeviceMobile, HiClipboardList, HiScale, HiStar, HiOutlineUserGroup } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
@@ -352,10 +353,10 @@ const MyPolicy = () => {
         {/* Broker Card */}
         <div className="broker-contact-card">
           <h3 id="my">Need help?</h3>
-          <h1>Contact your broker</h1>
+          <h2>Contact your broker</h2>
 
           <div class="image-with-text">
-            <img src="{profileimg}" alt="brokerimg" className="bkimg" />
+            <img src={profile} alt="brokerimg" className="bkimg" />
             <div className="text"></div>
           </div>
           <p>{policy.broker.name}</p>

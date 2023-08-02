@@ -1,17 +1,48 @@
 import React from 'react';
+import PersonalLiabilityImage from '../images/Personal-Liability.jpg'
 
 const PersonalLiabilityDisplay = ({ liabilityData }) => {
-  // Extract the necessary data from the 'liabilityData' prop
-  // to display relevant information in the component.
-  // Example: const { riskId, items, premium, ... } = liabilityData;
 
   console.log(liabilityData);
   return (
-    <div>
-      {/* Display the relevant information here */}
-      {/* Example: */}
-      <h2>Personal Liability Section</h2>
-      {/* Display the extracted data */}
+    <>
+      <div className="card">
+  <div className="card-content">
+    <img
+      className="policy-img"
+      src={PersonalLiabilityImage}
+      alt="policy"
+      style={{ height: "250px" }}
+    />
+
+    <span>
+      <h1 className="top-left">Personal Liability Coverage</h1>
+      <div className="text-container">
+        <div>
+          <p>Policy Holder:</p>
+          <p></p>
+        </div>
+        <div>
+          <p>Total Premium:</p>
+          <p>R</p>
+        </div>
+        <div>
+          <p>Policy start:</p>
+          <p></p>
+        </div>
+        <div>
+          <p>Intermediary fee:</p>
+          <p></p>
+        </div>
+      </div>
+
+      <hr />
+
+      <button style={ {margin: "5px"}}>Documents</button>
+    </span>
+
+    </div>
+      </div>
 
       <div className='sectionMain'>
         {liabilityData.risks.map( (risk) => {
@@ -41,7 +72,7 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
         })
         }
       </div>
-    </div>
+    </>
   );
 };
 

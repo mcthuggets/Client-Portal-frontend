@@ -148,7 +148,6 @@ const SectionParent = ({ sectionKey }) => {
       case "personalLiabilitySection":
         return (
           <>
-          <HiScale />
           <PersonalLiabilityDisplay
             liabilityData={policy.sections.personalLiabilitySection}
           />

@@ -2,11 +2,11 @@
 display: flex;
 flex-direction: row;
 height: 100%;
-background-color: #ededfd;
+background-color: #ffffff;
 }
 
 .carousel{
- background-color: #e4e4e4; 
+ background-color: #ebdfdf; 
 }
 
 .main-content {

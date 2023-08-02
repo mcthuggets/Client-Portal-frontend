@@ -8,7 +8,7 @@ ul, li {
 .sidebar {
   width: 200px;
   height: 100%;
-  background-color: #fff;
+  background-color: rgb(230, 231, 237);
   color: rgb(0, 0, 0);
   top: 0;
   left: 0;
@@ -19,7 +19,7 @@ ul, li {
 
 .sidebar ul li a {
   display: block;
-  color: rgb(48, 120, 220);
+  color: rgb(13, 2, 131);
   text-decoration: none;
   padding: 10px;
 }
@@ -41,4 +41,5 @@ ul, li {
     margin-top: 5px;
     padding: 0px 10px;
     height: 100%;
+    
   }

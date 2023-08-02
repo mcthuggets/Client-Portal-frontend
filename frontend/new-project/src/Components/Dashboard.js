@@ -2,7 +2,7 @@ const Dashboard = ()=>{
     return (
         <><div className="app-container">
         <div className='main-content'>
-        <div className="heading">
+        <div className="dash-heading">
             <h1>Welcome, David</h1>
             <p>July 19, 2023</p>
         </div>

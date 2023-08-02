@@ -6,11 +6,7 @@ const PersonalAccident = ({ PersonalAccidentData }) => {
     <div className="sectionMain">
       {PersonalAccidentData.risks.map((risk) => (
         <div key={risk.riskId} className="sectionCard">
-          <h2>{risk.Address}</h2>
-          
-          <p>
-           {risk.buildingType}
-          </p>
+          <h2>{risk}</h2>
           <p>
             <strong>Type of Cover:</strong> {risk.typeOfCover}
           </p>

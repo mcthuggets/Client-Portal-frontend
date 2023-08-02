@@ -1,15 +1,14 @@
 .sectionMain {
     display: flex;
-    
-
-    width:66.6%;
+    width:85%;
     flex-direction: column;
+    padding: 10px;
+    border-radius: 4px;
   }
   
   .sectionCard {
     border: 1px solid #ddd;
     background-color: #f9f9f9;
-  
     padding: 15px;
     margin-bottom: 20px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
@@ -19,6 +18,7 @@
     font-size: 20px;
     color: #333;
     margin-bottom: 10px;
+    border-radius: 4px;
   }
   
   .sectionCard p {

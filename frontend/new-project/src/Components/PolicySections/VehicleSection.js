@@ -1,15 +1,79 @@
 import React from 'react';
 import './vehicle.css';
-
+//images
+import  car from '../images/Car.svg'
+import VehicleSectionImage from '../images/VehicleSection.jpg'
+import { FaCarSide } from "react-icons/fa";
 
 const VehicleDisplay = ({ vehicleData }) => {
 
   console.log(vehicleData);
 
   return (
+    <>
+
+    <div className="card">
+      <div className="card-content">
+        <img
+          className="policy-img"
+          src={VehicleSectionImage}
+          alt="policy"
+          style={{ height: "250px" }}
+        />
+
+        <span>
+          <h1 className="top-left">Vehicle Coverage</h1>
+          <div className="text-container">
+            <div>
+              <p>Policy Holder:</p>
+              <p></p>
+            </div>
+            <div>
+              <p>Total Premium:</p>
+              <p>R</p>
+            </div>
+            <div>
+              <p>Policy start:</p>
+              <p></p>
+            </div>
+            <div>
+              <p>Intermediary fee:</p>
+              <p></p>
+            </div>
+          </div>
+
+          <hr />
+
+          <button style={ {margin: "5px"}}>Documents</button>
+        </span>
+
+        </div>
+    </div>
+
     <div className="sectionMain">
       {vehicleData.risks.map((risk) => (
+
         <div key={risk.riskId} className="sectionCard">
+
+        {/* section for identifying info and image */}
+
+        <div className='vehicle-head'>
+          <div className='left-column'>
+            <h1 className="item-heading"> {risk.vehicleDetails.makeDescription + ' ' + risk.vehicleDetails.modelDescription} </h1>
+            <br />
+            <h2 className="item-subheading"> {risk.vehicleDetails.yearManufactured}</h2>
+            <h2 className="item-subheading"> {risk.vehicleDetails.registrationNumber}</h2>
+          </div>
+
+          <div className='right-column'>
+            <img src={car} width={'150px'}></img>
+            {/* <FaCarSide height={"250px"} width={'250px'}/> */}
+          </div>
+          
+        </div>
+
+        <hr />
+
           <h2>{risk.vehicleType} Details</h2>
           <p>
             <strong>Make:</strong> {risk.vehicleDetails.makeDescription}
@@ -69,6 +133,7 @@ const VehicleDisplay = ({ vehicleData }) => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 

@@ -14,7 +14,7 @@ const policy = {
         ]
       },
       "buildingSection": {
-       
+        "totalPremiumAmount": 1400.00,
         "risks": [
           {
           "riskId": "RISK1234",
@@ -292,7 +292,81 @@ const policy = {
       "email": "jane@example.com",
       "cellNumber": "123-456-7890",
       "profileImg": "https://example.com/broker_profile.jpg"
+    },
+    "policyNum": 
+    {
+      policies: [
+        {
+          id: "POL-123",
+          status: "active"
+        },
+        {
+          id: "POL-456",
+          status: "inactive"
+        },
+        {
+          id: "POL-789",
+          status: "pending"
+        },
+        {
+          id: "POL-234",
+          status: "expired"
+        },
+        {
+          id: "POL-567",
+          status: "canceled"
+        }
+      ]
+    },
+
+    "client": {
+      "id": "910201568081",
+      "firstName": "Anthony",
+      "surnameOnId": "Smith",
+      "initials": "A",
+      "gender": "Male",
+      "title": "Mr",
+      "nationality": "South African",     
+      "dateOfBirth": "01 February 1991",
+      "maritalStatus": "single",
+      "occupation": "Programmer",
+      "postalAddress": {
+        "line1": "string",
+        "line2": "string",
+        "line3": "string",
+        "line4": "string",
+        "postalCode": "string"
+      },
+      "homeTelephoneNumber": {
+        "code": "+27",
+        "number": "0791234567"
+      },
+      "workTelephoneNumber": {
+        "code": "+27",
+        "number": "0112345678"
+      },
+      "cellTelephoneNumber": {
+        "code": "+27",
+        "number": "0791234567"
+      },
+      "faxTelephoneNumber": {
+        "code": "string",
+        "number": "string"
+      },
+      "emailAddress": "A.Smith@gmail.com",
+      "preferredContactMethod": "email",
+      "isMarketingAllowed": true,
+      "claimSummary": {},
+      "sourceOfBusiness": "string",
+      "casaDetails": {
+        "casaCountryOfResidence": {
+          "casaCountryCode": "string",
+          "casaCountryDesc": "string"
+        }
+      }
+    
     }
+
   }
 
   export default policy;

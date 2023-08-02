@@ -171,11 +171,11 @@ const OverviewComponent = ({ sections }) => {
     return groupedItems;
   };
 
-  const groupedSections = groupSectionsIntoSets(Object.keys(sections), 4);
+  const groupedSections = groupSectionsIntoSets(Object.keys(sections), 5);
 
   return (
     <div className="cover-layout">
-      <Carousel  showThumbs={true} showStatus={false}>
+      <Carousel showThumbs={true} showStatus={false} showIndicators={true} showArrows={true} renderArrowNext={true}>
         {groupedSections.map((group, groupIndex) => (
           <li className="cards-container" key={`group-${groupIndex}`}>
             {group.map((sectionKey) => {

@@ -139,151 +139,151 @@ const policy = {
           }
         ]
       },            
-   "vehicleSection": {
-      "risks": [
-        {
-          "riskId": "RISK1234",
-          "vehicleType": "Car",
-          "riskPremiumAmount": 500,
-          "riskExcess": {
-            "title": "Risk Excess",
-            "details": "Details about the risk excess",
-            "message": "Risk excess information",
-            "items": [
-              {
-                "id": "EXC001",
-                "code": "EXC_CODE_001",
-                "description": "Accident Excess",
-                "type": "Fixed",
-                "percentage": 0,
-                "minimumAmount": 100,
-                "maximumAmount": 1000
+      "vehicleSection": {
+          "risks": [
+            {
+              "riskId": "RISK1234",
+              "vehicleType": "Car",
+              "riskPremiumAmount": 500,
+              "riskExcess": {
+                "title": "Risk Excess",
+                "details": "Details about the risk excess",
+                "message": "Risk excess information",
+                "items": [
+                  {
+                    "id": "EXC001",
+                    "code": "EXC_CODE_001",
+                    "description": "Accident Excess",
+                    "type": "Fixed",
+                    "percentage": 0,
+                    "minimumAmount": 100,
+                    "maximumAmount": 1000
+                  },
+                  {
+                    "id": "EXC002",
+                    "code": "EXC_CODE_002",
+                    "description": "Theft Excess",
+                    "type": "Percentage",
+                    "percentage": 5,
+                    "minimumAmount": 0,
+                    "maximumAmount": 500
+                  }
+                ]
               },
-              {
-                "id": "EXC002",
-                "code": "EXC_CODE_002",
-                "description": "Theft Excess",
-                "type": "Percentage",
-                "percentage": 5,
-                "minimumAmount": 0,
-                "maximumAmount": 500
-              }
-            ]
-          },
-          "inceptionDate": "2023-07-25T11:22:48.427Z",
-          "vehicleDetails": {
-            "makeCode": "MAK001",
-            "makeDescription": "Toyota",
-            "modelDescription": "Corolla",
-            "yearManufactured": 2020,
-            "registrationNumber": "ABC123",
-            "engineNumber": "ENG456",
-            "vinNumber": "VIN789"
-          },
-          "registeredOwner": {
-            "name": "John Doe",
-            "idNumber": "ID123456789",
-            "dateOfBirth": "1990-01-15T00:00:00.000Z"
-          },
-          "useType": "Personal",
-          "residentialAddress": {
-            "line1": "123 Main Street",
-            "line2": "Apartment 4B",
-            "line3": "Suburbia",
-            "line4": "Cityville",
-            "postalCodeId": "PST123"
-          },
-          "claimFreeGroup": 3,
-          "hasProofOfClaimFreeGroup": true,
-          "voluntaryExcess": 250,
-          "sumInsuredType": "Comprehensive",
-          "sumInsuredAmount": 30000,
-          "coverType": "Third Party",
-          "premium": {
-            "original": 600,
-            "discounted": 550,
-            "loaded": 0,
-            "discountPerc": 10,
-            "loadingPerc": 0,
-            "nettPremium": 550,
-            "grossPremium": 600,
-            "sasriaCategory": "Category A",
-            "sasriaPremium": 50,
-            "sumInsuredAmount": 30000
-          }
-        },{
-          "riskId": "RISK1234",
-          "vehicleType": "Car",
-          "riskPremiumAmount": 500,
-          "riskExcess": {
-            "title": "Risk Excess",
-            "details": "Details about the risk excess",
-            "message": "Risk excess information",
-            "items": [
-              {
-                "id": "EXC001",
-                "code": "EXC_CODE_001",
-                "description": "Accident Excess",
-                "type": "Fixed",
-                "percentage": 0,
-                "minimumAmount": 100,
-                "maximumAmount": 1000
+              "inceptionDate": "2023-07-25T11:22:48.427Z",
+              "vehicleDetails": {
+                "makeCode": "MAK001",
+                "makeDescription": "Toyota",
+                "modelDescription": "Corolla",
+                "yearManufactured": 2020,
+                "registrationNumber": "ABC123",
+                "engineNumber": "ENG456",
+                "vinNumber": "VIN789"
               },
-              {
-                "id": "EXC002",
-                "code": "EXC_CODE_002",
-                "description": "Theft Excess",
-                "type": "Percentage",
-                "percentage": 5,
-                "minimumAmount": 0,
-                "maximumAmount": 500
+              "registeredOwner": {
+                "name": "John Doe",
+                "idNumber": "ID123456789",
+                "dateOfBirth": "1990-01-15T00:00:00.000Z"
+              },
+              "useType": "Personal",
+              "residentialAddress": {
+                "line1": "123 Main Street",
+                "line2": "Apartment 4B",
+                "line3": "Suburbia",
+                "line4": "Cityville",
+                "postalCodeId": "PST123"
+              },
+              "claimFreeGroup": 3,
+              "hasProofOfClaimFreeGroup": true,
+              "voluntaryExcess": 250,
+              "sumInsuredType": "Comprehensive",
+              "sumInsuredAmount": 30000,
+              "coverType": "Third Party",
+              "premium": {
+                "original": 600,
+                "discounted": 550,
+                "loaded": 0,
+                "discountPerc": 10,
+                "loadingPerc": 0,
+                "nettPremium": 550,
+                "grossPremium": 600,
+                "sasriaCategory": "Category A",
+                "sasriaPremium": 50,
+                "sumInsuredAmount": 30000
               }
-            ]
-          },
-          "inceptionDate": "2023-07-25T11:22:48.427Z",
-          "vehicleDetails": {
-            "makeCode": "MAK001",
-            "makeDescription": "Toyota",
-            "modelDescription": "Corolla",
-            "yearManufactured": 2020,
-            "registrationNumber": "ABC123",
-            "engineNumber": "ENG456",
-            "vinNumber": "VIN789"
-          },
-          "registeredOwner": {
-            "name": "John Doe",
-            "idNumber": "ID123456789",
-            "dateOfBirth": "1990-01-15T00:00:00.000Z"
-          },
-          "useType": "Personal",
-          "residentialAddress": {
-            "line1": "123 Main Street",
-            "line2": "Apartment 4B",
-            "line3": "Suburbia",
-            "line4": "Cityville",
-            "postalCodeId": "PST123"
-          },
-          "claimFreeGroup": 3,
-          "hasProofOfClaimFreeGroup": true,
-          "voluntaryExcess": 250,
-          "sumInsuredType": "Comprehensive",
-          "sumInsuredAmount": 30000,
-          "coverType": "Third Party",
-          "premium": {
-            "original": 600,
-            "discounted": 550,
-            "loaded": 0,
-            "discountPerc": 10,
-            "loadingPerc": 0,
-            "nettPremium": 550,
-            "grossPremium": 600,
-            "sasriaCategory": "Category A",
-            "sasriaPremium": 50,
-            "sumInsuredAmount": 30000
-          }
+            },{
+              "riskId": "RISK1234",
+              "vehicleType": "Car",
+              "riskPremiumAmount": 500,
+              "riskExcess": {
+                "title": "Risk Excess",
+                "details": "Details about the risk excess",
+                "message": "Risk excess information",
+                "items": [
+                  {
+                    "id": "EXC001",
+                    "code": "EXC_CODE_001",
+                    "description": "Accident Excess",
+                    "type": "Fixed",
+                    "percentage": 0,
+                    "minimumAmount": 100,
+                    "maximumAmount": 1000
+                  },
+                  {
+                    "id": "EXC002",
+                    "code": "EXC_CODE_002",
+                    "description": "Theft Excess",
+                    "type": "Percentage",
+                    "percentage": 5,
+                    "minimumAmount": 0,
+                    "maximumAmount": 500
+                  }
+                ]
+              },
+              "inceptionDate": "2023-07-25T11:22:48.427Z",
+              "vehicleDetails": {
+                "makeCode": "MAK001",
+                "makeDescription": "Toyota",
+                "modelDescription": "Corolla",
+                "yearManufactured": 2020,
+                "registrationNumber": "ABC123",
+                "engineNumber": "ENG456",
+                "vinNumber": "VIN789"
+              },
+              "registeredOwner": {
+                "name": "John Doe",
+                "idNumber": "ID123456789",
+                "dateOfBirth": "1990-01-15T00:00:00.000Z"
+              },
+              "useType": "Personal",
+              "residentialAddress": {
+                "line1": "123 Main Street",
+                "line2": "Apartment 4B",
+                "line3": "Suburbia",
+                "line4": "Cityville",
+                "postalCodeId": "PST123"
+              },
+              "claimFreeGroup": 3,
+              "hasProofOfClaimFreeGroup": true,
+              "voluntaryExcess": 250,
+              "sumInsuredType": "Comprehensive",
+              "sumInsuredAmount": 30000,
+              "coverType": "Third Party",
+              "premium": {
+                "original": 600,
+                "discounted": 550,
+                "loaded": 0,
+                "discountPerc": 10,
+                "loadingPerc": 0,
+                "nettPremium": 550,
+                "grossPremium": 600,
+                "sasriaCategory": "Category A",
+                "sasriaPremium": 50,
+                "sumInsuredAmount": 30000
+              }
+            }
+          ]
         }
-      ]
-    }
   
      
     },
@@ -317,56 +317,56 @@ const policy = {
           status: "canceled"
         }
       ]
-    },
-
-    "client": {
-      "id": "910201568081",
-      "firstName": "Anthony",
-      "surnameOnId": "Smith",
-      "initials": "A",
-      "gender": "Male",
-      "title": "Mr",
-      "nationality": "South African",     
-      "dateOfBirth": "01 February 1991",
-      "maritalStatus": "single",
-      "occupation": "Programmer",
-      "postalAddress": {
-        "line1": "string",
-        "line2": "string",
-        "line3": "string",
-        "line4": "string",
-        "postalCode": "string"
-      },
-      "homeTelephoneNumber": {
-        "code": "+27",
-        "number": "0791234567"
-      },
-      "workTelephoneNumber": {
-        "code": "+27",
-        "number": "0112345678"
-      },
-      "cellTelephoneNumber": {
-        "code": "+27",
-        "number": "0791234567"
-      },
-      "faxTelephoneNumber": {
-        "code": "string",
-        "number": "string"
-      },
-      "emailAddress": "A.Smith@gmail.com",
-      "preferredContactMethod": "email",
-      "isMarketingAllowed": true,
-      "claimSummary": {},
-      "sourceOfBusiness": "string",
-      "casaDetails": {
-        "casaCountryOfResidence": {
-          "casaCountryCode": "string",
-          "casaCountryDesc": "string"
-        }
-      }
-    
     }
-
+  }
+    
+const client = {
+    "id": "910201568081",
+    "firstName": "Anthony",
+    "surnameOnId": "Smith",
+    "initials": "A",
+    "gender": "Male",
+    "title": "Mr",
+    "nationality": "South African",     
+    "dateOfBirth": "01 February 1991",
+    "maritalStatus": "single",
+    "occupation": "Programmer",
+    "postalAddress": {
+      "line1": "string",
+      "line2": "string",
+      "line3": "string",
+      "line4": "string",
+      "postalCode": "string"
+    },
+    "homeTelephoneNumber": {
+      "code": "+27",
+      "number": "0791234567"
+    },
+    "workTelephoneNumber": {
+      "code": "+27",
+      "number": "0112345678"
+    },
+    "cellTelephoneNumber": {
+      "code": "+27",
+      "number": "0791234567"
+    },
+    "faxTelephoneNumber": {
+      "code": "string",
+      "number": "string"
+    },
+    "emailAddress": "A.Smith@gmail.com",
+    "preferredContactMethod": "email",
+    "isMarketingAllowed": true,
+    "claimSummary": {},
+    "sourceOfBusiness": "string",
+    "casaDetails": {
+      "casaCountryOfResidence": {
+        "casaCountryCode": "string",
+        "casaCountryDesc": "string"
+      }
+    }
+  
   }
 
-  export default policy;
+export default policy;
+export { client }

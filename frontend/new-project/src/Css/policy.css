@@ -25,11 +25,7 @@ background-color: rgba(234, 236, 251, 0.658);
 }
 
 .card {
-<<<<<<< HEAD
-    border: 1px solid rgb(24, 16, 169);
-=======
     border: 2px solid rgb(255, 255, 255);
->>>>>>> a49528b3833ad930a627bc3208abdfd8099cf236
     border-radius: 4px;
     width: 100%;
     transition: background-color 5s ease;
@@ -85,22 +81,6 @@ background-color: rgba(234, 236, 251, 0.658);
     transition: transform 0.3s ease;
   }
   
-<<<<<<< HEAD
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgb(5, 80, 229);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 30px;
-}
-=======
->>>>>>> a49528b3833ad930a627bc3208abdfd8099cf236
 
 .text-container{
 display:flex;
@@ -221,20 +201,6 @@ font-size: 20px;
 }
 
 .vehicle-card {
-<<<<<<< HEAD
-    border: 1px solid rgb(24, 16, 169);
-    border-radius: 4px;
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
-    height: auto;
-    position: relative;
-    transition: background-color 0.3s ease;
-    background-color: #fff;
-    
-    
-  }
-=======
   border: 1px solid rgb(24, 16, 169);
   border-radius: 4px;
   padding: 10px;
@@ -245,14 +211,11 @@ font-size: 20px;
   transition: background-color 0.3s ease;
   background-color: #fff;
 }
->>>>>>> a49528b3833ad930a627bc3208abdfd8099cf236
 
   .control-arrow{
 
     color: #154FBF;
   }
-<<<<<<< HEAD
-=======
 
   .dash-heading{
     display: block;
@@ -293,4 +256,3 @@ font-size: 20px;
     width: 80px;
     height: auto;
   }
->>>>>>> a49528b3833ad930a627bc3208abdfd8099cf236

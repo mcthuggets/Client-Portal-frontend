@@ -21,6 +21,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useSectionContext } from "./sectionContext";
 import policy from "./data";
+import Loading from "./Loading.jsx";
 
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
@@ -227,7 +228,7 @@ const MyPolicy = () => {
   const [statusSelector, setStatusSelector] = useState("all");
 
   const [policyData, setPolicyData] = useState(null);
-
+  const [loading, setLoading] = useState(true);
 
   // Define the API endpoint URL
   const apiUrl = 'https://localhost:7207/Policy/get-policy/20351588-023';
@@ -239,6 +240,7 @@ const MyPolicy = () => {
       // Handle successful response
       setPolicyData(response.data);
       console.log(response.data);
+      setLoading(false)
     })
     .catch(error => {
       // Handle error
@@ -290,107 +292,115 @@ const MyPolicy = () => {
     }
   };
 
-  return (
-    <div className="app-container">
-      <div className="main-content">
-        <div>
-          {sectionName === "Policy" ? (
-            <div>
-              <div className="main">
-                <div className="card">
-                  <div className="card-content">
-                    <img
-                      className="policy-img"
-                      src={PolicyImg}
-                      alt="policy"
-                      style={{ height: "250px" }}
-                    />
+    return (
+        <>
+        { loading ? 
+          <Loading />
+          : 
+          <div className="app-container">
+            <div className="main-content">
+              <div>
+                {sectionName === "Policy" ? (
+                  <div>
+                    <div className="main">
+                      <div className="card">
+                        <div className="card-content">
+                          <img
+                            className="policy-img"
+                            src={PolicyImg}
+                            alt="policy"
+                            style={{ height: "250px" }}
+                          />
 
-                    <span key={policy}>
-                      <p className="top">{policy.policyNumber}</p>
-                      <h1 className="top-left">Policy Information</h1>
-                      <div className="text-container">
-                        <div>
-                          <p>Policy Holder:</p>
-                          <p>{policy.client.firstName} {policy.client.surnameOnId}</p>
-                        </div>
-                        <div>
-                          <p>Total Premium:</p>
-                          <p>R{policy.totalPremium}</p>
-                        </div>
-                        <div>
-                          <p>Policy start:</p>
-                          <p>{policy.policyStart}</p>
-                        </div>
-                        <div>
-                          <p>Intermediary fee:</p>
-                          <p>R{policy.intermediaryFee}</p>
-                        </div>
+                          <span key={policy}>
+                            <p className="top">{policy.policyNumber}</p>
+                            <h1 className="top-left">Policy Information</h1>
+                            <div className="text-container">
+                              <div>
+                                <p>Policy Holder:</p>
+                                <p>{policy.client.firstName} {policy.client.surnameOnId}</p>
+                              </div>
+                              <div>
+                                <p>Total Premium:</p>
+                                <p>R{policy.totalPremium}</p>
+                              </div>
+                              <div>
+                                <p>Policy start:</p>
+                                <p>{policy.policyStart}</p>
+                              </div>
+                              <div>
+                                <p>Intermediary fee:</p>
+                                <p>R{policy.intermediaryFee}</p>
+                              </div>
+                            </div>
+
+                            <hr />
+
+                            <button style={ {margin: "5px"}}>Documents</button>
+                          </span>
+
+                          </div>
                       </div>
-
-                      <hr />
-
-                      <button style={ {margin: "5px"}}>Documents</button>
-                    </span>
-
                     </div>
+
+                    <h3>You are Covered for:</h3>
+
+                    <OverviewComponent sections={policy.sections} />
+                  </div>
+                ) : (
+                  <div>
+                    <SectionParent sectionKey={sectionName} />
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="right-sidebar">
+              {/* Policy card */}
+              <div className="policy-card">
+                <h2 style={{ textAlign: "center" }}>Select Policy</h2>
+                <div class="separator"></div>
+                <select
+                  className="filter"
+                  onChange={handleStatusChange}
+                  value={statusSelector}
+                >
+                  <option value="all">All</option>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                  <option value="canceled">Canceled</option>
+                  <option value="pending">Pending</option>
+                  <option value="expired">Expired</option>
+                </select>
+                <div className="filter">
+                  <ul  className="policy">
+                    {filteredPolicies.map((policy) => (
+                      <li key={policy.id}><br/> Policy: {policy.id}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
-              <h3>You are Covered for:</h3>
+              {/* Broker Card */}
+              <div className="broker-contact-card">
+                <h3 id="my">Need help?</h3>
+                <h2>Contact your broker</h2>
 
-              <OverviewComponent sections={policy.sections} />
+                <div class="image-with-text">
+                  <img src={profile} alt="brokerimg" className="bkimg" />
+                  <div className="text"></div>
+                </div>
+                <p>{policy.broker.name}</p>
+                <p>email: {policy.broker.email}</p>
+                <p>Cell Number: {policy.broker.cellNumber}</p>
+              </div>
             </div>
-          ) : (
-            <div>
-              <SectionParent sectionKey={sectionName} />
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="right-sidebar">
-        {/* Policy card */}
-        <div className="policy-card">
-          <h2 style={{ textAlign: "center" }}>Select Policy</h2>
-          <div class="separator"></div>
-          <select
-            className="filter"
-            onChange={handleStatusChange}
-            value={statusSelector}
-          >
-            <option value="all">All</option>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-            <option value="canceled">Canceled</option>
-            <option value="pending">Pending</option>
-            <option value="expired">Expired</option>
-          </select>
-          <div className="filter">
-            <ul  className="policy">
-              {filteredPolicies.map((policy) => (
-                <li key={policy.id}><br/> Policy: {policy.id}</li>
-              ))}
-            </ul>
           </div>
-        </div>
-
-        {/* Broker Card */}
-        <div className="broker-contact-card">
-          <h3 id="my">Need help?</h3>
-          <h2>Contact your broker</h2>
-
-          <div class="image-with-text">
-            <img src={profile} alt="brokerimg" className="bkimg" />
-            <div className="text"></div>
-          </div>
-          <p>{policy.broker.name}</p>
-          <p>email: {policy.broker.email}</p>
-          <p>Cell Number: {policy.broker.cellNumber}</p>
-        </div>
-      </div>
-    </div>
-  );
+        }
+        </>
+        )
+  ;
 };
+
 
 export default MyPolicyShell;

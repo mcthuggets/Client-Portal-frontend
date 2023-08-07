@@ -359,7 +359,7 @@ const MyPolicy = () => {
               {/* Policy card */}
               <div className="policy-card">
                 <h2 style={{ textAlign: "center" }}>Select Policy</h2>
-                <div class="separator"></div>
+                <div className="separator"></div>
                 <select
                   className="filter"
                   onChange={handleStatusChange}
@@ -386,7 +386,7 @@ const MyPolicy = () => {
                 <h3 id="my">Need help?</h3>
                 <h2>Contact your broker</h2>
 
-                <div class="image-with-text">
+                <div className="image-with-text">
                   <img src={profile} alt="brokerimg" className="bkimg" />
                   <div className="text"></div>
                 </div>

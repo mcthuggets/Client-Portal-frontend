@@ -38,7 +38,7 @@ const Property=()=>{
               </div>
             </span>
           ))}
-          <div class="separator"></div>
+          <div className="separator"></div>
           <button>Documents</button>
         </div>
       </div>

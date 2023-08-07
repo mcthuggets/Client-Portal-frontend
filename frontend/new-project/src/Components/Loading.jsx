@@ -5,26 +5,26 @@ const Loading = () => {
         <div className="main-content">
           <div className="loading">
           
-          <div class="boxes">
-        <div class="box">
+          <div className="boxes">
+        <div className="box">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
         </div>
-        <div class="box">
+        <div className="box">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
         </div>
-        <div class="box">
+        <div className="box">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
         </div>
-        <div class="box">
+        <div className="box">
             <div></div>
             <div></div>
             <div></div>

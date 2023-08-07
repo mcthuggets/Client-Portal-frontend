@@ -3,7 +3,6 @@ import './vehicle.css';
 //images
 import  car from '../images/Car.svg'
 import VehicleSectionImage from '../images/VehicleSection.jpg'
-import { FaCarSide } from "react-icons/fa";
 
 const VehicleDisplay = ({ vehicleData }) => {
 

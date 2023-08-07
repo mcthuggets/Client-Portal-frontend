@@ -5,6 +5,7 @@ import profile from "./images/profile.jpg";
 import { HiOutlineHome, HiDesktopComputer, HiDeviceMobile, HiClipboardList, HiScale, HiStar, HiOutlineUserGroup } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 //section imports
 import VehicleDisplay from "./PolicySections/VehicleSection";
 import PersonalLiabilityDisplay from "./PolicySections/PersonalLiabilityDisplay";
@@ -224,6 +225,27 @@ const MyPolicy = () => {
   const { sectionName } = useSectionContext();
 
   const [statusSelector, setStatusSelector] = useState("all");
+
+  const [policyData, setPolicyData] = useState(null);
+
+
+  // Define the API endpoint URL
+  const apiUrl = 'https://localhost:7207/Policy/get-policy/20351588-023';
+
+  useEffect(() => {
+  // Make the GET request using axios
+  axios.get(apiUrl)
+    .then(response => {
+      // Handle successful response
+      setPolicyData(response.data);
+      console.log(response.data);
+    })
+    .catch(error => {
+      // Handle error
+      console.error('Error fetching policy data:', error);
+    });
+  }, [] ); // Empty dependency array means this effect runs only once, on component mount
+
 
   const policies = [
     {

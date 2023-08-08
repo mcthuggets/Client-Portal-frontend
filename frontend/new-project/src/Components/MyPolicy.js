@@ -22,6 +22,11 @@ import { Carousel } from "react-responsive-carousel";
 import { useSectionContext } from "./sectionContext";
 import policy from "./data";
 import Loading from "./Loading.jsx";
+//images
+import AllRiskSvg from './images/All-Risk.svg';
+import CarSvg from './images/Car.svg';
+
+
 
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
@@ -32,17 +37,29 @@ const Child = ({ name, section, renderIcon }) => {
   };
 
   return (
-    <button onClick={handleClick}>
-      <div className="separator">{renderIcon}</div>
-      <p>Premium: R{section.totalPremiumAmount}</p>
-      {section.risks && (
-        <p>
-          {section.risks.length > 1
-            ? `${section.risks.length} risks`
-            : "1 risk"}
-        </p>
-      )}
-    </button>
+    <>
+    {/* <div className="">
+      <button onClick={handleClick}>
+        
+        <div className="separator">{renderIcon}</div>
+        <p>Premium: R{section.totalPremiumAmount}</p>
+        {section.risks && (
+          <p>
+            {section.risks.length > 1
+              ? `${section.risks.length} risks`
+              : "1 risk"}
+          </p>
+        )}
+      </button>
+    </div> */}
+
+    <div className="section-card" onClick={handleClick}>
+      <h2> {name}</h2>
+      <img src={AllRiskSvg}></img>
+      <button> See your coverage </button>
+      <p> Premium: R{section.totalPremiumAmount} </p>
+    </div>
+    </>
   );
 };
 
@@ -189,20 +206,18 @@ const OverviewComponent = ({ sections }) => {
     <div className="cover-layout">
 
 
-      <Carousel className="carousel" showThumbs={false} showStatus={false}>
+      <Carousel className="carousel" showThumbs={true} showStatus={false}>
 
         {groupedSections.map((group, groupIndex) => (
           <li className="cards-container" key={`group-${groupIndex}`}>
             {group.map((sectionKey) => {
               const section = sections[sectionKey];
-              return (
-                <div className="img-content" key={sectionKey}>
+              return(
                   <Child
                     name={sectionKey}
                     section={section}
                     renderIcon={renderIcon(sectionKey)}
                   />
-                </div>
               );
             })}
           </li>
@@ -239,7 +254,7 @@ const MyPolicy = () => {
     .then(response => {
       // Handle successful response
       setPolicyData(response.data);
-      console.log(response.data);
+      console.log("hh " + response.data);
       setLoading(false)
     })
     .catch(error => {

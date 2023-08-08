@@ -3,7 +3,7 @@ import PolicyImg from "./PolicyImg.jpg";
 import profile from "./images/profile.jpg";
 //icon imports
 import { HiOutlineHome, HiDesktopComputer, HiDeviceMobile, HiClipboardList, HiScale, HiStar, HiOutlineUserGroup } from "react-icons/hi";
-import { FaCarSide } from "react-icons/fa";
+import { FaBlender, FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 //section imports
 import VehicleDisplay from "./PolicySections/VehicleSection";
@@ -17,7 +17,6 @@ import PropertySection from "./PolicySections/PropertySection";
 //
 import { SectionProvider } from "./sectionContext";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
 import { useSectionContext } from "./sectionContext";
 import policy from "./data";
 
@@ -25,7 +24,7 @@ import policy from "./data";
 import axios from 'axios';
 
 // Child Component
-const Child = ({ name,content, renderIcon }) => {
+const Child = ({ name, content, renderIcon }) => {
   const { setSectionName } = useSectionContext();
 
   const handleClick = () => {
@@ -36,7 +35,7 @@ const Child = ({ name,content, renderIcon }) => {
     <button onClick={handleClick}>
       <div className="separator">{renderIcon}</div>
       {content}
-     
+
     </button>
   );
 };
@@ -58,6 +57,13 @@ const renderIcon = (sectionKey) => {
           <p className="cheading">Property</p>
         </>
       );
+      case 'contentSection':
+      return (
+        <>
+          <FaBlender className="icon" />
+          <p className="cheading">Content</p>
+        </>
+      );
     case 'vehicleSection':
       return (
         <>
@@ -68,35 +74,35 @@ const renderIcon = (sectionKey) => {
     case 'personalLiabilitySection':
       return (
         <>
-          <HiScale className="icon"/>
+          <HiScale className="icon" />
           <p className="cheading">Personal Liability</p>
         </>
       );
     case 'specialCoverSection':
       return (
         <>
-          <HiStar className="icon"/>
+          <HiStar className="icon" />
           <p className="cheading">Special Cover</p>
         </>
       );
     case 'personalComputerSection':
       return (
         <>
-          <HiDesktopComputer className="icon"/>
+          <HiDesktopComputer className="icon" />
           <p className="cheading">Personal Computer</p>
         </>
       );
     case 'generalConditionsSection':
       return (
         <>
-          <HiClipboardList className="icon"/>
+          <HiClipboardList className="icon" />
           <p className="cheading">General Conditions</p>
         </>
       );
     case 'personalAccidentSection':
       return (
         <>
-          <HiOutlineUserGroup className="icon"/>
+          <HiOutlineUserGroup className="icon" />
           <p className="cheading">Personal Accident</p>
         </>
       );
@@ -146,9 +152,9 @@ const SectionParent = ({ sectionKey }) => {
       case "personalLiabilitySection":
         return (
           <>
-          <PersonalLiabilityDisplay
-            liabilityData={policy.sections.personalLiabilitySection}
-          />
+            <PersonalLiabilityDisplay
+              liabilityData={policy.sections.personalLiabilitySection}
+            />
           </>
         );
       default:
@@ -179,14 +185,14 @@ const MyPolicyShell = () => {
 
 // MyPolicy Component
 const MyPolicy = () => {
-  
-  const [policyNo,setPolicyNo]=useState([]);
+
+  const [policyNo, setPolicyNo] = useState([]);
   const [policies, setPolicies] = useState([]);
   const [filteredPolicies, setFilteredPolicies] = useState([]);
   const [statusSelector, setStatusSelector] = useState("all");
   const { sectionName } = useSectionContext();
-  const {_policy}=useSectionContext();
-  const {setPolicy} = useSectionContext();
+  const { _policy } = useSectionContext();
+  const { setPolicy } = useSectionContext();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -194,9 +200,9 @@ const MyPolicy = () => {
         const response = await axios.get('https://localhost:7207/Policy/get-policyList/8910265098089');
         setPolicies(response.data);
         setFilteredPolicies(response.data);
-        
+
       } catch (error) {
-       
+
       }
     };
 
@@ -210,10 +216,10 @@ const MyPolicy = () => {
       try {
         const response = await axios.get('https://localhost:7207/Policy/get-policy/20351588-054');
         setPolicy(response.data);
-        
-        console.log(response.data);
+        //set section name back to policy
+
       } catch (error) {
-        
+
       }
     };
     fetchPolicy();
@@ -279,51 +285,114 @@ const MyPolicy = () => {
 
               <h3>You are Covered for:</h3>
               <div className="cover-layout">
-      <Carousel className="carousel" showThumbs={false} showStatus={false}>
-        {/* Render Child components based on conditions */}
 
-  
-        {policy.sections.allRiskSection.risks && (
-          <li className="cards-container" key="child-1">
-            <div className="img-content">
-              <Child
-                name="allRiskSection"
-                renderIcon={renderIcon("allRiskSection")}
-              />
-              
-            </div>
-          </li>
-        )}
+                {/* Render Child components based on conditions */}
 
 
-{policy.sections.vehicleSection.risks && (
-          <li className="cards-container" key="child-2">
-            <div className="img-content">
-              <Child
-                name="vehicleSection"
-                renderIcon={renderIcon("vehicleSection")}
-              />
-              
-            </div>
-          </li>
-        )}
+                {policy.sections.allRiskSection && (
+                  <li className="cards-container" key="child-1">
+                    <div className="img-content">
+                      <Child
+                        name="allRiskSection"
+                        renderIcon={renderIcon("allRiskSection")}
+                      />
 
-{policy.sections.buildingSection.risks && (
-          <li className="cards-container" key="child-3">
-            <div className="img-content">
-              <Child
-                name="buildingSection"
-                renderIcon={renderIcon("buildingSection")}
-              />
-              
-            </div>
-          </li>
-        )}
+                    </div>
+                  </li>
+                )}
 
-      </Carousel>
-    </div>
-              
-              
+
+                {policy.sections.vehicleSection && (
+                  <li className="cards-container" key="child-2">
+                    <div className="img-content">
+                      <Child
+                        name="vehicleSection"
+                        renderIcon={renderIcon("vehicleSection")}
+                      />
+
+                    </div>
+                  </li>
+                )}
+                {policy.sections.contentSection && (
+                  <li className="cards-container" key="child-3">
+                    <div className="img-content">
+                      <Child
+                        name="contentSection"
+                        renderIcon={renderIcon("contentSection")}
+                      />
+
+                    </div>
+                  </li>
+                )}
+
+
+                {policy.sections.buildingSection && (
+                  <li className="cards-container" key="child-4">
+                    <div className="img-content">
+                      <Child
+                        name="buildingSection"
+                        renderIcon={renderIcon("buildingSection")}
+                      />
+
+                    </div>
+                  </li>
+                )}
+
+                {policy.sections.personalComputerSection &&(
+                  <li className="cards-container" key="child-5">
+                    <div className="img-content">
+                      <Child
+                        name="personalComputerSection"
+                        renderIcon={renderIcon("personalComputerSection")}
+                      />
+
+                    </div>
+                  </li>
+                )}
+
+{policy.sections.personalAccidentSection &&(
+                  <li className="cards-container" key="child-6">
+                    <div className="img-content">
+                      <Child
+                        name="personalComputerSection"
+                        renderIcon={renderIcon("personalComputerSection")}
+                      />
+
+                    </div>
+                  </li>
+                )}
+
+{policy.sections.personalLiabilitySection &&(
+                  <li className="cards-container" key="child-7">
+                    <div className="img-content">
+                      <Child
+                        name="personalLiabilitySections"
+                        renderIcon={renderIcon("personalLiabilitySection")}
+                      />
+
+                    </div>
+                  </li>
+                )}
+{policy.sections.specialCoverSection &&(
+                  <li className="cards-container" key="child-8">
+                    <div className="img-content">
+                      <Child
+                        name="specialCoverSection"
+                        renderIcon={renderIcon("specialCoverSection")}
+                      />
+
+                    </div>
+                  </li>
+                )}
+
+
+             
+
+             
+
+              </div>
+
+
             </div>
           ) : (
             <div>
@@ -350,17 +419,15 @@ const MyPolicy = () => {
             <ul className="policy">
               {filteredPolicies.map((policy) => (
                 <li key={policy.id}>
-                  <br /> Pno:{policy.id}-{policy.status}
+                  <button>Pno:{policy.id}-{policy.status}</button>
+
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Broker Card */}
-        <div className="broker-contact-card">
-          {/* ... Broker contact information */}
-        </div>
+
       </div>
     </div>
   );

@@ -169,6 +169,16 @@ button{
   box-shadow: 0 8px 20px 0px #7aa6e4;
 }
 
+.cover-layout{
+display: grid;
+grid-template-columns: repeat(4, 1fr); /* 4 columns */
+grid-auto-rows: auto; /* Automatic row sizing based on content */
+grid-gap: 10px; /* Adjust the gap between items */
+max-width: 100%; /* Ensure the container fits its parent */
+margin: 0 auto; 
+}
+
+
 .cover-layout:hover .carousel {
   filter: blur(3px);
   opacity: .5;

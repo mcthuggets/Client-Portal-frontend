@@ -20,10 +20,19 @@ margin-right: auto;
 .right-sidebar {
 
 flex: 0 0 250px;
+
 padding: 20px;
+
 background-color: rgba(234, 236, 251, 0.658);
 }
 
+.filter {
+
+ 
+  max-height: 300px;
+  overflow: auto; 
+
+  }
 .card {
     border: 2px solid rgb(255, 255, 255);
     border-radius: 4px;

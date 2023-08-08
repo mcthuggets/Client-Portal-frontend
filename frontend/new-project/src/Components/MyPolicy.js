@@ -5,7 +5,6 @@ import profile from "./images/profile.jpg";
 import { HiOutlineHome, HiDesktopComputer, HiDeviceMobile, HiClipboardList, HiScale, HiStar, HiOutlineUserGroup } from "react-icons/hi";
 import { FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
 //section imports
 import VehicleDisplay from "./PolicySections/VehicleSection";
 import PersonalLiabilityDisplay from "./PolicySections/PersonalLiabilityDisplay";
@@ -21,10 +20,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useSectionContext } from "./sectionContext";
 import policy from "./data";
-import Loading from "./Loading.jsx";
+
+
+import axios from 'axios';
 
 // Child Component
-const Child = ({ name, section, renderIcon }) => {
+const Child = ({ name,content, renderIcon }) => {
   const { setSectionName } = useSectionContext();
 
   const handleClick = () => {
@@ -34,14 +35,8 @@ const Child = ({ name, section, renderIcon }) => {
   return (
     <button onClick={handleClick}>
       <div className="separator">{renderIcon}</div>
-      <p>Premium: R{section.totalPremiumAmount}</p>
-      {section.risks && (
-        <p>
-          {section.risks.length > 1
-            ? `${section.risks.length} risks`
-            : "1 risk"}
-        </p>
-      )}
+      {content}
+     
     </button>
   );
 };
@@ -173,45 +168,6 @@ const SectionParent = ({ sectionKey }) => {
   );
 };
 
-// OverviewComponent
-const OverviewComponent = ({ sections }) => {
-  const groupSectionsIntoSets = (items, groupSize) => {
-    const groupedItems = [];
-    for (let i = 0; i < items.length; i += groupSize) {
-      groupedItems.push(items.slice(i, i + groupSize));
-    }
-    return groupedItems;
-  };
-
-  const groupedSections = groupSectionsIntoSets(Object.keys(sections), 5);
-
-  return (
-    <div className="cover-layout">
-
-
-      <Carousel className="carousel" showThumbs={false} showStatus={false}>
-
-        {groupedSections.map((group, groupIndex) => (
-          <li className="cards-container" key={`group-${groupIndex}`}>
-            {group.map((sectionKey) => {
-              const section = sections[sectionKey];
-              return (
-                <div className="img-content" key={sectionKey}>
-                  <Child
-                    name={sectionKey}
-                    section={section}
-                    renderIcon={renderIcon(sectionKey)}
-                  />
-                </div>
-              );
-            })}
-          </li>
-        ))}
-      </Carousel>
-    </div>
-  );
-};
-
 // MyPolicyShell Component
 const MyPolicyShell = () => {
   return (
@@ -223,184 +179,191 @@ const MyPolicyShell = () => {
 
 // MyPolicy Component
 const MyPolicy = () => {
-  const { sectionName } = useSectionContext();
-
+  
+  const [policyNo,setPolicyNo]=useState([]);
+  const [policies, setPolicies] = useState([]);
+  const [filteredPolicies, setFilteredPolicies] = useState([]);
   const [statusSelector, setStatusSelector] = useState("all");
-
-  const [policyData, setPolicyData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // Define the API endpoint URL
-  const apiUrl = 'https://localhost:7207/Policy/get-policy/20351588-023';
+  const { sectionName } = useSectionContext();
+  const {_policy}=useSectionContext();
+  const {setPolicy} = useSectionContext();
 
   useEffect(() => {
-  // Make the GET request using axios
-  axios.get(apiUrl)
-    .then(response => {
-      // Handle successful response
-      setPolicyData(response.data);
-      console.log(response.data);
-      setLoading(false)
-    })
-    .catch(error => {
-      // Handle error
-      console.error('Error fetching policy data:', error);
-    });
-  }, [] ); // Empty dependency array means this effect runs only once, on component mount
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://localhost:7207/Policy/get-policyList/8910265098089');
+        setPolicies(response.data);
+        setFilteredPolicies(response.data);
+        
+      } catch (error) {
+       
+      }
+    };
+
+    fetchData();
+  }, []);
 
 
-  const policies = [
-    {
-      id: "POL-123",
-      status: "active",
-    },
-    {
-      id: "POL-289",
-      status: "active",
-    },
-    {
-      id: "POL-456",
-      status: "inactive",
-    },
-    {
-      id: "POL-789",
-      status: "pending",
-    },
-    {
-      id: "POL-234",
-      status: "expired",
-    },
-    {
-      id: "POL-567",
-      status: "canceled",
-    },
-  ];
 
-  const [filteredPolicies, setFilteredPolicies] = useState(policies);
+  useEffect(() => {
+    const fetchPolicy = async () => {
+      try {
+        const response = await axios.get('https://localhost:7207/Policy/get-policy/20351588-054');
+        setPolicy(response.data);
+        
+        console.log(response.data);
+      } catch (error) {
+        
+      }
+    };
+    fetchPolicy();
+  }, []);
 
   const handleStatusChange = (event) => {
     const selectedStatus = event.target.value;
     setStatusSelector(selectedStatus);
 
-    if (selectedStatus === "all") {
+    if (selectedStatus === "All") {
       setFilteredPolicies(policies);
     } else {
-      const filtered = policies.filter(
-        (policy) => policy.status === selectedStatus
-      );
+      const filtered = policies.filter((policy) => policy.status === selectedStatus);
       setFilteredPolicies(filtered);
     }
   };
 
-    return (
-        <>
-        { loading ? 
-          <Loading />
-          : 
-          <div className="app-container">
-            <div className="main-content">
-              <div>
-                {sectionName === "Policy" ? (
-                  <div>
-                    <div className="main">
-                      <div className="card">
-                        <div className="card-content">
-                          <img
-                            className="policy-img"
-                            src={PolicyImg}
-                            alt="policy"
-                            style={{ height: "250px" }}
-                          />
+  return (
+    <div className="app-container">
+      <div className="main-content">
+        <div>
+          {sectionName === "Policy" ? (
+            <div>
+              <div className="main">
+                <div className="card">
+                  <div className="card-content">
+                    <img
+                      className="policy-img"
+                      src={PolicyImg}
+                      alt="policy"
+                      style={{ height: "250px" }}
+                    />
 
-                          <span key={policy}>
-                            <p className="top">{policy.policyNumber}</p>
-                            <h1 className="top-left">Policy Information</h1>
-                            <div className="text-container">
-                              <div>
-                                <p>Policy Holder:</p>
-                                <p>{policy.client.firstName} {policy.client.surnameOnId}</p>
-                              </div>
-                              <div>
-                                <p>Total Premium:</p>
-                                <p>R{policy.totalPremium}</p>
-                              </div>
-                              <div>
-                                <p>Policy start:</p>
-                                <p>{policy.policyStart}</p>
-                              </div>
-                              <div>
-                                <p>Intermediary fee:</p>
-                                <p>R{policy.intermediaryFee}</p>
-                              </div>
-                            </div>
-
-                            <hr />
-
-                            <button style={ {margin: "5px"}}>Documents</button>
-                          </span>
-
-                          </div>
+                    <span key={policy.id}>
+                      <p className="top">{policy.policyNumber}</p>
+                      <h1 className="top-left">Policy Information</h1>
+                      <div className="text-container">
+                        <div>
+                          <p>Policy Holder:</p>
+                          <p>{policy.client.firstName} {policy.client.surnameOnId}</p>
+                        </div>
+                        <div>
+                          <p>Total Premium:</p>
+                          <p>R{_policy.id}</p>
+                        </div>
+                        <div>
+                          <p>Policy start:</p>
+                          <p>{policy.policyStart}</p>
+                        </div>
+                        <div>
+                          <p>Intermediary fee:</p>
+                          <p>R{policy.intermediaryFee}</p>
+                        </div>
                       </div>
-                    </div>
 
-                    <h3>You are Covered for:</h3>
+                      <hr />
 
-                    <OverviewComponent sections={policy.sections} />
+                      <button style={{ margin: "5px" }}>Documents</button>
+                    </span>
                   </div>
-                ) : (
-                  <div>
-                    <SectionParent sectionKey={sectionName} />
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div className="right-sidebar">
-              {/* Policy card */}
-              <div className="policy-card">
-                <h2 style={{ textAlign: "center" }}>Select Policy</h2>
-                <div className="separator"></div>
-                <select
-                  className="filter"
-                  onChange={handleStatusChange}
-                  value={statusSelector}
-                >
-                  <option value="all">All</option>
-                  <option value="active">Active</option>
-                  <option value="inactive">Inactive</option>
-                  <option value="canceled">Canceled</option>
-                  <option value="pending">Pending</option>
-                  <option value="expired">Expired</option>
-                </select>
-                <div className="filter">
-                  <ul  className="policy">
-                    {filteredPolicies.map((policy) => (
-                      <li key={policy.id}><br/> Policy: {policy.id}</li>
-                    ))}
-                  </ul>
                 </div>
               </div>
 
-              {/* Broker Card */}
-              <div className="broker-contact-card">
-                <h3 id="my">Need help?</h3>
-                <h2>Contact your broker</h2>
+              <h3>You are Covered for:</h3>
+              <div className="cover-layout">
+      <Carousel className="carousel" showThumbs={false} showStatus={false}>
+        {/* Render Child components based on conditions */}
 
-                <div className="image-with-text">
-                  <img src={profile} alt="brokerimg" className="bkimg" />
-                  <div className="text"></div>
-                </div>
-                <p>{policy.broker.name}</p>
-                <p>email: {policy.broker.email}</p>
-                <p>Cell Number: {policy.broker.cellNumber}</p>
-              </div>
+  
+        {policy.sections.allRiskSection.risks && (
+          <li className="cards-container" key="child-1">
+            <div className="img-content">
+              <Child
+                name="allRiskSection"
+                renderIcon={renderIcon("allRiskSection")}
+              />
+              
             </div>
+          </li>
+        )}
+
+
+{policy.sections.vehicleSection.risks && (
+          <li className="cards-container" key="child-2">
+            <div className="img-content">
+              <Child
+                name="vehicleSection"
+                renderIcon={renderIcon("vehicleSection")}
+              />
+              
+            </div>
+          </li>
+        )}
+
+{policy.sections.buildingSection.risks && (
+          <li className="cards-container" key="child-3">
+            <div className="img-content">
+              <Child
+                name="buildingSection"
+                renderIcon={renderIcon("buildingSection")}
+              />
+              
+            </div>
+          </li>
+        )}
+
+      </Carousel>
+    </div>
+              
+              
+            </div>
+          ) : (
+            <div>
+              <SectionParent sectionKey={sectionName} />
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="right-sidebar">
+        {/* Policy card */}
+        <div className="policy-card">
+          <h2 style={{ textAlign: "center" }}>Select Policy</h2>
+          <div className="separator"></div>
+          <select
+            className="filter"
+            onChange={handleStatusChange}
+            value={statusSelector}
+          >
+            <option value="All">All</option>
+            <option value="Pending">Pending</option>
+          </select>
+          <div className="filter">
+            <ul className="policy">
+              {filteredPolicies.map((policy) => (
+                <li key={policy.id}>
+                  <br /> Pno:{policy.id}-{policy.status}
+                </li>
+              ))}
+            </ul>
           </div>
-        }
-        </>
-        )
-  ;
-};
+        </div>
 
+        {/* Broker Card */}
+        <div className="broker-contact-card">
+          {/* ... Broker contact information */}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default MyPolicyShell;

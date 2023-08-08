@@ -3,6 +3,8 @@ import './vehicle.css';
 import PropertySectionImage from '../images/PropertySection.jpg'
 
 const PropertySection = ({ PropertyData }) => {
+
+  console.log(PropertyData);
   return (
     <>
     <div className="card">
@@ -44,7 +46,7 @@ const PropertySection = ({ PropertyData }) => {
     </div>
 
 
-    <div className="sectionMain">
+    {/* <div className="sectionMain">
       {PropertyData.risks.map((risk) => (
         <div key={risk.riskId} className="sectionCard">
           <h2>{risk.Address}</h2>
@@ -78,8 +80,28 @@ const PropertySection = ({ PropertyData }) => {
         </div>
 
       ))}
-    </div>
+    </div> */}
 
+    {PropertyData.risks.map((risk) => (
+      <div key={risk.riskId}>
+        <h2>Risk Information</h2>
+        <h2> { risk.residentialAddress.line1} </h2>
+        <h2> { risk.residentialAddress.line2} </h2>
+        <h2> { risk.residentialAddress.line3} </h2>
+        <p>Risk ID: {risk.riskId}</p>
+        <p>Risk Premium Amount: {risk.riskPremiumAmount}</p>
+        <p>Registered Owner: {risk.registeredOwner}</p>
+        <p>Political Riot Premium Amount: {risk.politicalRiotPremiumAmount}</p>
+        <p>Sum Insured Amount: {risk.sumInsuredAmount}</p>
+        <p>Voluntary Excess: {risk.voluntaryExcess}</p>
+        <p>Claim Free Group: {risk.claimFreeGroup}</p>
+        <p>Roof Type: {risk.roofType}</p>
+        <p>Wall Construction: {risk.wallConstruction}</p>
+        <p>Dwelling Type: {risk.dwellingType}</p>
+        <p>Inception Date: {risk.inceptionDate}</p>
+      </div>
+    ))
+    }
     </>
   );
 };

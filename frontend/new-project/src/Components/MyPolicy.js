@@ -228,7 +228,7 @@ const MyPolicy = () => {
   const [statusSelector, setStatusSelector] = useState("all");
 
   const [policyData, setPolicyData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // Define the API endpoint URL
   const apiUrl = 'https://localhost:7207/Policy/get-policy/20351588-023';

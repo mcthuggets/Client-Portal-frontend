@@ -1,6 +1,4 @@
 import "../Css/policy.css";
-import PolicyImg from "./PolicyImg.jpg";
-import profile from "./images/profile.jpg";
 //icon imports
 import { HiOutlineHome, HiDesktopComputer, HiDeviceMobile, HiClipboardList, HiScale, HiStar, HiOutlineUserGroup } from "react-icons/hi";
 import { FaBlender, FaCarSide } from "react-icons/fa";
@@ -19,6 +17,16 @@ import { SectionProvider } from "./sectionContext";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useSectionContext } from "./sectionContext";
 import policy from "./data";
+//images
+import PolicyImg from "./images/PolicyImg.jpg";
+import AllRiskSvg from './images/All-Risk.svg';
+import CarSvg from './images/Car.svg';
+import CondtionsSvg from './images/Conditions.svg';
+import PersonalAccidentSvg from './images/Personal-Accident.svg';
+import PersonalComputerSvg from './images/Personal-Computer.svg';
+import PersonalLiabilitySvg from './images/Personal-Liability.svg';
+import SpecialCoverageSvg from './images/Special_Coverage.svg';
+import PropertySvg from './images/Property.svg';
 
 
 import axios from 'axios';
@@ -26,11 +34,7 @@ import axios from 'axios';
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
 
- 
-
   const { setSectionName } = useSectionContext();
-
- 
 
   const handleClick = () => {
 

@@ -24,21 +24,97 @@ import policy from "./data";
 import axios from 'axios';
 
 // Child Component
-const Child = ({ name, content, renderIcon }) => {
+const Child = ({ name, section, renderIcon }) => {
+
+ 
+
   const { setSectionName } = useSectionContext();
 
+ 
+
   const handleClick = () => {
+
     setSectionName(name);
+
   };
 
-  return (
-    <button onClick={handleClick}>
-      <div className="separator">{renderIcon}</div>
-      {content}
+  let nameToBeDisplayed = ''
+  let imageToBeDisplayed = ''
 
-    </button>
+  switch (name) {
+
+    case "allRiskSection":
+      nameToBeDisplayed = "All Risk";
+      imageToBeDisplayed = AllRiskSvg
+      break;
+ 
+
+    case "buildingSection":
+      nameToBeDisplayed = "Building";
+      imageToBeDisplayed = PropertySvg;
+      break;
+
+    case "generalConditionsSection":
+      nameToBeDisplayed = "General Conditions";
+      imageToBeDisplayed = CondtionsSvg
+      break;
+ 
+
+    case "personalComputerSection":
+      nameToBeDisplayed = "Personal Computer";
+      imageToBeDisplayed = PersonalComputerSvg
+      break;
+ 
+
+    case "personalAccidentSection":
+      nameToBeDisplayed = "Personal Accident";
+      imageToBeDisplayed = PersonalAccidentSvg
+      break;
+ 
+
+    case "personalLiabilitySection":
+      nameToBeDisplayed = "Personal Liability";
+      imageToBeDisplayed = PersonalLiabilitySvg;
+      break;
+
+    case "specialCoverSection":
+      nameToBeDisplayed = "Special Cover";
+      imageToBeDisplayed = SpecialCoverageSvg;
+      break;
+ 
+
+    case "vehicleSection":
+      nameToBeDisplayed = "Vehicle";
+      imageToBeDisplayed = CarSvg;
+      break;
+
+  }
+
+ 
+
+  return (
+
+    <>
+
+    <div className="section-card" onClick={handleClick}>
+
+      <h2> {nameToBeDisplayed}</h2>
+
+      <img src={imageToBeDisplayed} ></img>
+
+      <button> See your coverage </button>
+
+      <p> Premium: R{section.totalPremiumAmount} </p>
+
+    </div>
+
+    </>
+
   );
+
 };
+
+ 
 
 // Helper function to render icons based on sectionKey
 const renderIcon = (sectionKey) => {

@@ -419,3 +419,64 @@ font-size: 20px;
         transform: translate(100%, 100%);
     }
 }
+
+.section-card{
+
+  width: 200px;
+
+  border: solid black 2px;
+
+  border-radius: 4px;
+
+  background-color: white;
+
+  margin: 2px;
+
+  padding: 8px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+ 
+
+.section-card:hover{
+  transform: translateY(-4px);
+  width: 200px;
+  border: solid black 2px;
+  border-radius: 4px;
+  background-color: white;
+  margin: 2px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ 
+
+.section-card img {
+  width: 150px !important;
+  height: 150px !important;
+}
+
+ 
+
+.section-card button{
+  background-color:rgb(2, 17, 127);
+  color: white;
+  border: white 2px solid;
+  border-radius: 10px;
+  align-items: center;
+  height: fit-content;
+  flex-shrink: 0;
+  display:block;
+  padding: 10px;
+  margin: 10px ;
+  border-top-width: 10px;
+  width:fit-content;
+}

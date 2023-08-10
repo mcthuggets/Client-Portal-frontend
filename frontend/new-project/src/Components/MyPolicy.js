@@ -1,6 +1,4 @@
 import "../Css/policy.css";
-import PolicyImg from "./PolicyImg.jpg";
-import profile from "./images/profile.jpg";
 //icon imports
 import { HiOutlineHome, HiDesktopComputer, HiDeviceMobile, HiClipboardList, HiScale, HiStar, HiOutlineUserGroup } from "react-icons/hi";
 import { FaBlender, FaCarSide } from "react-icons/fa";
@@ -19,26 +17,100 @@ import { SectionProvider } from "./sectionContext";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useSectionContext } from "./sectionContext";
 //import policy from "./data";
+//images
+import PolicyImg from "./images/PolicyImg.jpg";
+import AllRiskSvg from './images/All-Risk.svg';
+import CarSvg from './images/Car.svg';
+import CondtionsSvg from './images/Conditions.svg';
+import PersonalAccidentSvg from './images/Personal-Accident.svg';
+import PersonalComputerSvg from './images/Personal-Computer.svg';
+import PersonalLiabilitySvg from './images/Personal-Liability.svg';
+import SpecialCoverageSvg from './images/Special_Coverage.svg';
+import PropertySvg from './images/Property.svg';
 
 
 import axios from 'axios';
 
 // Child Component
-const Child = ({ name, content, renderIcon }) => {
+const Child = ({ name, section, renderIcon }) => {
+
   const { setSectionName } = useSectionContext();
 
+  console.log(name);
+
   const handleClick = () => {
+
     setSectionName(name);
+
   };
 
-  return (
-    <button onClick={handleClick}>
-      <div className="separator">{renderIcon}</div>
-      {content}
+  let nameToBeDisplayed = ''
+  let imageToBeDisplayed = ''
 
-    </button>
+  switch (name) {
+
+    case "allRiskSection":
+      nameToBeDisplayed = "All Risk";
+      imageToBeDisplayed = AllRiskSvg
+      break;
+ 
+
+    case "buildingSection":
+      nameToBeDisplayed = "Building";
+      imageToBeDisplayed = PropertySvg;
+      break;
+
+    case "generalConditionsSection":
+      nameToBeDisplayed = "General Conditions";
+      imageToBeDisplayed = CondtionsSvg
+      break;
+ 
+
+    case "personalComputerSection":
+      nameToBeDisplayed = "Personal Computer";
+      imageToBeDisplayed = PersonalComputerSvg
+      break;
+ 
+
+    case "personalAccidentSection":
+      nameToBeDisplayed = "Personal Accident";
+      imageToBeDisplayed = PersonalAccidentSvg
+      break;
+ 
+
+    case "personalLiabilitySection":
+      nameToBeDisplayed = "Personal Liability";
+      imageToBeDisplayed = PersonalLiabilitySvg;
+      break;
+
+    case "specialCoverSection":
+      nameToBeDisplayed = "Special Cover";
+      imageToBeDisplayed = SpecialCoverageSvg;
+      break;
+ 
+
+    case "vehicleSection":
+      nameToBeDisplayed = "Vehicle";
+      imageToBeDisplayed = CarSvg;
+      break;
+
+  }
+
+  return (
+    <>
+    <div className="section-card" onClick={handleClick}>
+      <h2> {nameToBeDisplayed}</h2>
+      <img src={imageToBeDisplayed} ></img>
+      <button> See your coverage </button>
+      <p> Premium: R{section.totalPremiumAmount} </p>
+    </div>
+    </>
+
   );
+
 };
+
+ 
 
 // Helper function to render icons based on sectionKey
 const renderIcon = (sectionKey) => {
@@ -195,6 +267,8 @@ const MyPolicy = () => {
   const {policy } = useSectionContext();
   const { setPolicy } = useSectionContext();
 
+  console.log(policy);
+
   const fetchData = async () => {
     try {
       
@@ -304,102 +378,84 @@ fetchPolicy(polNo);
               <h3>You are Covered for:</h3>
               <div className="cover-layout">
 
-                {/* Render Child components based on conditions */}
-
-
                 {policy.sections.allRiskSection && (
                   <li className="cards-container" key="child-1">
-                    <div className="img-content">
                       <Child
                         name="allRiskSection"
+                        section={sectionName}
                         renderIcon={renderIcon("allRiskSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
 
                 {policy.sections.vehicleSection && (
                   <li className="cards-container" key="child-2">
-                    <div className="img-content">
                       <Child
                         name="vehicleSection"
+                        section={sectionName}
                         renderIcon={renderIcon("vehicleSection")}
                       />
-
-                    </div>
                   </li>
                 )}
                 {policy.sections.contentSection && (
                   <li className="cards-container" key="child-3">
-                    <div className="img-content">
                       <Child
                         name="contentSection"
+                        section={sectionName}
                         renderIcon={renderIcon("contentSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
 
                 {policy.sections.buildingSection && (
                   <li className="cards-container" key="child-4">
-                    <div className="img-content">
                       <Child
                         name="buildingSection"
+                        section={sectionName}
                         renderIcon={renderIcon("buildingSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
                 {policy.sections.personalComputerSection && (
                   <li className="cards-container" key="child-5">
-                    <div className="img-content">
                       <Child
                         name="personalComputerSection"
+                        section={sectionName}
                         renderIcon={renderIcon("personalComputerSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
                 {policy.sections.personalAccidentSection && (
                   <li className="cards-container" key="child-6">
-                    <div className="img-content">
                       <Child
-                        name="personalComputerSection"
-                        renderIcon={renderIcon("personalComputerSection")}
+                        name={"personalAccidentSection"}
+                        section={sectionName}
+                        renderIcon={renderIcon("personalAccidentSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
                 {policy.sections.personalLiabilitySection && (
                   <li className="cards-container" key="child-7">
-                    <div className="img-content">
+                    
                       <Child
-                        name="personalLiabilitySections"
+                        name="personalLiabilitySection"
+                        section={sectionName}
                         renderIcon={renderIcon("personalLiabilitySection")}
                       />
-
-                    </div>
                   </li>
                 )}
                 {policy.sections.specialCoverSection && (
                   <li className="cards-container" key="child-8">
-                    <div className="img-content">
                       <Child
                         name="specialCoverSection"
+                        section={sectionName}
                         renderIcon={renderIcon("specialCoverSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
@@ -453,6 +509,8 @@ fetchPolicy(polNo);
 
       </div>
     </div>
+
+
   );
 };
 

@@ -83,22 +83,26 @@ const PropertySection = ({ PropertyData }) => {
     </div> */}
 
     {PropertyData.risks.map((risk) => (
-      <div key={risk.riskId}>
+      <div key={risk.riskId} className='sectionaMain'>
         <h2>Risk Information</h2>
         <h2> { risk.residentialAddress.line1} </h2>
         <h2> { risk.residentialAddress.line2} </h2>
         <h2> { risk.residentialAddress.line3} </h2>
-        <p>Risk ID: {risk.riskId}</p>
-        <p>Risk Premium Amount: {risk.riskPremiumAmount}</p>
-        <p>Registered Owner: {risk.registeredOwner}</p>
-        <p>Political Riot Premium Amount: {risk.politicalRiotPremiumAmount}</p>
-        <p>Sum Insured Amount: {risk.sumInsuredAmount}</p>
-        <p>Voluntary Excess: {risk.voluntaryExcess}</p>
-        <p>Claim Free Group: {risk.claimFreeGroup}</p>
-        <p>Roof Type: {risk.roofType}</p>
-        <p>Wall Construction: {risk.wallConstruction}</p>
-        <p>Dwelling Type: {risk.dwellingType}</p>
-        <p>Inception Date: {risk.inceptionDate}</p>
+        <div className='sectionCard'>
+          <p>Risk ID: {risk.riskId}</p>
+          <p>Risk Premium Amount: {risk.riskPremiumAmount}</p>
+          <p>Registered Owner: {risk.registeredOwner}</p>
+          <p>Political Riot Premium Amount: {risk.politicalRiotPremiumAmount}</p>
+          <p>Sum Insured Amount: {risk.sumInsuredAmount}</p>
+          <p>Voluntary Excess: {risk.voluntaryExcess}</p>
+          <p>Claim Free Group: {risk.claimFreeGroup}</p>
+          <p>Roof Type: {risk.roofType}</p>
+          <p>Wall Construction: {risk.wallConstruction}</p>
+          <p>Dwelling Type: {risk.dwellingType}</p>
+          <p>Inception Date: {risk.inceptionDate}</p>
+
+          <p>Sum Insured  {risk.premium.sumInsuredAmount}</p>
+        </div>
       </div>
     ))
     }

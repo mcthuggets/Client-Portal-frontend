@@ -25,37 +25,74 @@ import Loading from "./Loading.jsx";
 //images
 import AllRiskSvg from './images/All-Risk.svg';
 import CarSvg from './images/Car.svg';
+import CondtionsSvg from './images/Conditions.svg';
+import PersonalAccidentSvg from './images/Personal-Accident.svg';
+import PersonalComputerSvg from './images/Personal-Computer.svg';
+import PersonalLiabilitySvg from './images/Personal-Liability.svg';
+import SpecialCoverageSvg from './images/Special_Coverage.svg';
+import PropertySvg from './images/Property.svg';
 
 
 
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
+
   const { setSectionName } = useSectionContext();
 
   const handleClick = () => {
     setSectionName(name);
   };
 
+  let nameToBeDisplayed = ''
+  let imageToBeDisplayed = ''
+
+  switch (name) {
+    case "allRiskSection":
+      nameToBeDisplayed = "All Risk";
+      imageToBeDisplayed = AllRiskSvg
+      break;
+  
+    case "buildingSection":
+      nameToBeDisplayed = "Building";
+      imageToBeDisplayed = PropertySvg;
+      break;
+  
+    case "generalConditionsSection":
+      nameToBeDisplayed = "General Conditions";
+      imageToBeDisplayed = CondtionsSvg
+      break;
+  
+    case "personalComputerSection":
+      nameToBeDisplayed = "Personal Computer";
+      imageToBeDisplayed = PersonalComputerSvg
+      break;
+  
+    case "personalAccidentSection":
+      nameToBeDisplayed = "Personal Accident";
+      imageToBeDisplayed = PersonalAccidentSvg
+      break;
+  
+    case "personalLiabilitySection":
+      nameToBeDisplayed = "Personal Liability";
+      imageToBeDisplayed = PersonalLiabilitySvg;
+      break;
+  
+    case "specialCoverSection":
+      nameToBeDisplayed = "Special Cover";
+      imageToBeDisplayed = SpecialCoverageSvg;
+      break;
+  
+    case "vehicleSection":
+      nameToBeDisplayed = "Vehicle";
+      imageToBeDisplayed = CarSvg;
+      break;
+  }
+
   return (
     <>
-    {/* <div className="">
-      <button onClick={handleClick}>
-        
-        <div className="separator">{renderIcon}</div>
-        <p>Premium: R{section.totalPremiumAmount}</p>
-        {section.risks && (
-          <p>
-            {section.risks.length > 1
-              ? `${section.risks.length} risks`
-              : "1 risk"}
-          </p>
-        )}
-      </button>
-    </div> */}
-
     <div className="section-card" onClick={handleClick}>
-      <h2> {name}</h2>
-      <img src={AllRiskSvg}></img>
+      <h2> {nameToBeDisplayed}</h2>
+      <img src={imageToBeDisplayed} ></img>
       <button> See your coverage </button>
       <p> Premium: R{section.totalPremiumAmount} </p>
     </div>
@@ -243,7 +280,7 @@ const MyPolicy = () => {
   const [statusSelector, setStatusSelector] = useState("all");
 
   const [policyData, setPolicyData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // Define the API endpoint URL
   const apiUrl = 'https://localhost:7207/Policy/get-policy/20351588-023';

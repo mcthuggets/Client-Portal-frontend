@@ -844,6 +844,12 @@ const policy = {
         }
       ]
     },
+    "personalAccidentSection": {
+      "risks": [
+        {
+          "risks": null
+        }
+      ]},
     "personalLiabilitySection": {
       "risks": [
         {
@@ -1023,8 +1029,7 @@ const policy = {
           "conditionId": "0001"
         }
       ]
-    },
-    "personalAccidentSection": null
+    }
   },
   "digitalBrokerDetails": null
 }

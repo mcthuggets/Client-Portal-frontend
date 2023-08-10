@@ -36,6 +36,8 @@ const Child = ({ name, section, renderIcon }) => {
 
   const { setSectionName } = useSectionContext();
 
+  console.log(name);
+
   const handleClick = () => {
 
     setSectionName(name);
@@ -94,24 +96,14 @@ const Child = ({ name, section, renderIcon }) => {
 
   }
 
- 
-
   return (
-
     <>
-
     <div className="section-card" onClick={handleClick}>
-
       <h2> {nameToBeDisplayed}</h2>
-
       <img src={imageToBeDisplayed} ></img>
-
       <button> See your coverage </button>
-
       <p> Premium: R{section.totalPremiumAmount} </p>
-
     </div>
-
     </>
 
   );
@@ -274,6 +266,8 @@ const MyPolicy = () => {
   const { _policy } = useSectionContext();
   const { setPolicy } = useSectionContext();
 
+  console.log(policy);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -288,8 +282,6 @@ const MyPolicy = () => {
 
     fetchData();
   }, []);
-
-
 
   useEffect(() => {
     const fetchPolicy = async () => {
@@ -366,109 +358,86 @@ const MyPolicy = () => {
               <h3>You are Covered for:</h3>
               <div className="cover-layout">
 
-                {/* Render Child components based on conditions */}
-
-
                 {policy.sections.allRiskSection && (
                   <li className="cards-container" key="child-1">
-                    <div className="img-content">
                       <Child
                         name="allRiskSection"
+                        section={sectionName}
                         renderIcon={renderIcon("allRiskSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
 
                 {policy.sections.vehicleSection && (
                   <li className="cards-container" key="child-2">
-                    <div className="img-content">
                       <Child
                         name="vehicleSection"
+                        section={sectionName}
                         renderIcon={renderIcon("vehicleSection")}
                       />
-
-                    </div>
                   </li>
                 )}
                 {policy.sections.contentSection && (
                   <li className="cards-container" key="child-3">
-                    <div className="img-content">
                       <Child
                         name="contentSection"
+                        section={sectionName}
                         renderIcon={renderIcon("contentSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
 
                 {policy.sections.buildingSection && (
                   <li className="cards-container" key="child-4">
-                    <div className="img-content">
                       <Child
                         name="buildingSection"
+                        section={sectionName}
                         renderIcon={renderIcon("buildingSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
                 {policy.sections.personalComputerSection &&(
                   <li className="cards-container" key="child-5">
-                    <div className="img-content">
                       <Child
                         name="personalComputerSection"
+                        section={sectionName}
                         renderIcon={renderIcon("personalComputerSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
 {policy.sections.personalAccidentSection &&(
                   <li className="cards-container" key="child-6">
-                    <div className="img-content">
                       <Child
-                        name="personalComputerSection"
-                        renderIcon={renderIcon("personalComputerSection")}
+                        name={"personalAccidentSection"}
+                        section={sectionName}
+                        renderIcon={renderIcon("personalAccidentSection")}
                       />
-
-                    </div>
                   </li>
                 )}
 
 {policy.sections.personalLiabilitySection &&(
                   <li className="cards-container" key="child-7">
-                    <div className="img-content">
+                    
                       <Child
-                        name="personalLiabilitySections"
+                        name="personalLiabilitySection"
+                        section={sectionName}
                         renderIcon={renderIcon("personalLiabilitySection")}
                       />
-
-                    </div>
                   </li>
                 )}
 {policy.sections.specialCoverSection &&(
                   <li className="cards-container" key="child-8">
-                    <div className="img-content">
                       <Child
                         name="specialCoverSection"
+                        section={sectionName}
                         renderIcon={renderIcon("specialCoverSection")}
                       />
-
-                    </div>
                   </li>
                 )}
-
-
-             
-
-             
 
               </div>
 
@@ -510,6 +479,8 @@ const MyPolicy = () => {
 
       </div>
     </div>
+
+
   );
 };
 

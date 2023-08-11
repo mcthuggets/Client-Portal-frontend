@@ -480,3 +480,28 @@ font-size: 20px;
   border-top-width: 10px;
   width:fit-content;
 }
+
+.arrow-right {
+  display: block;
+  margin: 30px auto;
+  width: 25px;
+  height: 25px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  transform: rotate(135deg);
+}
+
+.gc-card {
+  border: solid 2px black;
+  width: 50%;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.gc-card img{
+  width: 150px !important;
+  height: 150px !important;
+}

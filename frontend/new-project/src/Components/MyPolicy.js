@@ -24,7 +24,7 @@ import PropertySection from "./PolicySections/PropertySection";
 import { SectionProvider } from "./sectionContext";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useSectionContext } from "./sectionContext";
-import policy from "./data";
+//import policy from "./data";
 //images
 import PolicyImg from "./images/PolicyImg.jpg";
 import AllRiskSvg from "./images/All-Risk.svg";
@@ -122,7 +122,7 @@ const renderIcon = (sectionKey) => {
           <p className="cheading">Property</p>
         </>
       );
-    case "contentSection":
+    case 'contentSection':
       return (
         <>
           <FaBlender className="icon" />
@@ -179,7 +179,7 @@ const renderIcon = (sectionKey) => {
 // SectionParent Component
 const SectionParent = ({ sectionKey }) => {
   const { setSectionName } = useSectionContext();
-
+  const{policy}= useSectionContext();
   const RenderComponentBasedOnCondition = () => {
     switch (sectionKey) {
       case "vehicleSection":
@@ -250,42 +250,67 @@ const MyPolicyShell = () => {
 
 // MyPolicy Component
 const MyPolicy = () => {
-  const [policyNo, setPolicyNo] = useState([]);
+
+  const [policyNo, setPolicyNo] = useState("054");
   const [policies, setPolicies] = useState([]);
   const [filteredPolicies, setFilteredPolicies] = useState([]);
   const [statusSelector, setStatusSelector] = useState("all");
   const { sectionName } = useSectionContext();
-  const { _policy } = useSectionContext();
+  const {setSectionName}=useSectionContext();
+  const {policy } = useSectionContext();
   const { setPolicy } = useSectionContext();
 
   console.log(policy);
 
+  const fetchData = async () => {
+    try {
+      
+      const response = await axios.get('https://localhost:7207/Policy/get-policyList/8910265098089');
+      setPolicies(response.data);
+
+    
+      setFilteredPolicies(response.data);
+      
+
+    } catch (error) {
+
+    }
+  };
+
+
+  const fetchPolicy = async (polNo) => {
+    try {
+      setSectionName("Loading");
+      console.log("Fetching Policy", polNo);
+      const response = await axios.get(`https://localhost:7207/Policy/get-policy/20351588-${polNo}`);
+      
+      setPolicy(response.data);
+  
+      console.log("Finished fetching policy");
+      
+      setSectionName("Policy");
+    } catch (error) {
+      console.error("Error fetching policy:", error);
+      setSectionName("Error");
+    }
+  };
+
+  const changePolicy = (polNo) => {
+  
+fetchPolicy(polNo);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://localhost:7207/Policy/get-policyList/8910265098089"
-        );
-        setPolicies(response.data);
-        setFilteredPolicies(response.data);
-      } catch (error) {}
-    };
 
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchPolicy = async () => {
-      try {
-        const response = await axios.get(
-          "https://localhost:7207/Policy/get-policy/20351588-054"
-        );
-        setPolicy(response.data);
-        //set section name back to policy
-      } catch (error) {}
-    };
-    fetchPolicy();
-  }, []);
+
+
+
+
+
+
 
   const handleStatusChange = (event) => {
     const selectedStatus = event.target.value;
@@ -318,32 +343,27 @@ const MyPolicy = () => {
                     />
 
                     <span key={policy.id}>
-                      <p className="top">{policy.policyNumber}</p>
-                      <h1 className="top-left">Policy Information</h1>
+                    
+
+                      <h1 className="top-left"> Policy Information</h1>
                       <div className="text-container">
                         <div>
                           <p>Policy Holder:</p>
-                          <p>
-                            {policy.client.firstName}{" "}
-                            {policy.client.surnameOnId}
-                          </p>
-                        </div>
-                        <div>
-                          <p>Total Premium:</p>
-                          <p>R{_policy.id}</p>
-                        </div>
-                        <div>
-                          <p>Policy start:</p>
-                          <p>{policy.policyStart}</p>
-                        </div>
-                        <div>
-                          <p>Intermediary fee:</p>
-                          <p>R{policy.intermediaryFee}</p>
+                          <h2>Policy Details</h2>
+                          <p><strong>ID:</strong> {policy.id}</p>
+                          <p><strong>Status:</strong> {policy.status}</p>
+                          <p><strong>Product:</strong> {policy.premiumCollection.product}</p>
+                          <p><strong>First Inception Date:</strong> {policy.firstInceptionDate}</p>
+                          <p><strong>Effective Date:</strong> {policy.effectiveDate}</p>
+                          <p><strong>Renewal Date:</strong> {policy.renewalDate}</p>
+                          <p><strong>Period:</strong> {policy.period}</p>
+                          <p><strong>Renewal Period:</strong> {policy.renewalPeriod}</p>
+                          <p><strong>Policy Fee:</strong> {policy.policyFee}</p>
+                          <p><strong>Broker Fee:</strong> {policy.brokerFee}</p>
+                          <p><strong>Commission:</strong> {policy.commission}</p>
                         </div>
                       </div>
-
                       <hr />
-
                       <button style={{ margin: "5px" }}>Documents</button>
                     </span>
                   </div>
@@ -443,9 +463,14 @@ const MyPolicy = () => {
             </div>
           ) : (
             <div>
-              <SectionParent sectionKey={sectionName} />
+
+{sectionName === "Loading"?
+
+  <h1>loading</h1>:
+              <SectionParent sectionKey={sectionName} /> 
+              }
             </div>
-          )}
+          )} 
         </div>
       </div>
 
@@ -466,9 +491,8 @@ const MyPolicy = () => {
             <ul className="policy">
               {filteredPolicies.map((policy) => (
                 <li key={policy.id}>
-                  <button>
-                    Pno:{policy.id}-{policy.status}
-                  </button>
+                  <button onClick={() => changePolicy(policy.id)}>Pno:{policy.id}-{policy.status}</button>
+                        
                 </li>
               ))}
             </ul>

@@ -1,9 +1,10 @@
-import Main from "./Components/Main";
+import Login from "./Components/Login";
+// import Main from "./Components/Main";
 
 function App() {
   return (
     <>
-      <Main />
+      <Login   />
     </>
   );
 }

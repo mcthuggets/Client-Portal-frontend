@@ -8,7 +8,7 @@ const Login = () => {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    // You can add your logic to validate the ID number here
+
 
     // If ID number is valid, show OTP input
     setShowOTP(true);

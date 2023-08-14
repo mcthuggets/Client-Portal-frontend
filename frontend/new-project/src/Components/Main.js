@@ -8,6 +8,7 @@ import Payments from "./Payments";
 import Claims from "./Claims";
 import MyPolicy from "./MyPolicy";
 import Property from "./SubComponents/Property";
+import Login from "./Login";
 
 const Main = () => {
   return (

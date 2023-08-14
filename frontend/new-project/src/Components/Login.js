@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import { FaRegUser } from "react-icons/fa";
 import LoginBackground from "../Components/images/loginBackground.png";
 import "../Css/Login.css";
 
 const Login = () => {
-  const [showOTP, setShowOTP] = useState(false); // State to manage OTP input visibility
+  const [showOTP, setShowOTP] = useState(false); 
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
-
-    // If ID number is valid, show OTP input
     setShowOTP(true);
   };
 
@@ -33,18 +29,17 @@ const Login = () => {
             </div>
           )}
 
-          {!showOTP && ( // Conditionally render ID input
+          {!showOTP && ( 
             <div className="input-container">
               <input className="textbox" type="text" placeholder="ID Number" />
             </div>
           )}
 
-          {showOTP ? ( // If OTP input is shown, display SIGN IN button
+          {showOTP ? ( 
             <button type="submit" className="btnContinue">
               SIGN IN
             </button>
           ) : (
-            // Otherwise, display button to show OTP input
             <button
               type="button"
               className="btnContinue"

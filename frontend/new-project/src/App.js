@@ -4,8 +4,8 @@ import Main from "./Components/Main";
 function App() {
   return (
     <>
-      <Main   />
-      {/* <Login/> */}
+      {/* <Main   /> */}
+      <Login/>
     </>
   );
 }

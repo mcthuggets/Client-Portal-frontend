@@ -1,30 +1,34 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Layout from "./Layout";
-import Dashboard from "./Dashboard";
-import Policy from "./Policy";
-import ClientDetails from "./ClientDetails";
-import Payments from "./Payments";
-import Claims from "./Claims";
-import MyPolicy from "./MyPolicy";
-import Property from "./SubComponents/Property";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-const Main = () => {
+// Import your components
+import Layout from './Layout';
+import Dashboard from './Dashboard';
+import Policy from './Policy';
+import MyPolicy from './MyPolicy';
+import ClientDetails from './ClientDetails';
+import Payments from './Payments';
+import Claims from './Claims';
+import Login from './Login'; // Import your Login component
+
+function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/policy" element={<Policy />} />
-          <Route path="/policy/policies" element={<MyPolicy />} />
-          <Route path="/policy/clientdetails" element={<ClientDetails />} />
-          <Route path="/policy/payments" element={<Payments />} />
-          <Route path="/policy/claims" element={<Claims />} />
-          <Route path="/policy/property" element={<Property />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="policy">
+            <Route index element={<Policy />} />
+            <Route path="policies" element={<MyPolicy />} />
+            <Route path="clientdetails" element={<ClientDetails />} />
+            <Route path="payments" element={<Payments />} />
+            <Route path="claims" element={<Claims />} />
+          </Route>
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </Router>
   );
-};
+}
 
-export default Main;
+export default App;

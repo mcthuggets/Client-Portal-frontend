@@ -35,8 +35,10 @@ import PersonalComputerSvg from "./images/Personal-Computer.svg";
 import PersonalLiabilitySvg from "./images/Personal-Liability.svg";
 import SpecialCoverageSvg from "./images/Special_Coverage.svg";
 import PropertySvg from "./images/Property.svg";
-
+//axios
 import axios from "axios";
+//component imports
+import Loading from "./Loading";
 
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
@@ -451,6 +453,7 @@ fetchPolicy(polNo);
                 )}
               </div>
 
+              <div className="policy-other-cards">
               <div >
                 {policy.sections.generalConditionsSection && (
                     <div className="gc-card">
@@ -460,13 +463,25 @@ fetchPolicy(polNo);
                     </div>
                   )}
               </div>
+
+              <div >
+                {policy.sections.generalConditionsSection && (
+                  
+                    <div className="gc-card">
+                      <h2> General Conditions </h2>
+                      <img src={CondtionsSvg}></img>
+                      <div className="arrow-right"> </div>
+                    </div>
+                  )}
+              </div>
+              </div>
             </div>
           ) : (
             <div>
 
 {sectionName === "Loading"?
 
-  <h1>loading</h1>:
+  <Loading />:
               <SectionParent sectionKey={sectionName} /> 
               }
             </div>

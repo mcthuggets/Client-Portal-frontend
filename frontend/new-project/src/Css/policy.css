@@ -493,15 +493,25 @@ font-size: 20px;
 
 .gc-card {
   border: solid 2px black;
+  border-radius: 4px;
   width: 50%;
   height: 250px;
+  padding: 8px;
+  margin: 4px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  
+  justify-items: center;
 }
 
 .gc-card img{
   width: 150px !important;
   height: 150px !important;
+}
+
+.policy-other-cards {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

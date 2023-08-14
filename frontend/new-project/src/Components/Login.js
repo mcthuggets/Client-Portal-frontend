@@ -1,139 +1,98 @@
 import React, { useState } from "react";
-import { FaRegUser } from "react-icons/fa";
-import LoginBackground from "../Components/loginBackground.png";
+import LoginBackground from "../Components/images/loginBackground.png";
 import "../Css/Login.css";
 import axios from "axios";
 
-const Login = (props) => {
-  const [email, setEmail] = useState("");
-  const [idNumber, setIdNumber] = useState("");
-  const [otp, setOtp] = useState("");
-  const [showOtpInput, setShowOtpInput] = useState(false);
-  const [verificationMessage, setVerificationMessage] = useState("");
+const Login = () => {
 
-  // Disable the "Continue" button until both ID Number and Email are entered
-  const isContinueDisabled = !idNumber || !email;
+  const [showOTP, setShowOTP] = useState(false); 
+  
+  const [idNumber, setIdNumber] = useState(null);
+  const [otp, setOTP] = useState(null);
 
-  const handleLogin = async (e) => {
+  const sendIdNumber = (e) => {
     e.preventDefault();
+    setShowOTP(true);
+    console.log(idNumber);
 
-    // Reset the verification message to clear any previous error messages
-    setVerificationMessage("");
+    axios.post('https://localhost:7207/OTP/generate-otp', {
+        // Replace with the appropriate data you want to send in the request body
+        idNumber: idNumber,
+      })
+      .then((response) => {
+        console.log('OTP generated:', response.data);
 
-    // Only proceed if both ID Number and Email are entered
-    if (!idNumber || !email) {
-      setVerificationMessage("Please enter ID Number and Email.");
-      return;
+        // You can do something with the OTP response here, e.g., store it in state
+        // or display it on the UI.
+      })
+      .catch((error) => {
+        console.error('Error generating OTP:', error);
+        // Handle the error appropriately, e.g., show an error message to the user.
+      });
+  }
+
+  const verifyOTP = (e) => {
+    e.preventDefault()
+
+    const apiUrl = 'https://localhost:7207/OTP/verify-otp';
+
+    const data = {
+      otp: otp,
+      idNumber: idNumber
+    };
+
+    console.log(data);
+
+    axios.post(apiUrl, data)
+      .then(response => {
+        console.log('Response:', response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+        console.log(otp);
     }
-
-    try {
-      // Send the username to the server to request OTP
-      const response = await axios.post(
-        "http://localhost:4000/users/register",
-        {
-          email,
-          idNumber,
-        }
-      );
-
-      // Display the server's response message (e.g., "OTP sent successfully")
-      setVerificationMessage(response.data.message);
-      setShowOtpInput(true);
-    } catch (error) {
-      console.error("OTP request error:", error);
-      setVerificationMessage("Error requesting OTP. Please try again later.");
-    }
-  };
-
-  const handleVerifyOTP = async (e) => {
-    e.preventDefault();
-
-    try {
-      // Send the OTP to the server for verification
-      const response = await axios.post(
-        "http://localhost:4000/users/verify-otp",
-        {
-          otp,
-        }
-      );
-
-      // Display the server's response message (e.g., "OTP verification successful")
-      setVerificationMessage(response.data.message);
-
-      if (response.data.verified) {
-        // If OTP verification is successful, proceed with login
-        props.onLogin(response.data.token); // Invoke onLogin with the authentication token
-        setShowOtpInput(false); // Hide the OTP input after successful login
-      }
-    } catch (error) {
-      console.error("OTP verification error:", error);
-      setVerificationMessage("Invalid OTP. Please try again.");
-    }
-  };
 
   return (
-    <div className="center">
-      <div className="befline"></div>
-      <form
-        className="username-form"
-        onSubmit={showOtpInput ? handleVerifyOTP : handleLogin}
-      >
-        <img
-          className="login-container"
-          src={LoginBackground}
-          alt="Login Background"
-        />
-
-        <p className="Sign">Sign in to your account</p>
-
-        <div className="input-container">
-          <input
-            className="textbox"
-            type="text"
-            placeholder="ID Number"
-            value={idNumber}
-            onChange={(e) => setIdNumber(e.target.value)}
-            disabled={showOtpInput}
+    <div className="body">
+      <div className="center">
+        <div className="befline"></div>
+        <form className="username-form">
+          <img
+            className="login-container"
+            src={LoginBackground}
+            alt="Login Background"
           />
-          <input
-            className="textbox"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            disabled={showOtpInput}
-          />
-          <FaRegUser className="icon fas fa-user"></FaRegUser>
-        </div>
 
-        {showOtpInput && (
-          <div className="input-container">
-            <input
-              className="textbox"
-              type="text"
-              placeholder="Enter OTP"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-            />
-          </div>
-        )}
+          <p className="Sign">Sign in to your account</p>
 
-        {verificationMessage && <div>{verificationMessage}</div>}
+          {showOTP && ( // Conditionally render OTP input
+            <div className="input-container">
+              <input className="textbox" type="text" placeholder="Enter OTP" onChange={(e) => setOTP(e.target.value)}/>
+            </div>
+          )}
 
-        {showOtpInput ? (
-          <button type="submit" className="btnContinue">
-            SIGN IN
-          </button>
-        ) : (
-          <button
-            type="submit"
-            className="btnContinue"
-            disabled={isContinueDisabled}
-          >
-            Continue
-          </button>
-        )}
-      </form>
+          {!showOTP && ( 
+            <div className="input-container">
+              <input className="textbox" type="text" placeholder="ID Number" onChange={(e) => setIdNumber(e.target.value)}/>
+            </div>
+          )}
+
+          {showOTP ? ( 
+            <button type="submit" className="btnContinue" onClick={verifyOTP}>
+              SIGN IN
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btnContinue"
+              onClick={sendIdNumber}
+            >
+              CONTINUE
+            </button>
+          )}
+        </form>
+      </div>
     </div>
   );
 };

@@ -258,7 +258,7 @@ const MyPolicyShell = () => {
 // MyPolicy Component
 const MyPolicy = () => {
 
-  const [policyNo, setPolicyNo] = useState("054");
+  
   const [policies, setPolicies] = useState([]);
   const [filteredPolicies, setFilteredPolicies] = useState([]);
   const [statusSelector, setStatusSelector] = useState("all");
@@ -272,6 +272,7 @@ const MyPolicy = () => {
   const fetchData = async () => {
     try {
       
+      
       const response = await axios.get('https://localhost:7207/Policy/get-policyList/8910265098089');
       setPolicies(response.data);
 
@@ -280,6 +281,7 @@ const MyPolicy = () => {
       
 
     } catch (error) {
+      console.error("Error fetching policy list:", error);
 
     }
   };
@@ -320,6 +322,7 @@ fetchPolicy(polNo);
 
 
   const handleStatusChange = (event) => {
+
     const selectedStatus = event.target.value;
     setStatusSelector(selectedStatus);
 
@@ -353,8 +356,6 @@ fetchPolicy(polNo);
                       <h1 className="top-left"> Policy Information</h1>
                       <div className="text-container">
                         <div>
-                          <p>Policy Holder:</p>
-                          <h2>Policy Details</h2>
                           <p><strong>ID:</strong> {policy.id}</p>
                           <p><strong>Status:</strong> {policy.status}</p>
                           <p><strong>Product:</strong> {policy.premiumCollection.product}</p>
@@ -363,9 +364,7 @@ fetchPolicy(polNo);
                           <p><strong>Renewal Date:</strong> {policy.renewalDate}</p>
                           <p><strong>Period:</strong> {policy.period}</p>
                           <p><strong>Renewal Period:</strong> {policy.renewalPeriod}</p>
-                          <p><strong>Policy Fee:</strong> {policy.policyFee}</p>
-                          <p><strong>Broker Fee:</strong> {policy.brokerFee}</p>
-                          <p><strong>Commission:</strong> {policy.commission}</p>
+                          <p><strong>Premium:</strong> {policy.premiumCollection.futureMonthlyPremium}</p>
                         </div>
                       </div>
                       <hr />

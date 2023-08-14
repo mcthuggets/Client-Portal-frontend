@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
 import ClientDetails from './ClientDetails';
 import Payments from './Payments';
+import Login from './Login'
 import Claims from './Claims';
 import '../Css/Sidebar.css';
 import MyPolicy from './MyPolicy';
@@ -36,6 +37,7 @@ const Policy = () => {
           <Route path="/payments" element={<Payments />} />
           <Route path="/claims" element={<Claims />} />
           <Route path='./property' element={<Property/>}/>
+          <Route path='./login' element={<Property/>}/>
         </Routes>
       </div>
     </div>

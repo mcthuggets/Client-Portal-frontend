@@ -29,21 +29,13 @@ const Login = () => {
 
           {showOTP && ( // Conditionally render OTP input
             <div className="input-container">
-              <input
-                className="textbox"
-                type="text"
-                placeholder="Enter OTP"
-              />
+              <input className="textbox" type="text" placeholder="Enter OTP" />
             </div>
           )}
 
           {!showOTP && ( // Conditionally render ID input
             <div className="input-container">
-              <input
-                className="textbox"
-                type="text"
-                placeholder="ID Number"
-              />
+              <input className="textbox" type="text" placeholder="ID Number" />
             </div>
           )}
 
@@ -51,13 +43,14 @@ const Login = () => {
             <button type="submit" className="btnContinue">
               SIGN IN
             </button>
-          ) : ( // Otherwise, display button to show OTP input
+          ) : (
+            // Otherwise, display button to show OTP input
             <button
               type="button"
               className="btnContinue"
               onClick={handleSignIn}
             >
-              SHOW OTP
+              CONTINUE
             </button>
           )}
         </form>

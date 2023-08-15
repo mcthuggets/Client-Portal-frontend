@@ -67,8 +67,12 @@ Cookies.remove();
     });
   
       
-    }
 
+  }
+  
+  const skipAuth = () => {
+    window.location.href = 'http://www.localhost:3000/policies';
+  }
   return (
     <div className="body">
       <div className="center">
@@ -108,6 +112,8 @@ Cookies.remove();
             </button>
           )}
         </form>
+
+        <button onClick={skipAuth}> Skip auth </button>
       </div>
     </div>
   );

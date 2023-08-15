@@ -48,7 +48,6 @@ background-color: rgba(234, 236, 251, 0.658);
 
 .card-content{
   width: 100%;
-  
 }
 
   
@@ -494,24 +493,49 @@ font-size: 20px;
 .gc-card {
   border: solid 2px black;
   border-radius: 4px;
-  width: 50%;
+  width: 400px;
   height: 250px;
-  padding: 8px;
-  margin: 4px;
+  padding: 16px;
+  margin: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-items: center;
+  justify-content: center; /* Changed from justify-items */
+  background-color: white;
 }
 
-.gc-card img{
+.gc-card:hover {
+  transform: translateY(-4px);
+  border: solid 2px black;
+  border-radius: 4px;
+  width: 400px;
+  height: 250px;
+  padding: 16px;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Changed from justify-items */
+  background-color: white;
+}
+
+.gc-card img {
   width: 150px !important;
   height: 150px !important;
+  margin: 4px;
 }
 
 .policy-other-cards {
-  display: block;
+  display: flex; /* Use flex to display items side by side */
   justify-content: center;
-  align-items: center;
   width: 100%;
+  margin-top: 16px;
+  background-color: #0055ff2d;
+}
+
+
+.pc-item {
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 8px;
 }

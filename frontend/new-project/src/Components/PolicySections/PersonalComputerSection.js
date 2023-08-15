@@ -3,6 +3,9 @@ import './vehicle.css';
 import PersonalComputerImage from '../images/PersonalComputerSection.jpg'
 
 const PersonalComputer = ({ PersonalComputerData }) => {
+
+  console.log(PersonalComputerData);
+
   return (
     <>
     <div className="card">
@@ -15,7 +18,7 @@ const PersonalComputer = ({ PersonalComputerData }) => {
         />
 
         <span>
-          <h1 className="top-left">All Risk Coverage</h1>
+          <h1 className="top-left"> Personal Computer Coverage </h1>
           <div className="text-container">
             <div>
               <p>Policy Holder:</p>
@@ -43,38 +46,34 @@ const PersonalComputer = ({ PersonalComputerData }) => {
         </div>
     </div>
 
-    <div className="sectionMain">
-      {PersonalComputerData.risks.map((risk) => (
-        <div key={risk.riskId} className="sectionCard">
-          <h2>{risk.Address}</h2>
-          
-          <p>
-           {risk.buildingType}
-          </p>
-          <p>
-            <strong>Type of Cover:</strong> {risk.typeOfCover}
-          </p>
-          <p>
-            <strong>Premium:</strong> {risk.premium}
-          </p>
-          <p>
-            <strong>Sum Insured:</strong> {risk.sumInsured}
-          </p>
-          <p>
-            <strong>Excess:</strong> {risk.Excess}
-          </p>
-          <div className="premium-detailsChild">
-            <p>
-              <strong>SASRIAPremium:</strong> R{risk.SASRIAPremium}
-            </p>
-            <p>
-              <strong>BrokerFee:</strong> R{risk.BrokerFee}
-            </p>
-          </div>
-        </div>
 
-      ))}
-    </div>
+    <div className='sectionMain'>
+      {PersonalComputerData.risks.map((risk) => (
+          <div key={risk.riskId}>
+            <h2>Risk ID: {risk.riskId}</h2>
+            {risk.riskExcess.items.map((excessItem) => (
+              <div key={excessItem.id}>
+                <p>Description: {excessItem.description}</p>
+                <p>Excess: R {excessItem.minimumAmount}</p>
+              </div>
+            ))}
+            <p>Sum Insured : R {risk.premium.sumInsuredAmount}</p>
+            <p>Total Premium : R {risk.totalPremiumAmount}</p>
+
+            {risk.items.map((item) => (
+              <div className='pc-item' key={item.itemId}>
+                <h3>Description: {item.description}</h3>
+                { item.modelAndSerial ? <h4> {item.modelAndSerial}</h4> : <div />}
+                <p>Item ID: {item.itemId}</p>
+                <p>Component: {item.component.description}</p>
+                <p>Rate Code: {item.rateCode}</p>
+                <p>Premium Amount: {item.premiumAmount}</p>
+                <p>Inception Date: {item.inceptionDate}</p>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </>
   );
 };

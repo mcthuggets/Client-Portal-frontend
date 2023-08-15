@@ -31,24 +31,24 @@ import PolicyImg from "./images/PolicyImg.jpg";
 import AllRiskSvg from "./images/All-Risk.svg";
 import CarSvg from "./images/Car.svg";
 import CondtionsSvg from "./images/Conditions.svg";
+import ContentsSvg from "./images/Contents.svg";
 import PersonalAccidentSvg from "./images/Personal-Accident.svg";
 import PersonalComputerSvg from "./images/Personal-Computer.svg";
 import PersonalLiabilitySvg from "./images/Personal-Liability.svg";
 import SpecialCoverageSvg from "./images/Special_Coverage.svg";
 import PropertySvg from "./images/Property.svg";
+import PaymentsSvg from "./images/Payments.svg"
 //axios
 import axios from "axios";
 //component imports
 import Loading from "./Loading";
+import Sidebar from "./Sidebar";
 
-
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();
-
-
 
   const handleClick = () => {
     setSectionName(name);
@@ -66,6 +66,11 @@ const Child = ({ name, section, renderIcon }) => {
     case "buildingSection":
       nameToBeDisplayed = "Building";
       imageToBeDisplayed = PropertySvg;
+      break;
+
+    case "contentSection":
+      nameToBeDisplayed = "Contents";
+      imageToBeDisplayed = ContentsSvg;
       break;
 
     case "generalConditionsSection":
@@ -128,7 +133,7 @@ const renderIcon = (sectionKey) => {
           <p className="cheading">Property</p>
         </>
       );
-    case 'contentSection':
+    case "contentSection":
       return (
         <>
           <FaBlender className="icon" />
@@ -185,7 +190,7 @@ const renderIcon = (sectionKey) => {
 // SectionParent Component
 const SectionParent = ({ sectionKey }) => {
   const { setSectionName } = useSectionContext();
-  const{policy}= useSectionContext();
+  const { policy } = useSectionContext();
   const RenderComponentBasedOnCondition = () => {
     switch (sectionKey) {
       case "vehicleSection":
@@ -256,18 +261,13 @@ const MyPolicyShell = () => {
 
 // MyPolicy Component
 const MyPolicy = () => {
-
-  
   const [policies, setPolicies] = useState([]);
   const [filteredPolicies, setFilteredPolicies] = useState([]);
   const [statusSelector, setStatusSelector] = useState("all");
   const { sectionName } = useSectionContext();
-  const {setSectionName}=useSectionContext();
-  const {policy } = useSectionContext();
+  const { setSectionName } = useSectionContext();
+  const { policy } = useSectionContext();
   const { setPolicy } = useSectionContext();
-
- 
-
 
   const fetchPolicy = async (polNo) => {
     try {
@@ -275,15 +275,18 @@ const MyPolicy = () => {
       console.log("Fetching Policy", polNo);
       const config = {
         headers: {
-          Authorization: `Bearer ${Cookies.get("token")}`
-        }
+          Authorization: `Bearer ${Cookies.get("token")}`,
+        },
       };
-      const response = await axios.get(`https://localhost:7207/Policy/get-policy/${polNo}`,config);
-      
+      const response = await axios.get(
+        `https://localhost:7207/Policy/get-policy/${polNo}`,
+        config
+      );
+
       setPolicy(response.data);
-  
+
       console.log("Finished fetching policy");
-      
+
       setSectionName("Policy");
     } catch (error) {
       console.error("Error fetching policy:", error);
@@ -292,28 +295,15 @@ const MyPolicy = () => {
   };
 
   const changePolicy = (polNo) => {
-  
-fetchPolicy(polNo);
+    fetchPolicy(polNo);
   };
 
   useEffect(() => {
-   
-    
-
-
-    setPolicies(JSON.parse(Cookies.get('policies')));
-    setFilteredPolicies(JSON.parse(Cookies.get('policies')));
+    setPolicies(JSON.parse(Cookies.get("policies")));
+    setFilteredPolicies(JSON.parse(Cookies.get("policies")));
   }, []);
 
-
-
-
-
-
-
-
   const handleStatusChange = (event) => {
-
     const selectedStatus = event.target.value;
     setStatusSelector(selectedStatus);
 
@@ -328,7 +318,10 @@ fetchPolicy(polNo);
   };
 
   return (
+    <>
     <div className="app-container">
+      <Sidebar />
+      
       <div className="main-content">
         <div>
           {sectionName === "Policy" ? (
@@ -344,20 +337,41 @@ fetchPolicy(polNo);
                     />
 
                     <span key={policy.id}>
-                    
-
                       <h1 className="top-left"> Policy Information</h1>
                       <div className="text-container">
                         <div>
-                          <p><strong>ID:</strong> {policy.id}</p>
-                          <p><strong>Status:</strong> {policy.status}</p>
-                          <p><strong>Product:</strong> {policy.premiumCollection.product}</p>
-                          <p><strong>First Inception Date:</strong> {policy.firstInceptionDate}</p>
-                          <p><strong>Effective Date:</strong> {policy.effectiveDate}</p>
-                          <p><strong>Renewal Date:</strong> {policy.renewalDate}</p>
-                          <p><strong>Period:</strong> {policy.period}</p>
-                          <p><strong>Renewal Period:</strong> {policy.renewalPeriod}</p>
-                          <p><strong>Premium:</strong> {policy.premiumCollection.futureMonthlyPremium}</p>
+                          <p>
+                            <strong>ID:</strong> {policy.id}
+                          </p>
+                          <p>
+                            <strong>Status:</strong> {policy.status}
+                          </p>
+                          <p>
+                            <strong>Product:</strong>{" "}
+                            {policy.premiumCollection.product}
+                          </p>
+                          <p>
+                            <strong>First Inception Date:</strong>{" "}
+                            {policy.firstInceptionDate}
+                          </p>
+                          <p>
+                            <strong>Effective Date:</strong>{" "}
+                            {policy.effectiveDate}
+                          </p>
+                          <p>
+                            <strong>Renewal Date:</strong> {policy.renewalDate}
+                          </p>
+                          <p>
+                            <strong>Period:</strong> {policy.period}
+                          </p>
+                          <p>
+                            <strong>Renewal Period:</strong>{" "}
+                            {policy.renewalPeriod}
+                          </p>
+                          <p>
+                            <strong>Premium:</strong>{" "}
+                            {policy.premiumCollection.futureMonthlyPremium}
+                          </p>
                         </div>
                       </div>
                       <hr />
@@ -449,38 +463,36 @@ fetchPolicy(polNo);
               </div>
 
               <div className="policy-other-cards">
-              <div >
-                {policy.sections.generalConditionsSection && (
+                
+                  {policy.sections.generalConditionsSection && (
                     <div className="gc-card">
                       <h2> General Conditions </h2>
                       <img src={CondtionsSvg}></img>
                       <div className="arrow-right"> </div>
                     </div>
                   )}
-              </div>
+                
 
-              <div >
-                {policy.sections.generalConditionsSection && (
-                  
+                
+                  {policy.sections.generalConditionsSection && (
                     <div className="gc-card">
-                      <h2> General Conditions </h2>
-                      <img src={CondtionsSvg}></img>
+                      <h2> Payment </h2>
+                      <img src={PaymentsSvg}></img>
                       <div className="arrow-right"> </div>
                     </div>
                   )}
-              </div>
+                
               </div>
             </div>
           ) : (
             <div>
-
-{sectionName === "Loading"?
-
-  <Loading />:
-              <SectionParent sectionKey={sectionName} /> 
-              }
+              {sectionName === "Loading" ? (
+                <Loading />
+              ) : (
+                <SectionParent sectionKey={sectionName} />
+              )}
             </div>
-          )} 
+          )}
         </div>
       </div>
 
@@ -501,8 +513,9 @@ fetchPolicy(polNo);
             <ul className="policy">
               {filteredPolicies.map((policy) => (
                 <li key={policy.id}>
-                  <button onClick={() => changePolicy(policy.id)}>Pno:{policy.id}-{policy.status}</button>
-                        
+                  <button onClick={() => changePolicy(policy.id)}>
+                    Pno:{policy.id}-{policy.status}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -510,6 +523,7 @@ fetchPolicy(polNo);
         </div>
       </div>
     </div>
+    </>
   );
 };
 

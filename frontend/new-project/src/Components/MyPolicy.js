@@ -11,6 +11,7 @@ import {
 } from "react-icons/hi";
 import { FaBlender, FaCarSide } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
+
 //section imports
 import VehicleDisplay from "./PolicySections/VehicleSection";
 import PersonalLiabilityDisplay from "./PolicySections/PersonalLiabilityDisplay";
@@ -40,11 +41,14 @@ import axios from "axios";
 //component imports
 import Loading from "./Loading";
 
+
+import Cookies from 'js-cookie';
+
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();
 
-  console.log(name);
+
 
   const handleClick = () => {
     setSectionName(name);
@@ -262,31 +266,19 @@ const MyPolicy = () => {
   const {policy } = useSectionContext();
   const { setPolicy } = useSectionContext();
 
-  console.log(policy);
-
-  const fetchData = async () => {
-    try {
-      
-      
-      const response = await axios.get('https://localhost:7207/Policy/get-policyList/8910265098089');
-      setPolicies(response.data);
-
-    
-      setFilteredPolicies(response.data);
-      
-
-    } catch (error) {
-      console.error("Error fetching policy list:", error);
-
-    }
-  };
+ 
 
 
   const fetchPolicy = async (polNo) => {
     try {
       setSectionName("Loading");
       console.log("Fetching Policy", polNo);
-      const response = await axios.get(`https://localhost:7207/Policy/get-policy/20351588-${polNo}`);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("token")}`
+        }
+      };
+      const response = await axios.get(`https://localhost:7207/Policy/get-policy/${polNo}`,config);
       
       setPolicy(response.data);
   
@@ -305,8 +297,12 @@ fetchPolicy(polNo);
   };
 
   useEffect(() => {
+   
+    
 
-    fetchData();
+
+    setPolicies(JSON.parse(Cookies.get('policies')));
+    setFilteredPolicies(JSON.parse(Cookies.get('policies')));
   }, []);
 
 

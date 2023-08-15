@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import Cookies from "js-cookie";
 import LoginBackground from "../Components/images/loginBackground.png";
 import "../Css/Login.css";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 
 const Login = () => {
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const [showOTP, setShowOTP] = useState(false); 
   
@@ -33,7 +36,7 @@ const Login = () => {
 
   const verifyOTP = (e) => {
     e.preventDefault()
-
+Cookies.remove();
     const apiUrl = 'https://localhost:7207/OTP/verify-otp';
 
     const data = {
@@ -42,15 +45,28 @@ const Login = () => {
     };
 
     console.log(data);
-
     axios.post(apiUrl, data)
-      .then(response => {
-        console.log('Response:', response.data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-        console.log(otp);
+    .then(response => {
+      if (response.status === 200) {
+        
+  
+        try {
+          const policiesJson = JSON.stringify(response.data.policies);
+          Cookies.set("token", response.data.token, { expires: 7 });
+          Cookies.set("policies", policiesJson);
+          navigate('/policies');
+        } catch (error) {
+          console.error('Error serializing policies:', error);
+        }
+      } else {
+        console.error(response);
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  
+      
     }
 
   return (

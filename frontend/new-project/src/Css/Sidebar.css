@@ -5,12 +5,19 @@ ul, li {
 }
 
 .sidebar {
-  width: 200px;
+  width: 250px;
   height: max;
   background-color: rgb(230, 231, 237);
   color: rgb(0, 0, 0);
   font-size: 24px;
   align-content: center;
+  padding: 10px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 .sidebar ul li a {
@@ -20,8 +27,12 @@ ul, li {
   padding: 10px;
 }
 
-.sidebar ul li ul {
-  display: none;
+.sidebar ul li {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  margin: 5px;
 }
 
 .sidebar ul li:hover ul {
@@ -36,4 +47,8 @@ ul, li {
     padding: 0px 10px;
     height: 100%;
     width: 100%;
+  }
+
+  .sidebar-icon {
+    margin: 2px;
   }

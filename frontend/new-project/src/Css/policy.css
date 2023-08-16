@@ -132,10 +132,6 @@ transition: transform 0.3s ease;
 }
 
 
-.cover-layout{
-width: 75%;
-}
-
 .cheading{
 font-size: larger;
 }
@@ -420,33 +416,23 @@ font-size: 20px;
 }
 
 .section-card{
-
-  width: 200px;
-
-  border: solid black 2px;
-
+  width: 250px;
+  border: solid black 3px;
   border-radius: 4px;
-
   background-color: white;
-
   margin: 2px;
-
   padding: 8px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
 }
 
  
 
 .section-card:hover{
   transform: translateY(-4px);
-  width: 200px;
-  border: solid black 2px;
+  width: 250px;
+  border: solid black 3px;
   border-radius: 4px;
   background-color: white;
   margin: 2px;
@@ -468,7 +454,7 @@ font-size: 20px;
 .section-card button{
   background-color:rgb(2, 17, 127);
   color: white;
-  border: white 2px solid;
+  border: black 2px solid;
   border-radius: 10px;
   align-items: center;
   height: fit-content;
@@ -476,9 +462,43 @@ font-size: 20px;
   display:block;
   padding: 10px;
   margin: 10px ;
-  border-top-width: 10px;
   width:fit-content;
+  box-shadow: none;
 }
+
+.section-card:hover button{
+  background-color:rgb(2, 17, 127);
+  color: white;
+  border: black 2px solid;
+  border-radius: 10px;
+  align-items: center;
+  height: fit-content;
+  flex-shrink: 0;
+  display:block;
+  padding: 10px;
+  margin: 10px ;
+  width:fit-content;
+  box-shadow: none;
+  box-shadow: 0 8px 20px 0px #7aa6e4;
+}
+
+.section-card-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.section-card-container div{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.valuation-icon {
+  margin: auto;
+}
+
 
 .arrow-right {
   display: block;
@@ -494,7 +514,7 @@ font-size: 20px;
   border: solid 2px black;
   border-radius: 4px;
   width: 400px;
-  height: 250px;
+  height: 200px;
   padding: 16px;
   margin: 20px;
   display: flex;
@@ -509,7 +529,7 @@ font-size: 20px;
   border: solid 2px black;
   border-radius: 4px;
   width: 400px;
-  height: 250px;
+  height: 200px;
   padding: 16px;
   margin: 20px;
   display: flex;

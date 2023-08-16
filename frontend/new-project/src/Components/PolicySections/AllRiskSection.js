@@ -1,6 +1,7 @@
 import React from 'react';
 import './vehicle.css';
 import AllRiskImage from '../images/AllRiskSection.jpg'
+import { RxCheckCircled, RxCrossCircled  } from "react-icons/rx";
 
 
 const calculateTotalPremium = (risks) => {
@@ -64,25 +65,43 @@ const AllRisk = ({ AllRiskData }) => {
 
     </div>
 
-  {/* loop through risks */}
-  {AllRiskData.risks.map((risk) => (
+    {AllRiskData.risks.map((risk) => (
   <div key={risk.riskId} className="sectionMain">
-    <h2>Risk ID: {risk.riskId}</h2>
 
     {/* loop through items */}
-    {risk.items.map((item) => (
-    <div className='sectionCard'>
-      <p> Item ID {item.itemId} </p>
-      <p> Description {item.description} </p>
-      <p> Inception Date {item.inceptionDate} </p>
-      <p> Premium {item.premiumAmount} </p>
-      <p> Sum insured {item.sumInsuredAmount} </p>
+    {risk.items.map((item) => {
+      const inceptionDate = new Date(item.inceptionDate);
+      const formattedInceptionDate = `${inceptionDate.getFullYear()}-${(inceptionDate.getMonth() + 1).toString().padStart(2, '0')}-${inceptionDate.getDate().toString().padStart(2, '0')}`;
 
-    </div>
-    ))
-    }
+      return (
+        <>
+        <h2> {item.description} </h2>
+
+        <div className='sectionCard section-card-container'>
+            <div className=''>
+              <p> Inception Date: {formattedInceptionDate} </p>
+              <p> Premium : R {item.premiumAmount} </p>
+              <p> Sum insured  : R {item.sumInsuredAmount} </p>
+            </div>
+            <div>
+              { item.isValuationAvailable ? <div>
+                                              <RxCheckCircled className='valuation-icon'/> 
+                                              <p> This item is eligible for valuation</p>
+                                            </div> 
+                                            : 
+                                            <div> 
+                                              <br />
+                                              <RxCrossCircled className='valuation-icon'/>
+                                              <p> This item is not eligible for valuation</p>
+                                            </div>}
+            </div>
+        </div>
+        </>
+      );
+    })}
   </div>
-    ))}
+  ))}
+
     </>
   );
 };

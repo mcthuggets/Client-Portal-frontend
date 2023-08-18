@@ -37,7 +37,7 @@ const VehicleDisplay = ({ vehicleData }) => {
         </div>
       </div>
 
-      <div className="sectionMain">
+      {/* <div className="sectionMain">
         {vehicleData.risks.map((risk) => (
           <div key={risk.riskId} className="sectionCard">
 
@@ -52,7 +52,6 @@ const VehicleDisplay = ({ vehicleData }) => {
               <div className='right-column'>
                 <img src={car} width={'150px'} alt="car" />
               </div>
-{console.log("line 55")}
             </div>
 
             <hr />
@@ -114,7 +113,7 @@ const VehicleDisplay = ({ vehicleData }) => {
            
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

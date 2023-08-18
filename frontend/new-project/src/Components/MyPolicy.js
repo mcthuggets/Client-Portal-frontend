@@ -263,7 +263,6 @@ const MyPolicyShell = () => {
 const MyPolicy = () => {
   const [policies, setPolicies] = useState([]);
   const [filteredPolicies, setFilteredPolicies] = useState([]);
-  const [statusSelector, setStatusSelector] = useState("all");
   const { sectionName } = useSectionContext();
   const { setSectionName } = useSectionContext();
   const { policy } = useSectionContext();
@@ -284,8 +283,8 @@ const MyPolicy = () => {
       );
 
       setPolicy(response.data);
-
-      console.log("Finished fetching policy");
+      console.log(response.data);
+      insurerImageSetter(response.data)
 
       setSectionName("Policy");
     } catch (error) {
@@ -303,19 +302,37 @@ const MyPolicy = () => {
     setFilteredPolicies(JSON.parse(Cookies.get("policies")));
   }, []);
 
-  const handleStatusChange = (event) => {
-    const selectedStatus = event.target.value;
-    setStatusSelector(selectedStatus);
+  //policy list - changes css for selected policy
+  const [selectedItem, setSelectedItem] = useState("");
 
-    if (selectedStatus === "All") {
-      setFilteredPolicies(policies);
-    } else {
-      const filtered = policies.filter(
-        (policy) => policy.status === selectedStatus
-      );
-      setFilteredPolicies(filtered);
-    }
+  function handleSelectedItem(policyId) {
+    setSelectedItem(policyId);
   };
+
+  // selects insurer logo
+  const [insurer, setInsurer] = useState(null)
+
+  function insurerImageSetter(policy) {
+    const product = policy.premiumCollection.product;
+
+    console.log(product);
+
+    // Define a mapping of includes to insurers
+    var includeToInsurer = {
+        "VPM03 Absa Plus": "Absa",
+        "SAN05 Santam Personal Policy": "Santam",
+        "VPM04 Premium Insure": "insurer3",
+        
+    };
+
+    // Check if the product is in the mapping and set the insurer accordingly
+    if (product in includeToInsurer) {
+        setInsurer(includeToInsurer[product]);
+        console.log('hi');
+    } else {
+        // Default case if none of the includes match
+    }
+  }
 
   return (
     <>
@@ -326,6 +343,7 @@ const MyPolicy = () => {
         <div>
           {sectionName === "Policy" ? (
             <div>
+            <h2> {insurer}</h2>
               <div className="main">
                 <div className="card">
                   <div className="card-content">
@@ -337,18 +355,13 @@ const MyPolicy = () => {
                     />
 
                     <span key={policy.id}>
-                      <h1 className="top-left"> Policy Information</h1>
-                      <div className="text-container">
-                        <div>
-                          <p>
-                            <strong>ID:</strong> {policy.id}
-                          </p>
-                          <p>
-                            <strong>Status:</strong> {policy.status}
-                          </p>
-                          <p>
-                            <strong>Product:</strong>{" "}
-                            {policy.premiumCollection.product}
+                      <h1 className="top-left"> {policy.premiumCollection.product} </h1>
+                      <div >
+                        <div className="text-container">
+
+                      
+                          <p className="top">
+                            <strong>ID:</strong> {policy.id} {policy.status}
                           </p>
                           <p>
                             <strong>First Inception Date:</strong>{" "}
@@ -370,7 +383,7 @@ const MyPolicy = () => {
                           </p>
                           <p>
                             <strong>Premium:</strong>{" "}
-                            {policy.premiumCollection.futureMonthlyPremium}
+                            R {policy.premiumCollection.futureMonthlyPremium}
                           </p>
                         </div>
                       </div>
@@ -501,24 +514,25 @@ const MyPolicy = () => {
         <div className="policy-card">
           <h2 style={{ textAlign: "center" }}>Select Policy</h2>
           <div className="separator"></div>
-          <select
-            className="filter"
-            onChange={handleStatusChange}
-            value={statusSelector}
-          >
-            <option value="All">All</option>
-            <option value="Pending">Pending</option>
-          </select>
+          <hr />
+
           <div className="filter">
-            <ul className="policy">
+            <div className="policy">
+            <ul>
               {filteredPolicies.map((policy) => (
-                <li key={policy.id}>
-                  <button onClick={() => changePolicy(policy.id)}>
+                <li key={policy.id}
+                    onClick={ () => handleSelectedItem(policy.id)}
+                    className={`nav-item ${selectedItem === policy.id ? "policy-selected-li" : ""}`}
+                >
+                  <p onClick={() => changePolicy(policy.id)}>
                     Pno:{policy.id}-{policy.status}
-                  </button>
+                  </p>
                 </li>
               ))}
             </ul>
+
+            </div>
+
           </div>
         </div>
       </div>

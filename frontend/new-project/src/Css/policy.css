@@ -27,11 +27,8 @@ background-color: rgba(234, 236, 251, 0.658);
 }
 
 .filter {
-
- 
   max-height: 300px;
   overflow: auto; 
-
   }
 .card {
     border: 2px solid rgb(255, 255, 255);
@@ -58,24 +55,24 @@ background-color: rgba(234, 236, 251, 0.658);
   padding-right: 5px;
 }
  
-  .top-left {
+  /* .top-left {
     position: absolute;
     top: 40px;
     left: 16px;
     font-size: 50px;
     color: #154FBF;
   }
-  
+   */
   .icon{
     font-size: 30px;
   }
-  .top {
+  /* .top {
     position: absolute;
     top: 30px;
     left: 16px;
     font-size: 24px;
   }
-  
+   */
   .policy-img {
     width: 100%;
     height: 10px;
@@ -101,7 +98,7 @@ box-shadow: 0 8px 20px 10px #668cda;
 
 .top-left {
 position: absolute;
-top: 40px;
+top: 10px;
 left: 16px;
 font-size: 50px;
 color: #154FBF;
@@ -109,7 +106,7 @@ color: #154FBF;
 
 .top {
 position: absolute;
-top: 30px;
+top: 70px;
 left: 16px;
 font-size: 24px;
 }
@@ -201,17 +198,44 @@ background-color: #f9f9f9;
 padding: 15px;
 border-radius: 5px;
 margin-bottom: 20px;
+border: solid 2px black;
 }
 
 .filter{
 width: 210px;
-margin-left: 20px;
 font-size: 20px;
+display: flex;
+align-items: flex-start;
 }
 
 .policy{
 color: #154FBF;
 font-size: 20px;
+display: flex;
+align-items: flex-start;
+list-style-type: circle;
+}
+
+.policy ul {
+  list-style-type: circle;
+}
+
+.policy li::marker{
+  background-color: #000;
+}
+.nav-item {
+  cursor: pointer;
+  text-align: center;
+  background-color: none;
+  width: 100%;
+}
+
+.policy-selected-li{
+  list-style-type: disc;
+}
+
+.policy-selected-li::marker{
+  list-style-type: disc;
 }
 
 .vehicle-card {
@@ -416,7 +440,7 @@ font-size: 20px;
 }
 
 .section-card{
-  width: 250px;
+  width: 200px;
   border: solid black 3px;
   border-radius: 4px;
   background-color: white;
@@ -431,7 +455,7 @@ font-size: 20px;
 
 .section-card:hover{
   transform: translateY(-4px);
-  width: 250px;
+  width: 200px;
   border: solid black 3px;
   border-radius: 4px;
   background-color: white;

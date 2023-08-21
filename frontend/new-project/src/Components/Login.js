@@ -70,33 +70,28 @@ Cookies.remove();
 
   }
   
-  const skipAuth = () => {
-    window.location.href = 'http://www.localhost:3000/policies';
-  }
   return (
-    <div className="body">
-      <div className="center">
-        <div className="befline"></div>
-        <form className="username-form">
-          <img
-            className="login-container"
-            src={LoginBackground}
-            alt="Login Background"
-          />
+    <>
+    <div className="login-form">
+      <form>
+        <img
+          className="login-container"
+          src={LoginBackground}
+          alt="Login Background" />
 
-          <p className="Sign">Sign in to your account</p>
+        <p className="sign">Sign in to your account</p>
 
-          {showOTP && ( // Conditionally render OTP input
-            <div className="input-container">
-              <input className="textbox" type="text" placeholder="Enter OTP" onChange={(e) => setOTP(e.target.value)}/>
-            </div>
-          )}
+        {showOTP && ( // Conditionally render OTP input
+          <div className="input-container">
+            <input className="textbox" type="text" placeholder="Enter OTP" onChange={(e) => setOTP(e.target.value)} />
+          </div>
+        )}
 
-          {!showOTP && ( 
-            <div className="input-container">
-              <input className="textbox" type="text" placeholder="ID Number" onChange={(e) => setIdNumber(e.target.value)}/>
-            </div>
-          )}
+        {!showOTP && (
+          <div className="input-container">
+            <input className="textbox" type="text" placeholder="ID Number" onChange={(e) => setIdNumber(e.target.value)} />
+          </div>
+        )}
 
           {showOTP ? ( 
             <button type="submit" className="btnContinue" onClick={verifyOTP}>
@@ -112,10 +107,8 @@ Cookies.remove();
             </button>
           )}
         </form>
-
-        <button onClick={skipAuth}> Skip auth </button>
       </div>
-    </div>
+    </>
   );
 };
 

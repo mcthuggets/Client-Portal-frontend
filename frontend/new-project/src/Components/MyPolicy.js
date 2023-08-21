@@ -286,8 +286,9 @@ const MyPolicy = () => {
       );
 
       setPolicy(response.data.pol);
-      Cookies.set("token", response.data.token, { expires: 7 });      console.log(response.data);
-      insurerImageSetter(response.data)
+      Cookies.set("token", response.data.token, { expires: 7 });      
+      console.log(response.data.pol);
+      insurerImageSetter(response.data.pol)
 
       setSectionName("Policy");
     } catch (error) {

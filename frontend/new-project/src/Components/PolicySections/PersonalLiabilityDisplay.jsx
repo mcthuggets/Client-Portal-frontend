@@ -44,34 +44,28 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
     </div>
       </div>
 
-      {/* <div className='sectionMain'>
-        {liabilityData.risks.map( (risk) => {
-          return(
-            <>
-              <div className='sectionCard'>
-                <h2> {risk.Id} </h2>
-                <p> {risk.description} </p>
-                <p> R {risk.premium.totalPremiumAmount} </p>
-                <p> R {risk.premium.totalSumInsuredAmount} </p>
-
-                {risk.items.map( (item) => { 
-                  return(
-                  <>
-                  <div className='sectionCard-subsection'>
-                    <h2> {item.itemId} </h2>
-                    <p> {item.premiumAmount} </p>
-                  </div>
-                  </>
-                  )
-                  })
-                }
-            
-              </div>
-            </>
-          )
-        })
-        }
-      </div> */}
+      {liabilityData.risks.map((risk) => (
+        <div key={risk.riskId}>
+          <h2>Risk ID: {risk.riskId}</h2>
+          <p>Postal Code: {risk.postalCode}</p>
+          <p>Sum Insured Amount: {risk.sumInsuredAmount}</p>
+          <p>Total Premium Amount: {risk.totalPremiumAmount}</p>
+          <p>Conducting Business From Home: {risk.conductingBusinessFromHome ? 'Yes' : 'No'}</p>
+          <h3>Items:</h3>
+          <ul>
+            {risk.items.map((item) => (
+              <li key={item.itemId}>
+                <p>Item ID: {item.itemId}</p>
+                <p>Rate Code: {item.rateCode.description}</p>
+                <p>Sum Insured Amount: {item.sumInsuredAmount}</p>
+                <p>Premium Amount: {item.premiumAmount}</p>
+                <p>Inception Date: {item.inceptionDate}</p>
+                <p>Description: {item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </>
   );
 };

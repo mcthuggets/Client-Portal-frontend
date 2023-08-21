@@ -70,11 +70,9 @@ Cookies.remove();
 
   }
   
-  const skipAuth = () => {
-    window.location.href = 'http://www.localhost:3000/policies';
-  }
   return (
-    <><div className="login-form">
+    <>
+    <div className="login-form">
       <form>
         <img
           className="login-container"
@@ -95,24 +93,22 @@ Cookies.remove();
           </div>
         )}
 
-        {showOTP ? (
-          <button type="submit" className="btnContinue" onClick={verifyOTP}>
-            SIGN IN
-          </button>
-        ) : (
-          <button
-            type="button"
-            className="btnContinue"
-            onClick={sendIdNumber}
-          >
-            CONTINUE
-          </button>
-        )}
-      </form>
-
-      {/* <button onClick={skipAuth}> Skip auth </button> */}
-    </div></>
- 
+          {showOTP ? ( 
+            <button type="submit" className="btnContinue" onClick={verifyOTP}>
+              SIGN IN
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btnContinue"
+              onClick={sendIdNumber}
+            >
+              CONTINUE
+            </button>
+          )}
+        </form>
+      </div>
+    </>
   );
 };
 

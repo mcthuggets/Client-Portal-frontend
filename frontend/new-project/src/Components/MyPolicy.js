@@ -332,7 +332,6 @@ const MyPolicy = () => {
     // Check if the product is in the mapping and set the insurer accordingly
     if (product in includeToInsurer) {
         setInsurer(includeToInsurer[product]);
-        console.log('hi');
     } else {
         // Default case if none of the includes match
     }

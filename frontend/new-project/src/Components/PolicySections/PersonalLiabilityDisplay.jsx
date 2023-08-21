@@ -44,7 +44,7 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
     </div>
       </div>
 
-      <div className='sectionMain'>
+      {/* <div className='sectionMain'>
         {liabilityData.risks.map( (risk) => {
           return(
             <>
@@ -71,7 +71,7 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
           )
         })
         }
-      </div>
+      </div> */}
     </>
   );
 };

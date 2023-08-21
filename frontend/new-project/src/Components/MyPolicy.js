@@ -283,8 +283,8 @@ const MyPolicy = () => {
         config
       );
 
-      setPolicy(response.data);
-
+      setPolicy(response.data.pol);
+      Cookies.set("token", response.data.token, { expires: 7 });
       console.log("Finished fetching policy");
 
       setSectionName("Policy");

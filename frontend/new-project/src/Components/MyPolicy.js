@@ -14,6 +14,7 @@ import React, { useState, useEffect } from "react";
 
 //section imports
 import VehicleDisplay from "./PolicySections/VehicleSection";
+import ContentsSectionDisplay from "./PolicySections/ContentsDisplay";
 import PersonalLiabilityDisplay from "./PolicySections/PersonalLiabilityDisplay";
 import SpecialCoverDisplay from "./PolicySections/SpecialCoverDisplay";
 import GeneralConditionsDisplay from "./PolicySections/GeneralConditionsDisplay";
@@ -193,6 +194,8 @@ const SectionParent = ({ sectionKey }) => {
   const { policy } = useSectionContext();
   const RenderComponentBasedOnCondition = () => {
     switch (sectionKey) {
+      case "contentSection":
+        return <ContentsSectionDisplay ContentsData={policy.sections.contentSection} />;
       case "vehicleSection":
         return <VehicleDisplay vehicleData={policy.sections.vehicleSection} />;
       case "buildingSection":

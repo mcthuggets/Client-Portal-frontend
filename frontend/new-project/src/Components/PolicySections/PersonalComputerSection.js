@@ -51,12 +51,7 @@ const PersonalComputer = ({ PersonalComputerData }) => {
       {PersonalComputerData.risks.map((risk) => (
           <div key={risk.riskId}>
             <h2>Risk ID: {risk.riskId}</h2>
-            {risk.riskExcess.items.map((excessItem) => (
-              <div key={excessItem.id}>
-                <p>Description: {excessItem.description}</p>
-                <p>Excess: R {excessItem.minimumAmount}</p>
-              </div>
-            ))}
+
             <p>Sum Insured : R {risk.premium.sumInsuredAmount}</p>
             <p>Total Premium : R {risk.totalPremiumAmount}</p>
 

@@ -71,7 +71,8 @@ Cookies.remove();
   }
   
   return (
-    <><div className="login-form">
+    <>
+    <div className="login-form">
       <form>
         <img
           className="login-container"
@@ -107,7 +108,7 @@ Cookies.remove();
           )}
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

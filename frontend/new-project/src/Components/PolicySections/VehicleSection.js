@@ -5,6 +5,7 @@ import car from '../images/Car.svg';
 
 const VehicleDisplay = ({ vehicleData }) => {
 
+  console.log(vehicleData);
 
   const calculateTotalPremium = (risks) => {
     return risks.reduce((total, risk) => total + risk.riskPremiumAmount, 0);
@@ -37,7 +38,7 @@ const VehicleDisplay = ({ vehicleData }) => {
         </div>
       </div>
 
-      {/* <div className="sectionMain">
+      <div className="sectionMain">
         {vehicleData.risks.map((risk) => (
           <div key={risk.riskId} className="sectionCard">
 
@@ -101,19 +102,19 @@ const VehicleDisplay = ({ vehicleData }) => {
               </div>
             </div>
             <h3>Risk Excess Details</h3>
-              {risk.riskExcess.items.map((item) => (
+              {/* {risk.riskExcess.items.map((item) => (
                 <div className='excess-detailsChild' key={item.id}>
                   <p>
                   {item.description} 
                  
                   </p>
                 </div>
-              ))}
+              ))} */}
            
            
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };

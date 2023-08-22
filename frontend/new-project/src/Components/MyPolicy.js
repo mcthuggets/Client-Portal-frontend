@@ -393,10 +393,9 @@ const MyPolicy = () => {
       <Sidebar />
       
       <div className="main-content">
-        <div>
+        <div id="top">
           {sectionName === "Policy" ? (
             <div>
-              <div className="main">
                 <div className="card">
                   <div className="card-content">
 
@@ -454,13 +453,13 @@ const MyPolicy = () => {
                       <button style={{ margin: "5px" }}>Documents</button>
                     </span>
                   </div>
-                </div>
               </div>
 
 
               <br /> 
 
-              <div className="cover-layout">
+              <div  id="section-links" 
+                    className="cover-layout">
                 {policy.sections.allRiskSection && (
                   <li className="cards-container" key="child-1">
                     <Child
@@ -540,7 +539,8 @@ const MyPolicy = () => {
                 )}
               </div>
 
-              <div className="policy-other-cards">
+              <div  id="conditions-and-payments"
+                    className="policy-other-cards">
                 
                   {policy.sections.generalConditionsSection && (
                     <div  className="gc-card"
@@ -604,19 +604,17 @@ const MyPolicy = () => {
             </div>
           </div>
 
-          <div className="policy-card ">
-            <h2 style={{ textAlign: "center" }}>Nav</h2>
+          {  (sectionName == "Policy") ?  <div className="policy-card ">
+            <h3>On this page</h3>
             <div className="separator"></div>
             <hr />
-
-            <div className="filter">
-              <div className="policy">
-              
-
-              </div>
-
-            </div>
-          </div>
+            
+            <a href="#top"> Policy overview </a>
+            <br />
+            <a href="#section-links"> Section links </a>
+            <br />
+            <a href="#conditions-and-payments"> Conditions and payments </a>
+                </div> : <div></div>}
         </div>
       </div>
     </div>

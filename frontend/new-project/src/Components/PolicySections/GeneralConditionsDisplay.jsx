@@ -46,90 +46,26 @@ const GeneralConditionsDisplay = ({ conditionsData }) => {
         </div>
       </div>
 
-      <div className="sectionMain">
-      {conditionsData.risks.map((risk) => (
 
-        <div key={risk.riskId} className="sectionCard">
-
-        {/* section for identifying info and image */}
-
-        <div className='vehicle-head'>
-          <div className='left-column'>
-            <h1 className="item-heading"> {risk.vehicleDetails.makeDescription + ' ' + risk.vehicleDetails.modelDescription} </h1>
-            <br />
-            <h2 className="item-subheading"> {risk.vehicleDetails.yearManufactured}</h2>
-            <h2 className="item-subheading"> {risk.vehicleDetails.registrationNumber}</h2>
-          </div>
-
-          <div className='right-column'>
-            <img src={''} width={'150px'}></img>
-            {/* <FaCarSide height={"250px"} width={'250px'}/> */}
-          </div>
-          
-        </div>
-
-        <hr />
-
-          <h2>{risk.vehicleType} Details</h2>
-          <p>
-            <strong>Make:</strong> {risk.vehicleDetails.makeDescription}
-          </p>
-          <p>
-            <strong>Model:</strong> {risk.vehicleDetails.modelDescription}
-          </p>
-          <p>
-            <strong>Year Manufactured:</strong> {risk.vehicleDetails.yearManufactured}
-          </p>
-          <p>
-            <strong>Registration Number:</strong> {risk.vehicleDetails.registrationNumber}
-          </p>
-          <p>
-            <strong>Owner Name:</strong> {risk.registeredOwner.name}
-          </p>
-          <p>
-            <strong>Owner ID Number:</strong> {risk.registeredOwner.idNumber}
-          </p>
-          <p>
-            <strong>Use Type:</strong> {risk.useType}
-          </p>
-          <p>
-            <strong>Residential Address:</strong> {risk.residentialAddress.line1},{' '}
-            {risk.residentialAddress.line2}, {risk.residentialAddress.line3},{' '}
-            {risk.residentialAddress.line4}, {risk.residentialAddress.postalCodeId}
-          </p>
-          <p>
-            <strong>Sum Insured Type:</strong> {risk.sumInsuredType}
-          </p>
-          <div className="premium-detailsParent">
-          <h3>Premium Details</h3>
-          <div className="premium-detailsChild">
-            <p>
-              <strong>Original Premium:</strong> R{risk.premium.original}
-            </p>
-            <p>
-              <strong>Discounted Premium:</strong> R{risk.premium.discounted}
-            </p>
-            <p>
-              <strong>Nett Premium:</strong> R{risk.premium.nettPremium}
-            </p>
-          </div>
-          </div>
-          <h3>Risk Excess Details</h3>
-          <div className="excess-detailsParent">
-            {risk.riskExcess.items.map((item) => (
-              <div className='excess-detailsChild' key={item.id}>
-                <p>
-                  <strong>{item.description} Excess:</strong> R{item.minimumAmount} to R
-                  {item.maximumAmount} ({item.type === 'Percentage' ? `${item.percentage}%` : 'Fixed'})
-                </p>
-              </div>
+      <div>
+      {conditionsData.conditions.map((condition) => (
+        <div  className='card'
+              key={condition.conditionId}>
+          <h2>Condition ID: {condition.conditionId}</h2>
+          <ul>
+            {condition.items.map((item, index) => (
+              <li key={index}>
+                <h3>Memo Code: {item.memoCode.code}</h3>
+                <p>Description: {item.memoCode.description}</p>
+                <p>Partial Condition Wording: {item.partialConditionWording}</p>
+                <p>Inception Date: {item.inceptionDate}</p>
+                {item.printOnSchedule && <p>Print On Schedule: Yes</p>}
+              </li>
             ))}
-          </div>
-          <hr />
+          </ul>
         </div>
       ))}
     </div>
-
     </>
   );
 };

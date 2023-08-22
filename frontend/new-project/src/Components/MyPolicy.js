@@ -580,7 +580,7 @@ const MyPolicy = () => {
         {/* Policy card */}
         <div className="sticky">
           <div className="policy-card ">
-            <h2 style={{ textAlign: "center" }}>Select Policy</h2>
+            <h2 style={{ textAlign: "center", color:"#1c1fd4" }}>Select Policy</h2>
             <div className="separator"></div>
             <hr />
 

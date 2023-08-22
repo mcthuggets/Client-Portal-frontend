@@ -196,6 +196,12 @@ button{
   margin: 10px ;
   border-top-width: 10px;
   width:fit-content;
+} 
+
+button:active{
+  color: rgb(255, 255, 255);
+background-color: rgb(2, 81, 252) ;
+
 }
 
 
@@ -261,6 +267,12 @@ list-style-type: circle;
 .policy li::marker{
   background-color: #000;
 }
+
+.policy li:active{
+  background-color: rgb(23, 58, 214);
+  color: white;
+}
+
 .nav-item {
   cursor: pointer;
   text-align: center;
@@ -270,6 +282,8 @@ list-style-type: circle;
 
 .policy-selected-li{
   list-style-type: disc;
+  color:rgb(120, 207, 102);
+  width: 100%;
 }
 
 .policy-selected-li::marker{
@@ -477,7 +491,7 @@ list-style-type: circle;
 .section-card{
   width: 200px;
   border: solid black 3px;
-  border-radius: 4px;
+  border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.94);
   margin: 2px;
   padding: 8px;

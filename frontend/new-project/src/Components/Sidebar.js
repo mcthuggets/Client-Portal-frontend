@@ -32,8 +32,8 @@ const Sidebar = () => {
           </li>
           <li>
             <Link to="/">
-              <BiLogOutCircle className="sidebar-icon" />
-              Logout
+              <BiLogOutCircle className="sidebar-icon" />  
+            Logout
             </Link>
           </li>
         </ul>

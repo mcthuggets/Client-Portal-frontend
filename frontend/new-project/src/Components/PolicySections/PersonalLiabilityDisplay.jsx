@@ -16,7 +16,7 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
     />
 
     <span>
-      <h1 className="top-left">Personal Liability Coverage</h1>
+      <h1  style={{backgroundColor:"#0c3b98" ,color:"White"}}  className="top-left">Personal Liability Coverage</h1>
       <div className="text-container">
         <div>
           <p>Policy Holder:</p>
@@ -43,7 +43,7 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
 
     </div>
       </div>
-
+      <div className="sectionCard">
       {liabilityData.risks.map((risk) => (
         <div key={risk.riskId}>
           <h2>Risk ID: {risk.riskId}</h2>
@@ -65,7 +65,7 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
             ))}
           </ul>
         </div>
-      ))}
+      ))}</div>
     </>
   );
 };

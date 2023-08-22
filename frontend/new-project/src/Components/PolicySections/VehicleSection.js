@@ -24,7 +24,7 @@ const VehicleDisplay = ({ vehicleData }) => {
           />
 
           <div>
-            <h1 className="top-left">Vehicle Coverage </h1>
+            <h1  style={{backgroundColor:"#0c3b98" ,color:"White"}} className="top-left">Vehicle Coverage </h1>
             <div className="text-container">
               <div>
                 <p>Total Premium:</p>

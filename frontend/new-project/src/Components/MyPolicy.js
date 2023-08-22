@@ -47,15 +47,16 @@ import AbsaLogo from './images/InsurerLogos/Absa.png'
 import OldMutualLogo from './images/InsurerLogos/Old-Mutual.png'
 import SanlamLogo from './images/InsurerLogos/Sanlam.png'
 import SantamLogo from './images/InsurerLogos/santam.png'
-
-//axios
+// 3rd Party Libraries
 import axios from "axios";
+import Cookies from "js-cookie";
+import PDFDownloadButton from "./Base64PDFDownload";
 //component imports
 import Loading from "./Loading";
 import Sidebar from "./Sidebar";
 
-import Cookies from "js-cookie";
-import PDFDownloadButton from "./Base64PDFDownload";
+
+
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();
@@ -120,7 +121,7 @@ const Child = ({ name, section, renderIcon }) => {
     case "vehicleSection":
       nameToBeDisplayed = "Vehicle";
       imageToBeDisplayed = CarSvg;
-      flavortextToBeDisplayed = "Coverage for your cars, bikes and trucks (but not boats, planes or trains)"
+      flavortextToBeDisplayed = "Coverage for your cars, bikes and trucks."
       break;
   }
 
@@ -362,9 +363,6 @@ const MyPolicy = () => {
 
     const product = policy.premiumCollection.product;
 
-
-    console.log(product);
-
     // Define a mapping of includes to insurers
     var includeToInsurer = {
         "VPM03 Absa Plus": "Absa",
@@ -379,19 +377,14 @@ const MyPolicy = () => {
         setInsurer(includeToInsurer[product]);
         
         if (includeToInsurer[product] === "Absa") {
-          console.log(includeToInsurer[product]);
           setInsurerLogo(AbsaLogo);
         } else if (includeToInsurer[product] === "Santam") {
-          console.log(includeToInsurer[product]);
           setInsurerLogo(SantamLogo);
         } else if (includeToInsurer[product] === "Sanlam") {
-          console.log(includeToInsurer[product]);
           setInsurerLogo(SanlamLogo);
         } else if (includeToInsurer[product] === "Old Mutual") {
-          console.log(includeToInsurer[product]);
           setInsurerLogo(OldMutualLogo);
         } else if (includeToInsurer[product] === "Bryte") {
-          console.log(includeToInsurer[product]);
           setInsurerLogo(BryteLogo);
         } else {
           // Default case if none of the includes match

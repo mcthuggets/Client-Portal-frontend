@@ -35,7 +35,7 @@ const ContentsSectionDisplay = ({ ContentsData }) => {
         />
 
         <span>
-          <h1 className="top-left">Contents Coverage</h1>
+          <h1   style={{backgroundColor:"#0c3b98" ,color:"White"}}  className="top-left">Contents Coverage</h1>
           <div className="text-container">
             <div>
               <p>Policy Holder:</p>
@@ -65,7 +65,7 @@ const ContentsSectionDisplay = ({ ContentsData }) => {
 
     </div>
 
-
+<div className="sectionCard">
     {ContentsData.risks.map((risk) => (
         <div key={risk.riskId} className="content-risk">
           <h2>Risk ID: {risk.riskId}</h2>
@@ -113,7 +113,7 @@ const ContentsSectionDisplay = ({ ContentsData }) => {
 
           <hr />
         </div>
-      ))}
+      ))}</div>
 
     </>
   );

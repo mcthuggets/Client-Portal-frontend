@@ -19,7 +19,7 @@ const SpecialCoverDisplay = ({ coverData }) => {
     />
 
     <span>
-      <h1 className="top-left">Special Coverage</h1>
+      <h1  style={{backgroundColor:"#0c3b98" ,color:"White"}}  className="top-left">Special Coverage</h1>
       <div className="text-container">
         <div>
           <p>Policy Holder:</p>
@@ -46,13 +46,14 @@ const SpecialCoverDisplay = ({ coverData }) => {
 
     </div>
       </div>
-
+<div className="sectionCard">
       {coverData.risks.map((risk) => (
         <div key={risk.riskId}>
           <h2>Risk ID: {risk.riskId}</h2>
           <p>Postal Code: {risk.postalCode}</p>
           <h3>Items:</h3>
           <ul>
+            
             {risk.items.map((item) => (
               <li key={item.itemId}>
                 <p>Item ID: {item.itemId}</p>
@@ -78,6 +79,7 @@ const SpecialCoverDisplay = ({ coverData }) => {
               </li>
             ))}
           </ul>
+          <div className="SubSectionCard">
           <h3>Risk Excess: {risk.riskExcess}</h3>
           <h4>Risk Premium:</h4>
           <p>Original Premium: {risk.premium.original}</p>
@@ -90,8 +92,9 @@ const SpecialCoverDisplay = ({ coverData }) => {
           <p>Sasria Category: {risk.premium.sasriaCategory}</p>
           <p>Sasria Premium: {risk.premium.sasriaPremium}</p>
           <p>Premium Sum Insured Amount: {risk.premium.sumInsuredAmount}</p>
+          </div>
         </div>
-      ))}
+      ))}</div>
 
     </>
   );

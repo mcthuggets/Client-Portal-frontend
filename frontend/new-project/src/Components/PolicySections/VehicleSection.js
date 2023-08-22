@@ -1,7 +1,7 @@
 import React from 'react';
 import './vehicle.css'; // Make sure to import your CSS styles
 import car from '../images/Car.svg';
-
+import Vehicle from '../images/VehicleSection.jpg'
 
 const VehicleDisplay = ({ vehicleData }) => {
 
@@ -13,9 +13,10 @@ const VehicleDisplay = ({ vehicleData }) => {
 
   return (
     <div className="vehicle-display-container">
+
       <div className="card">
         <div className="card-content">
-          <img
+          <img src= {Vehicle}
             className="policy-img"
           
             alt="policy"
@@ -23,7 +24,7 @@ const VehicleDisplay = ({ vehicleData }) => {
           />
 
           <div>
-            <h1 className="top-left">Vehicle Coverage </h1>
+            <h1  style={{backgroundColor:"#0c3b98" ,color:"White"}} className="top-left">Vehicle Coverage </h1>
             <div className="text-container">
               <div>
                 <p>Total Premium:</p>
@@ -37,7 +38,7 @@ const VehicleDisplay = ({ vehicleData }) => {
           <button style={{ margin: "5px" }}>Documents</button>
         </div>
       </div>
-
+    <br/>
       <div className="sectionMain">
         {vehicleData.risks.map((risk) => (
           <div key={risk.riskId} className="sectionCard">
@@ -102,16 +103,6 @@ const VehicleDisplay = ({ vehicleData }) => {
               </div>
             </div>
             <h3>Risk Excess Details</h3>
-              {/* {risk.riskExcess.items.map((item) => (
-                <div className='excess-detailsChild' key={item.id}>
-                  <p>
-                  {item.description} 
-                 
-                  </p>
-                </div>
-              ))} */}
-           
-           
           </div>
         ))}
       </div>

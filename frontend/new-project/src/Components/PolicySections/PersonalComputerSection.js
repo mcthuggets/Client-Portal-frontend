@@ -18,7 +18,7 @@ const PersonalComputer = ({ PersonalComputerData }) => {
         />
 
         <span>
-          <h1 className="top-left"> Personal Computer Coverage </h1>
+          <h1  style={{backgroundColor:"#0c3b98" ,color:"White"}}   className="top-left"> Personal Computer Coverage </h1>
           <div className="text-container">
             <div>
               <p>Policy Holder:</p>
@@ -47,7 +47,7 @@ const PersonalComputer = ({ PersonalComputerData }) => {
     </div>
 
 
-    <div className='sectionMain'>
+    <div className='sectionCard'>
       {PersonalComputerData.risks.map((risk) => (
           <div key={risk.riskId}>
             <h2>Risk ID: {risk.riskId}</h2>

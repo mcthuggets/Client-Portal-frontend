@@ -65,7 +65,7 @@ const ContentsSectionDisplay = ({ ContentsData }) => {
 
     </div>
 
-
+<div className="sectionCard">
     {ContentsData.risks.map((risk) => (
         <div key={risk.riskId} className="content-risk">
           <h2>Risk ID: {risk.riskId}</h2>
@@ -113,7 +113,7 @@ const ContentsSectionDisplay = ({ ContentsData }) => {
 
           <hr />
         </div>
-      ))}
+      ))}</div>
 
     </>
   );

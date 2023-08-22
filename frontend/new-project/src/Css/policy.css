@@ -114,24 +114,11 @@ background-attachment: fixed;
   padding-right: 5px;
 }
  
-  /* .top-left {
-    position: absolute;
-    top: 40px;
-    left: 16px;
-    font-size: 50px;
-    color: #154FBF;
-  }
-   */
+
   .icon{
     font-size: 30px;
   }
-  /* .top {
-    position: absolute;
-    top: 30px;
-    left: 16px;
-    font-size: 24px;
-  }
-   */
+  
   .policy-img {
     width: 100%;
     height: 10px;
@@ -151,9 +138,6 @@ display:flex;
 justify-content: space-between;
 }
 
-.card:hover{
-
-}
 
 .top-left {
 position: absolute;
@@ -200,8 +184,8 @@ font-size: larger;
 }
 
 button{
-  background-color:#ffffff;
-  color: rgb(2, 17, 127);
+  background-color:#1c1fd4;
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 10px;
   align-items: center;
@@ -214,10 +198,6 @@ button{
   width:fit-content;
 }
 
-.broker-contact-card,
-button{
-  box-shadow: 0 8px 20px 0px #7aa6e4;
-}
 
 .cover-layout{
 display: grid;

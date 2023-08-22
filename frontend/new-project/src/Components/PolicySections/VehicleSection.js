@@ -38,7 +38,7 @@ const VehicleDisplay = ({ vehicleData }) => {
           <button style={{ margin: "5px" }}>Documents</button>
         </div>
       </div>
-
+    <br/>
       <div className="sectionMain">
         {vehicleData.risks.map((risk) => (
           <div key={risk.riskId} className="sectionCard">

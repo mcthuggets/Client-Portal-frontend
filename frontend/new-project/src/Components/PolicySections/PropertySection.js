@@ -83,7 +83,7 @@ const PropertySection = ({ PropertyData }) => {
     </div> */}
 
     {PropertyData.risks.map((risk) => (
-      <div key={risk.riskId} className='sectionaMain'>
+      <div key={risk.riskId} className='sectionCard'>
         <h2>Risk Information</h2>
         <h2> { risk.residentialAddress.line1} </h2>
         <h2> { risk.residentialAddress.line2} </h2>

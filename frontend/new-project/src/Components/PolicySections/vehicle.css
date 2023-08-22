@@ -4,13 +4,15 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  justify-content: space-around;
 }
 
 .card {
   background-color: #f8f8f8;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: 96.5%;
+  width: 100%;
+  max-width: 600px;
   margin-bottom: 20px;
 }
 
@@ -33,7 +35,7 @@
   top: 10px;
   left: 10px;
   font-size: 1.5rem;
-  color: rgb(94, 19, 216);
+  color: rgb(67, 30, 128);
 }
 
 .button {
@@ -47,13 +49,15 @@
 }
 
 .sectionMain {
+ 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
 .sectionCard {
-  background-color: white;
+  border: 2px solid rgb(27, 4, 131);
+  color: white;  background-color: rgb(140, 157, 202);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -99,5 +103,3 @@
 .premium-detailsChild p {
   margin: 5px 0;
 }
-
-/* Add more styling as needed */

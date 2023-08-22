@@ -17,7 +17,7 @@ background-color: #ffffff;
   rgb(79, 79, 255) 30%,        /* Dark Blue */
   rgb(202, 202, 202) 60%,       /* Navy */
   rgb(160, 149, 229) 100%         /* Black */
-);
+  );
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;

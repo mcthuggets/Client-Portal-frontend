@@ -46,7 +46,7 @@ import Loading from "./Loading";
 import Sidebar from "./Sidebar";
 
 import Cookies from "js-cookie";
-
+import PDFDownloadButton from "./Base64PDFDownload";
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();
@@ -264,7 +264,8 @@ const MyPolicyShell = () => {
 
 // MyPolicy Component
 const MyPolicy = () => {
-  const [policies, setPolicies] = useState([]);
+  
+  const [policyNo, setPolicyNo] = useState();
   const [filteredPolicies, setFilteredPolicies] = useState([]);
   const { sectionName } = useSectionContext();
   const { setSectionName } = useSectionContext();
@@ -299,13 +300,24 @@ const MyPolicy = () => {
 
   const changePolicy = (polNo) => {
     fetchPolicy(polNo);
+    setPolicyNo(polNo);
   };
 
+
+
   useEffect(() => {
-    setPolicies(JSON.parse(Cookies.get("policies")));
+    
     setFilteredPolicies(JSON.parse(Cookies.get("policies")));
+
   }, []);
 
+  useEffect(() => {
+    if (filteredPolicies.length > 0) {
+      changePolicy(filteredPolicies[0].id);
+    }  
+  
+
+  }, [filteredPolicies]);
   //policy list - changes css for selected policy
   const [selectedItem, setSelectedItem] = useState("");
 
@@ -391,7 +403,7 @@ const MyPolicy = () => {
                         </div>
                       </div>
                       <hr />
-                      <button style={{ margin: "5px" }}>Documents</button>
+                    <PDFDownloadButton polNo={"023"}></PDFDownloadButton>
                     </span>
                   </div>
                 </div>

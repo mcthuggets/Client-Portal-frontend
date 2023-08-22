@@ -56,6 +56,8 @@ import Sidebar from "./Sidebar";
 
 import Cookies from "js-cookie";
 import PDFDownloadButton from "./Base64PDFDownload";
+import { useAuthContext } from "../AuthContext";
+
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
   const { setSectionName } = useSectionContext();
@@ -297,6 +299,7 @@ const MyPolicy = () => {
   const [filteredPolicies, setFilteredPolicies] = useState([]);
   const { sectionName } = useSectionContext();
   const { setSectionName } = useSectionContext();
+  const { authenticated,setAuthenticated } = useAuthContext();
   const { policy } = useSectionContext();
   const { setPolicy } = useSectionContext();
   
@@ -322,8 +325,14 @@ const MyPolicy = () => {
 
       setSectionName("Policy");
     } catch (error) {
-      console.error("Error fetching policy:", error);
-      setSectionName("Error");
+      
+    
+if(error.response.status === 401){
+
+setAuthenticated(false);
+
+}
+
     }
   };
 

@@ -6,6 +6,8 @@ import { MdOutlinePolicy } from "react-icons/md";
 import { BiLogOutCircle } from "react-icons/bi";
 
 const Sidebar = () => {
+
+  
   return (
     <div className="sidebar">
       <div className="sticky">
@@ -31,10 +33,11 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/">
-              <BiLogOutCircle className="sidebar-icon" />  
-            Logout
-            </Link>
+            
+      <button className="logout-button">
+        <BiLogOutCircle className="sidebar-icon" /> Logout
+      </button>
+          
           </li>
         </ul>
       </div>

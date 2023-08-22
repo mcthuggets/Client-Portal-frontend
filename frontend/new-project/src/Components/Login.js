@@ -3,13 +3,16 @@ import Cookies from "js-cookie";
 import LoginBackground from "../Components/images/loginBackground.png";
 import "../Css/Login.css";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-
+import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from "../AuthContext";
 const Login = () => {
-  const navigate = useNavigate(); // Initialize useNavigate hook
-
-  const [showOTP, setShowOTP] = useState(false); 
   
+  const navigate = useNavigate();
+  const { authenticated,setAuthenticated } = useAuthContext();
+
+  const [showOTP, setShowOTP] = useState(false);
+  const [loading, setLoading] = useState(false); // Introduce loading state
+
   const [idNumber, setIdNumber] = useState(null);
   const [otp, setOTP] = useState(null);
 
@@ -19,24 +22,22 @@ const Login = () => {
     console.log(idNumber);
 
     axios.post('https://localhost:7207/OTP/generate-otp', {
-        // Replace with the appropriate data you want to send in the request body
-        idNumber: idNumber,
-      })
-      .then((response) => {
-        console.log('OTP generated:', response.data);
-
-        // You can do something with the OTP response here, e.g., store it in state
-        // or display it on the UI.
-      })
-      .catch((error) => {
-        console.error('Error generating OTP:', error);
-        // Handle the error appropriately, e.g., show an error message to the user.
-      });
+      idNumber: idNumber,
+    })
+    .then((response) => {
+      console.log('OTP generated:', response.data);
+      // You can do something with the OTP response here, e.g., store it in state
+      // or display it on the UI.
+    })
+    .catch((error) => {
+      console.error('Error generating OTP:', error);
+    });
   }
 
   const verifyOTP = (e) => {
-    e.preventDefault()
-Cookies.remove();
+    e.preventDefault();
+    setLoading(true); // Set loading to true when OTP verification begins
+
     const apiUrl = 'https://localhost:7207/OTP/verify-otp';
 
     const data = {
@@ -48,12 +49,13 @@ Cookies.remove();
     axios.post(apiUrl, data)
     .then(response => {
       if (response.status === 200) {
-        
-  
         try {
           const policiesJson = JSON.stringify(response.data.policies);
+          
           Cookies.set("token", response.data.token, { expires: 7 });
           Cookies.set("policies", policiesJson);
+          setAuthenticated(true);
+          
           navigate('/policies');
         } catch (error) {
           console.error('Error serializing policies:', error);
@@ -64,36 +66,49 @@ Cookies.remove();
     })
     .catch(error => {
       console.error('Error:', error);
+    })
+    .finally(() => {
+      setLoading(false); // Set loading to false after the response is received
     });
-  
-      
-
   }
   
   return (
     <>
-    <div className="login-form">
-      <form>
-        <img
-          className="login-container"
-          src={LoginBackground}
-          alt="Login Background" />
+      <div className="login-form">
+        <form>
+          <img
+            className="login-container"
+            src={LoginBackground}
+            alt="Login Background"
+          />
 
-        <p className="sign">Sign in to your account</p>
+          <p className="sign">Sign in to your account</p>
 
-        {showOTP && ( // Conditionally render OTP input
-          <div className="input-container">
-            <input className="textbox" type="text" placeholder="Enter OTP" onChange={(e) => setOTP(e.target.value)} />
-          </div>
-        )}
+          {showOTP && (
+            <div className="input-container">
+              <input
+                className="textbox"
+                type="text"
+                placeholder="Enter OTP"
+                onChange={(e) => setOTP(e.target.value)}
+              />
+            </div>
+          )}
 
-        {!showOTP && (
-          <div className="input-container">
-            <input className="textbox" type="text" placeholder="ID Number" onChange={(e) => setIdNumber(e.target.value)} />
-          </div>
-        )}
+          {!showOTP && (
+            <div className="input-container">
+              <input
+                className="textbox"
+                type="text"
+                placeholder="ID Number"
+                onChange={(e) => setIdNumber(e.target.value)}
+              />
+            </div>
+          )}
 
-          {showOTP ? ( 
+          {loading ? ( // Render loading text if loading is true
+            <p>Loging in...</p>
+          ) : showOTP ? (
             <button type="submit" className="btnContinue" onClick={verifyOTP}>
               SIGN IN
             </button>

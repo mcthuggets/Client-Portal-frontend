@@ -1,7 +1,6 @@
 import React from 'react';
 import './vehicle.css';
 import ContentsImage from '../images/AllRiskSection.jpg'
-import { RxCheckCircled, RxCrossCircled  } from "react-icons/rx";
 
 
 const calculateTotalPremium = (risks) => {

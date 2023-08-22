@@ -92,9 +92,9 @@ display:flex;
 justify-content: space-between;
 }
 
-.card:hover{
-box-shadow: 0 8px 20px 10px #668cda;
-}
+/* .card{
+box-shadow: 0 8px 20px 10px #0852e4;
+}  */
 
 .top-left {
 position: absolute;
@@ -141,8 +141,8 @@ font-size: larger;
 }
 
 button{
-  background-color:#ffffff;
-  color: rgb(2, 17, 127);
+  background-color:#1c1fd4;
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 10px;
   align-items: center;
@@ -156,8 +156,7 @@ button{
 }
 .card,
 .broker-contact-card,
-.policy-card,
-button{
+.policy-card{
   box-shadow: 0 8px 20px 0px #7aa6e4;
 }
 

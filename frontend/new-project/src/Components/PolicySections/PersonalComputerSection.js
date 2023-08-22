@@ -47,7 +47,7 @@ const PersonalComputer = ({ PersonalComputerData }) => {
     </div>
 
 
-    <div className='sectionMain'>
+    <div className='sectionCard'>
       {PersonalComputerData.risks.map((risk) => (
           <div key={risk.riskId}>
             <h2>Risk ID: {risk.riskId}</h2>

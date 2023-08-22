@@ -1,8 +1,7 @@
-import React from 'react';
-import './vehicle.css';
-import AllRiskImage from '../images/AllRiskSection.jpg'
-import { RxCheckCircled, RxCrossCircled  } from "react-icons/rx";
-
+import React from "react";
+import "./vehicle.css";
+import AllRiskImage from "../images/AllRiskSection.jpg";
+import { RxCheckCircled, RxCrossCircled } from "react-icons/rx";
 
 const calculateTotalPremium = (risks) => {
   let totalPremium = 0;
@@ -14,94 +13,94 @@ const calculateTotalPremium = (risks) => {
   return totalPremium;
 };
 
-
 const AllRisk = ({ AllRiskData }) => {
-
- 
-
   console.log(AllRiskData);
-
 
   return (
     <>
+      <div className="card">
+        <div className="card-content">
+          <img
+            className="policy-img"
+            src={AllRiskImage}
+            alt="policy"
+            style={{ height: "250px" }}
+          />
 
-    <div className="card">
-      <div className="card-content">
-        <img
-          className="policy-img"
-          src={AllRiskImage}
-          alt="policy"
-          style={{ height: "250px" }}
-        />
-
-        <span>
-          <h1 className="top-left">All Risk Coverage</h1>
-          <div className="text-container">
-            <div>
-              <p>Policy Holder:</p>
-              <p></p>
+          <span>
+            <h1 className="top-left">All Risk Coverage</h1>
+            <div className="text-container">
+              <div>
+                <p>Policy Holder:</p>
+                <p></p>
+              </div>
+              <div>
+                <p>Total Premium:</p>
+                <p>R {calculateTotalPremium(AllRiskData.risks)}</p>
+              </div>
+              <div>
+                <p>Policy start:</p>
+                <p></p>
+              </div>
+              <div>
+                <p>Intermediary fee:</p>
+                <p></p>
+              </div>
             </div>
-            <div>
-              <p>Total Premium:</p>
-              <p>R {calculateTotalPremium(AllRiskData.risks)}</p>
-            </div>
-            <div>
-              <p>Policy start:</p>
-              <p></p>
-            </div>
-            <div>
-              <p>Intermediary fee:</p>
-              <p></p>
-            </div>
-          </div>
 
-          <hr />
+            <hr />
 
-          <button style={ {margin: "5px"}}>Documents</button>
-        </span>
-
+            <button style={{ margin: "5px" }}>Documents</button>
+          </span>
         </div>
+      </div>
+
+      {AllRiskData.risks.map((risk) => (
+        <div key={risk.riskId}>
+          {/* loop through items */}
+          {risk.items.map((item) => {
+            const inceptionDate = new Date(item.inceptionDate);
+            const formattedInceptionDate = `${inceptionDate.getFullYear()}-${(
+              inceptionDate.getMonth() + 1
+            )
+              .toString()
+              .padStart(2, "0")}-${inceptionDate
+              .getDate()
+              .toString()
+              .padStart(2, "0")}`;
+
+            return (
+              <><br />
+              <div className="sectionCard">
+                <h2> {item.description} </h2>
 
 
-    </div>
-
-    {AllRiskData.risks.map((risk) => (
-  <div key={risk.riskId} className="sectionMain">
-
-    {/* loop through items */}
-    {risk.items.map((item) => {
-      const inceptionDate = new Date(item.inceptionDate);
-      const formattedInceptionDate = `${inceptionDate.getFullYear()}-${(inceptionDate.getMonth() + 1).toString().padStart(2, '0')}-${inceptionDate.getDate().toString().padStart(2, '0')}`;
-
-      return (
-        <>
-        <h2> {item.description} </h2>
-
-        <div className='sectionCard section-card-container'>
-            <div className=''>
-              <p> Inception Date: {formattedInceptionDate} </p>
-              <p> Premium : R {item.premiumAmount} </p>
-              <p> Sum insured  : R {item.sumInsuredAmount} </p>
-            </div>
-            <div>
-              { item.isValuationAvailable ? <div>
-                                              <RxCheckCircled className='valuation-icon'/> 
-                                              <p> This item is eligible for valuation</p>
-                                            </div> 
-                                            : 
-                                            <div> 
-                                              <br />
-                                              <RxCrossCircled className='valuation-icon'/>
-                                              <p> This item is not eligible for valuation</p>
-                                            </div>}
-            </div>
+                <div className="section-card-container">
+                  <div className="">
+                    <p> Inception Date: {formattedInceptionDate} </p>
+                    <p> Premium : R {item.premiumAmount} </p>
+                    <p> Sum insured : R {item.sumInsuredAmount} </p>
+                  </div>
+                  <div>
+                    {item.isValuationAvailable ? (
+                      <div>
+                        <RxCheckCircled className="valuation-icon" />
+                        <p> This item is eligible for valuation</p>
+                      </div>
+                    ) : (
+                      <div>
+                        <br />
+                        <RxCrossCircled className="valuation-icon" />
+                        <p> This item is not eligible for valuation</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div></>
+            );
+          })}
         </div>
-        </>
-      );
-    })}
-  </div>
-  ))}
-
+      ))}
     </>
   );
 };

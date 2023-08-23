@@ -12,9 +12,6 @@ const App=()=> {
   
   
   const {authenticated,setAuthenticated}=useAuthContext();
-  if(Cookies.get("token") != null){
-    setAuthenticated(true);
-  }
   
   return (
   

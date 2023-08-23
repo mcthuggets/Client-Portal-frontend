@@ -26,10 +26,12 @@ const ClientDetails = () => {
           // Handle other response status codes if needed
         }
       } catch (error) {
-        /*Cookies.remove("token");
+      //logs out  
+        Cookies.remove("token");
         Cookies.remove("policies")
         setAuthenticated(false);
-       navigate("/"); */
+       
+       navigate("/"); 
       } finally {
         setLoading(false);
       }

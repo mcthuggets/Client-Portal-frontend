@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { useAuthContext } from "../AuthContext";
 import { useNavigate } from 'react-router-dom';
 import Sidebar from "./Sidebar";
+import '../Css/client.css';
 
 const ClientDetails = () => {
   const [clientData, setClientData] = useState(null);
@@ -53,15 +54,19 @@ const ClientDetails = () => {
     <div className="app-container"> 
     <Sidebar/>
     <div className='main-content'>
-      <h1>Client Details</h1>
-      <p>ID: {clientData?.id}</p>
-      <p>Name: {clientData?.firstName} {clientData?.surname}</p>
-      <p>Gender: {clientData?.gender}</p>
-      <p>Birthdate: {clientData?.dateOfBirth}</p>
-      <p>Marital Status: {clientData?.maritalStatus}</p>
-      <p>Occupation: {clientData?.occupation}</p>
-      <p>Email Address: {clientData?.emailAddress}</p>
-      {/* Render other client data here */}
+      <div className='client'>
+        
+     <div className='client-heading'><h1>My Details</h1></div>
+      <div className='sub-client'>
+      <p><strong>ID:</strong> {clientData?.id}</p>
+      <p><strong>Name:</strong> {clientData?.firstName} {clientData?.surname}</p>
+      <p><strong>Gender:</strong>  {clientData?.gender}</p>
+      <p><strong>Birthdate:</strong> {clientData?.dateOfBirth}</p>
+      <p><strong>Marital Status:</strong> {clientData?.maritalStatus}</p>
+      <p><strong>Occupation:</strong> {clientData?.occupation}</p>
+      <p><strong>Email Address:</strong> {clientData?.emailAddress}</p>
+      {/* Render other client data here */}</div>
+      </div>
     </div>
     </div>
   );

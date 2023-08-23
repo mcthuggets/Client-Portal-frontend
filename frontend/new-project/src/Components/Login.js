@@ -54,8 +54,8 @@ const Login = () => {
           
           Cookies.set("token", response.data.token, { expires: 7 });
           Cookies.set("policies", policiesJson);
-          setAuthenticated(true);
           
+          setAuthenticated(true);
           navigate('/dashboard');
         } catch (error) {
           console.error('Error serializing policies:', error);

@@ -57,6 +57,7 @@ import Sidebar from "./Sidebar";
 import Cookies from "js-cookie";
 import PDFDownloadButton from "./Base64PDFDownload";
 import { useAuthContext } from "../AuthContext";
+import { useNavigate } from 'react-router-dom';
 
 // Child Component
 const Child = ({ name, section, renderIcon }) => {
@@ -302,7 +303,7 @@ const MyPolicy = () => {
   const { authenticated,setAuthenticated } = useAuthContext();
   const { policy } = useSectionContext();
   const { setPolicy } = useSectionContext();
-  
+  const navigate = useNavigate();
 
   const fetchPolicy = async (polNo) => {
     try {
@@ -328,8 +329,10 @@ const MyPolicy = () => {
       
     
 if(error.response.status === 401){
-
-setAuthenticated(false);
+  Cookies.remove("token");
+  Cookies.remove("policies")
+  setAuthenticated(false);
+ navigate("/");
 
 }
 

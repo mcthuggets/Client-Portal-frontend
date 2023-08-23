@@ -18,14 +18,20 @@ const App=()=> {
   
       <Router>
       <Routes>
-   
-        
+      {(authenticated) ? (
+          <>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/policies" element={<MyPolicy />} />
             <Route path="/clientdetails" element={<ClientDetails />} />
-       
+          </>
+        ) : (
+          <>
           <Route path="/" element={<Login />} />
-        
+          <Route path="/dashboard" element={<Login/>} />
+          <Route path="/policies" element={<Login/>} />
+          <Route path="/clientdetails" element={<Login/>} />
+          </>
+        )}
         </Routes>
       </Router>
 

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-
+import Cookies from 'js-cookie';
 const AuthContext = createContext();
 
 const useAuthContext = () => {
@@ -11,8 +11,11 @@ const useAuthContext = () => {
 };
 
 const AuthProvider = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState(false);
 
+  const [authenticated, setAuthenticated] = useState(false);
+if(Cookies.get("token") != null){
+setAuthenticated(true);
+}
   return (
     <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
       {children}

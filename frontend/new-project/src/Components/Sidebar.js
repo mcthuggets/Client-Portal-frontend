@@ -4,10 +4,46 @@ import "../Css/Sidebar.css";
 import { MdOutlineDashboard } from "react-icons/md";
 import { MdOutlinePolicy } from "react-icons/md";
 import { BiLogOutCircle } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
+import Cookies from "js-cookie";
+import axios from 'axios';
+import { useAuthContext } from "../AuthContext";
 
 const Sidebar = () => {
-
+  const { authenticated,setAuthenticated } = useAuthContext();
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post(
+        'https://localhost:7207/Client/logout',
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`,
+          },
+        }
+      );
   
+      if (response.status === 200) {
+        console.log('Logout successful');
+      } else {
+        console.log('Logout failed');
+      }
+    } catch (error) {
+      console.error('An error occurred during logout:', error);
+    }
+    
+    finally {
+      
+      Cookies.remove("token");
+      Cookies.remove("policies")
+      setAuthenticated(false);
+     navigate("/");
+      
+    }
+  };
+
+
   return (
     <div className="sidebar">
       <div className="sticky">
@@ -34,9 +70,9 @@ const Sidebar = () => {
           </li>
           <li>
             
-      <button className="logout-button">
-        <BiLogOutCircle className="sidebar-icon" /> Logout
-      </button>
+          <button className="logout-button" onClick={handleLogout}>
+              <BiLogOutCircle className="sidebar-icon" /> Logout
+            </button>
           
           </li>
         </ul>

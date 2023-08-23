@@ -6,13 +6,15 @@ import Login from './Components/Login';
 import Dashboard from './Components/Dashboard';
 import MyPolicy from './Components/MyPolicy';
 import ClientDetails from './Components/ClientDetails';
-
+import Cookies from 'js-cookie';
 const App=()=> {
  
   
   
-  const {authenticated}=useAuthContext();
-  
+  const {authenticated,setAuthenticated}=useAuthContext();
+  if(Cookies.get("token") != null){
+    setAuthenticated(true);
+  }
   
   return (
   
@@ -27,7 +29,7 @@ const App=()=> {
         ) : (
           <>
           <Route path="/" element={<Login />} />
-     
+          
           </>
         )}
         </Routes>

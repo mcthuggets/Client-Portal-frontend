@@ -13,9 +13,7 @@ const useAuthContext = () => {
 const AuthProvider = ({ children }) => {
 
   const [authenticated, setAuthenticated] = useState(false);
-if(Cookies.get("token") != null){
-setAuthenticated(true);
-}
+
   return (
     <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
       {children}

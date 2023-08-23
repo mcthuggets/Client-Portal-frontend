@@ -50,8 +50,9 @@ const ClientDetails = () => {
   }
 
   return (
-    <div>
-      <Sidebar></Sidebar>
+    <div className="app-container"> 
+    <Sidebar/>
+    <div className='main-content'>
       <h1>Client Details</h1>
       <p>ID: {clientData?.id}</p>
       <p>Name: {clientData?.firstName} {clientData?.surname}</p>
@@ -61,6 +62,7 @@ const ClientDetails = () => {
       <p>Occupation: {clientData?.occupation}</p>
       <p>Email Address: {clientData?.emailAddress}</p>
       {/* Render other client data here */}
+    </div>
     </div>
   );
 };

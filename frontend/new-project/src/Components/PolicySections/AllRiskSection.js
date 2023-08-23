@@ -29,6 +29,7 @@ const AllRisk = ({ AllRiskData }) => {
 
           <span>
             <h1  style={{backgroundColor:"#0c3b98" ,color:"White"}} className="top-left">All Risk Coverage</h1>
+            <hr/>
             <div className="text-container">
               <div>
                 <p>Policy Holder:</p>

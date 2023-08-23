@@ -25,17 +25,17 @@ const VehicleDisplay = ({ vehicleData }) => {
 
           <div>
             <h1  style={{backgroundColor:"#0c3b98" ,color:"White"}} className="top-left">Vehicle Coverage </h1>
-            <div className="text-container">
+            <hr/>
+            <div className="text-container"> 
               <div>
+               
                 <p>Total Premium:</p>
                 <p>R {calculateTotalPremium(vehicleData.risks)}</p>
               </div>
             </div>
           </div>
 
-          <hr />
-
-          <button style={{ margin: "5px" }}>Documents</button>
+        
         </div>
       </div>
     <br/>

@@ -20,6 +20,7 @@ const SpecialCoverDisplay = ({ coverData }) => {
 
     <span>
       <h1  style={{backgroundColor:"#0c3b98" ,color:"White"}}  className="top-left">Special Coverage</h1>
+      <hr />
       <div className="text-container">
         <div>
           <p>Policy Holder:</p>
@@ -38,10 +39,6 @@ const SpecialCoverDisplay = ({ coverData }) => {
           <p></p>
         </div>
       </div>
-
-      <hr />
-
-      <button style={ {margin: "5px"}}>Documents</button>
     </span>
 
     </div>
@@ -60,20 +57,20 @@ const SpecialCoverDisplay = ({ coverData }) => {
                 <p>Rate Code: {item.rateCode.code}</p>
                 <p>Rate Code Description: {item.rateCode.description}</p>
                 <p>Sum Insured Amount: {item.sumInsuredAmount}</p>
-                <p>Premium Amount: {item.premiumAmount}</p>
+                <p>Premium Amount: R {item.premiumAmount}</p>
                 <p>Inception Date: {item.inceptionDate}</p>
                 <p>Message: {item.message}</p>
                 <h4>Premium:</h4>
-                <p>Original Premium: {item.premium.original}</p>
-                <p>Discounted Premium: {item.premium.discounted}</p>
+                <p>Original Premium: R {item.premium.original}</p>
+                <p>Discounted Premium: R {item.premium.discounted}</p>
                 <p>Loaded Premium: {item.premium.loaded}</p>
                 <p>Discount Percentage: {item.premium.discountPerc}</p>
                 <p>Loading Percentage: {item.premium.loadingPerc}</p>
                 <p>Nett Premium: {item.premium.nettPremium}</p>
                 <p>Gross Premium: {item.premium.grossPremium}</p>
                 <p>Sasria Category: {item.premium.sasriaCategory}</p>
-                <p>Sasria Premium: {item.premium.sasriaPremium}</p>
-                <p>Premium Sum Insured Amount: {item.premium.sumInsuredAmount}</p>
+                <p>Sasria Premium: R {item.premium.sasriaPremium}</p>
+                <p>Premium Sum Insured Amount: R {item.premium.sumInsuredAmount}</p>
                 <p>Description: {item.description}</p>
                 <p>Is Cross Sale: {item.isCrossSale.toString()}</p>
               </li>
@@ -81,17 +78,17 @@ const SpecialCoverDisplay = ({ coverData }) => {
           </ul>
           <div className="SubSectionCard">
           <h3>Risk Excess: {risk.riskExcess}</h3>
-          <h4>Risk Premium:</h4>
-          <p>Original Premium: {risk.premium.original}</p>
-          <p>Discounted Premium: {risk.premium.discounted}</p>
-          <p>Loaded Premium: {risk.premium.loaded}</p>
-          <p>Discount Percentage: {risk.premium.discountPerc}</p>
+          <h4>Risk Premium: R </h4>
+          <p>Original Premium: R {risk.premium.original}</p>
+          <p>Discounted Premium: R {risk.premium.discounted}</p>
+          <p>Loaded Premium: R {risk.premium.loaded}</p>
+          <p>Discount Percentage: {risk.premium.discountPerc}%</p>
           <p>Loading Percentage: {risk.premium.loadingPerc}</p>
-          <p>Nett Premium: {risk.premium.nettPremium}</p>
-          <p>Gross Premium: {risk.premium.grossPremium}</p>
+          <p>Nett Premium: R {risk.premium.nettPremium}</p>
+          <p>Gross Premium: R {risk.premium.grossPremium}</p>
           <p>Sasria Category: {risk.premium.sasriaCategory}</p>
-          <p>Sasria Premium: {risk.premium.sasriaPremium}</p>
-          <p>Premium Sum Insured Amount: {risk.premium.sumInsuredAmount}</p>
+          <p>Sasria Premium: R {risk.premium.sasriaPremium}</p>
+          <p>Premium Sum Insured Amount: R {risk.premium.sumInsuredAmount}</p>
           </div>
         </div>
       ))}</div>

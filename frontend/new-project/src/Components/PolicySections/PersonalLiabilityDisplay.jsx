@@ -17,6 +17,7 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
 
     <span>
       <h1  style={{backgroundColor:"#0c3b98" ,color:"White"}}  className="top-left">Personal Liability Coverage</h1>
+      <hr />
       <div className="text-container">
         <div>
           <p>Policy Holder:</p>
@@ -36,9 +37,6 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
         </div>
       </div>
 
-      <hr />
-
-      <button style={ {margin: "5px"}}>Documents</button>
     </span>
 
     </div>

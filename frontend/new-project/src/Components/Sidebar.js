@@ -69,7 +69,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/ClientDetails">
+            <Link to="/clientdetails">
               <MdOutlinePolicy />
               Profile
             </Link>

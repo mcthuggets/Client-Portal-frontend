@@ -11,7 +11,8 @@ const App=()=> {
  
   
   
-  const {authenticated,setAuthenticated}=useAuthContext();
+  const { authenticated } = useAuthContext();
+
   
   return (
   
@@ -27,7 +28,9 @@ const App=()=> {
         ) : (
           <>
           <Route path="/" element={<Login />} />
-          
+          <Route path="/dashboard" element={<Login />} />
+            <Route path="/policies" element={<Login />} />
+            <Route path="/clientdetails" element={<Login />} />
           </>
         )}
         </Routes>

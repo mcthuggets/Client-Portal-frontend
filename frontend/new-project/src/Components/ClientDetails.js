@@ -3,6 +3,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useAuthContext } from "../AuthContext";
 import { useNavigate } from 'react-router-dom';
+import Sidebar from "./Sidebar";
 
 const ClientDetails = () => {
   const [clientData, setClientData] = useState(null);
@@ -50,6 +51,7 @@ const ClientDetails = () => {
 
   return (
     <div>
+      <Sidebar></Sidebar>
       <h1>Client Details</h1>
       <p>ID: {clientData?.id}</p>
       <p>Name: {clientData?.firstName} {clientData?.surname}</p>

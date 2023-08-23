@@ -1,6 +1,9 @@
+import Sidebar from "./Sidebar";
 const Dashboard = ()=>{
     return (
-        <><div className="app-container">
+        <>
+        <Sidebar></Sidebar>
+        <div className="app-container">
         <div className='main-content'>
         <div className="dash-heading">
             <h1>Welcome, David</h1>

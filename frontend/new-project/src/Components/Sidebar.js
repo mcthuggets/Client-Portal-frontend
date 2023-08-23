@@ -69,6 +69,12 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
+            <Link to="/ClientDetails">
+              <MdOutlinePolicy />
+              Account
+            </Link>
+          </li>
+          <li>
             
           <button className="logout-button" onClick={handleLogout}>
               <BiLogOutCircle className="sidebar-icon" /> Logout

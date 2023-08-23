@@ -46,11 +46,7 @@ const AllRisk = ({ AllRiskData }) => {
                 <p>Intermediary fee:</p>
                 <p></p>
               </div>
-            </div>
-
-            <hr />
-
-            <button style={{ margin: "5px" }}>Documents</button>
+            </div>  
           </span>
         </div>
       </div>

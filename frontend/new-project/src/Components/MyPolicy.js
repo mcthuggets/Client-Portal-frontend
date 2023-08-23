@@ -633,11 +633,11 @@ if(error.response.status === 401){
             <div className="separator"></div>
             <hr />
             
-            <a href="#top"> Policy overview </a>
+            <a href="#top" className="scroll-link"> Policy overview </a>
             <br />
-            <a href="#section-links"> Section links </a>
+            <a href="#section-links" className="scroll-link"> Section links </a>
             <br />
-            <a href="#conditions-and-payments"> Conditions and payments </a>
+            <a href="#conditions-and-payments" className="scroll-link"> Conditions and payments </a>
                 </div> : <div></div>}
         </div>
       </div>

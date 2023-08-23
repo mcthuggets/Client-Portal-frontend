@@ -35,6 +35,7 @@ const ContentsSectionDisplay = ({ ContentsData }) => {
 
         <span>
           <h1   style={{backgroundColor:"#0c3b98" ,color:"White"}}  className="top-left">Contents Coverage</h1>
+          <hr/>
           <div className="text-container">
             <div>
               <p>Policy Holder:</p>
@@ -54,9 +55,6 @@ const ContentsSectionDisplay = ({ ContentsData }) => {
             </div>
           </div>
 
-          <hr />
-
-          <button style={ {margin: "5px"}}>Documents</button>
         </span>
 
         </div>
@@ -69,13 +67,13 @@ const ContentsSectionDisplay = ({ ContentsData }) => {
         <div key={risk.riskId} className="content-risk">
           <h2>Risk ID: {risk.riskId}</h2>
           <h3>Premium Details:</h3>
-          <p>Risk Premium Amount: {risk.riskPremiumAmount}</p>
-          <p>Political Riot Premium Amount: {risk.politicalRiotPremiumAmount}</p>
+          <p>Risk Premium Amount: R {risk.riskPremiumAmount}</p>
+          <p>Political Riot Premium Amount: R {risk.politicalRiotPremiumAmount}</p>
 
           <h3>Risk Factors:</h3>
           <ul>
             {risk.riskFactors.map((factor) => (
-              <li key={factor.code}>{factor.message} - Premium: {factor.premium}</li>
+              <li key={factor.code}>{factor.message} - Premium: R  {factor.premium}</li>
             ))}
           </ul>
 
@@ -83,17 +81,17 @@ const ContentsSectionDisplay = ({ ContentsData }) => {
           <ul>
             {risk.extensions.map((extension) => (
               <li key={extension.id}>
-                {extension.message} - Sum Insured: {extension.sumInsuredAmount} - Premium: {extension.premiumAmount}
+                {extension.message} - Sum Insured: R  {extension.sumInsuredAmount} - Premium: R  {extension.premiumAmount}
               </li>
             ))}
           </ul>
 
           <h3>Premium Details:</h3>
-          <p>Nett Premium: {risk.premium.nettPremium}</p>
-          <p>Gross Premium: {risk.premium.grossPremium}</p>
-          <p>Sasria Category: {risk.premium.sasriaCategory}</p>
-          <p>Sasria Premium: {risk.premium.sasriaPremium}</p>
-          <p>Sum Insured Amount: {risk.premium.sumInsuredAmount}</p>
+          <p>Nett Premium: R  {risk.premium.nettPremium}</p>
+          <p>Gross Premium: R  {risk.premium.grossPremium}</p>
+          <p>Sasria Category:  {risk.premium.sasriaCategory}</p>
+          <p>Sasria Premium: R  {risk.premium.sasriaPremium}</p>
+          <p>Sum Insured Amount:  R {risk.premium.sumInsuredAmount}</p>
 
           <h3>Dwelling Details:</h3>
           <p>Occupation Date: {risk.dwelling.occupationDate}</p>

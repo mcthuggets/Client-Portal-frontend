@@ -9,9 +9,20 @@ background-color: #ffffff;
  background-color: #ebdfdf; 
 }
 
+.scroll-link {
+  display: inline-flex;
+  padding: 5px;
+  font-size: large;
+  color: rgb(33, 9, 97);
+  text-decoration: none;
+  cursor: pointer;
+
+}
+
 .main-content {
   height: 100%;
   margin-right: auto;
+  
   /* background: linear-gradient(315deg, 
   rgb(255, 255, 255) 0%,      
   rgb(79, 79, 255) 30%,    

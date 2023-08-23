@@ -71,7 +71,7 @@ const Sidebar = () => {
           <li>
             <Link to="/ClientDetails">
               <MdOutlinePolicy />
-              Account
+              Profile
             </Link>
           </li>
           <li>

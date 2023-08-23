@@ -22,7 +22,7 @@ const App=()=> {
       <Routes>
       {(authenticated) ? (
           <>
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/policies" element={<MyPolicy />} />
             <Route path="/clientdetails" element={<ClientDetails />} />
           </>

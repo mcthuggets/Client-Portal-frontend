@@ -474,7 +474,7 @@ if(error.response.status === 401){
                         </div>
                       </div>
                       <hr />
-                    <PDFDownloadButton polNo={"023"}></PDFDownloadButton>
+                    <PDFDownloadButton polNo={policyNo}></PDFDownloadButton>
                     </span>
                   </div>
               </div>

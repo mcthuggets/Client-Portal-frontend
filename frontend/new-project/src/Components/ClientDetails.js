@@ -29,7 +29,8 @@ const ClientDetails = () => {
       } catch (error) {
       //logs out  
         Cookies.remove("token");
-        Cookies.remove("policies")
+        Cookies.remove("policies");
+        Cookies.set("unAuthorisedSession",true);
         setAuthenticated(false);
        
        navigate("/"); 

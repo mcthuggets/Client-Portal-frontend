@@ -68,6 +68,7 @@ const Login = () => {
       console.error('Error:', error);
     })
     .finally(() => {
+      Cookies.remove("unAuthorisedSession");
       setLoading(false); // Set loading to false after the response is received
     });
   }
@@ -83,7 +84,14 @@ const Login = () => {
           />
 
           <p className="sign">Sign in to your account</p>
-
+          {Cookies.get("unAuthorisedSession") ? (
+          <>
+            <p1>Sorry your session has expired please login again</p1>
+          </>
+        ) : (
+          <>
+       
+          </>)}
           {showOTP && (
             <div className="input-container">
               <input

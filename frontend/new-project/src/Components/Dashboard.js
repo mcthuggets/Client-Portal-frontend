@@ -37,21 +37,6 @@ import "../Css/Dashboard.css";
 
 // import autoInsuranceImage from "../Components/images/PolicyImg.jpg";
 
-const policiesData = [
-  {
-    id: 1,
-    type: "SAN05 Santam Personal Policy ",
-    premium: 500,
-    // image: autoInsuranceImage,
-  },
-
-  // Add more policies
-];
-
-const claimsData = [
-  { id: 1, type: "Auto Claim", status: "Pending" },
-  // Add more claims
-];
 
 const Dashboard = () => {
   const [clientData, setClientData] = useState(null);

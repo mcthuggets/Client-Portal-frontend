@@ -5,6 +5,7 @@ import { useAuthContext } from "../AuthContext";
 import { useNavigate } from 'react-router-dom';
 import Sidebar from "./Sidebar";
 import '../Css/client.css';
+import Dashboard from './Dashboard';
 
 const ClientDetails = () => {
   const [clientData, setClientData] = useState(null);
@@ -67,6 +68,7 @@ const ClientDetails = () => {
       <p><strong>Occupation:</strong> {clientData?.occupation}</p>
       <p><strong>Email Address:</strong> {clientData?.emailAddress}</p>
       {/* Render other client data here */}</div>
+      
       </div>
     </div>
     </div>

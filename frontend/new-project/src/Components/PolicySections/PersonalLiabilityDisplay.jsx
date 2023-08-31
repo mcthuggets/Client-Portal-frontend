@@ -44,7 +44,7 @@ const PersonalLiabilityDisplay = ({ liabilityData }) => {
       <div className="sectionCard">
       {liabilityData.risks.map((risk) => (
         <div key={risk.riskId}>
-          <h2>Risk ID: {risk.riskId}</h2>
+          <h2  className="item-heading">Risk ID: {risk.riskId}</h2>
           <p>Postal Code: {risk.postalCode}</p>
           <p>Sum Insured Amount: {risk.sumInsuredAmount}</p>
           <p>Total Premium Amount: {risk.totalPremiumAmount}</p>

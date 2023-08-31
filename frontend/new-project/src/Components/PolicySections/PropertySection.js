@@ -82,10 +82,10 @@ const PropertySection = ({ PropertyData }) => {
 
     {PropertyData.risks.map((risk) => (
       <div key={risk.riskId} className='sectionCard'>
-        <h2>Risk Information</h2>
-        <h2> { risk.residentialAddress.line1} </h2>
-        <h2> { risk.residentialAddress.line2} </h2>
-        <h2> { risk.residentialAddress.line3} </h2>
+        <h2  className="item-heading">Risk Information</h2>
+        <h2  className="item-heading"> { risk.residentialAddress.line1} </h2>
+        <h2  className="item-heading"> { risk.residentialAddress.line2} </h2>
+        <h2 className="item-heading"> { risk.residentialAddress.line3} </h2>
         <div className='sectionCard'>
           <p>Risk ID: {risk.riskId}</p>
           <p>Risk Premium Amount: {risk.riskPremiumAmount}</p>

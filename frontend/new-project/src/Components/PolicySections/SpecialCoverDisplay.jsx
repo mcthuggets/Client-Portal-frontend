@@ -46,7 +46,7 @@ const SpecialCoverDisplay = ({ coverData }) => {
 <div className="sectionCard">
       {coverData.risks.map((risk) => (
         <div key={risk.riskId}>
-          <h2>Risk ID: {risk.riskId}</h2>
+          <h2  className="item-heading">Risk ID: {risk.riskId}</h2>
           <p>Postal Code: {risk.postalCode}</p>
           <h3>Items:</h3>
           <ul>

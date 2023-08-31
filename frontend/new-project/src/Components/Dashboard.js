@@ -37,11 +37,16 @@ import "../Css/Dashboard.css";
 
 // import autoInsuranceImage from "../Components/images/PolicyImg.jpg";
 
+const getCurrentDate = () => {
+    const today = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return today.toLocaleDateString(undefined, options);
+  };
 
 const Dashboard = () => {
   const [clientData, setClientData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const { authenticated, setAuthenticated } = useAuthContext();
+  const [ setLoading] = useState(true);
+  const { setAuthenticated } = useAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -89,6 +94,7 @@ const Dashboard = () => {
               <strong>Welcome,</strong> {clientData?.firstName}{" "}
               {clientData?.surname}!
             </h1>
+            <p className="date">{getCurrentDate()}</p>
             <div className="desh-cards">
               <div className="App-card">
             

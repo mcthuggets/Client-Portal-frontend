@@ -8,7 +8,7 @@ import { useAuthContext } from "../AuthContext";
 const Login = () => {
   
   const navigate = useNavigate();
-  const { authenticated,setAuthenticated } = useAuthContext();
+  const { setAuthenticated } = useAuthContext();
 
   const [showOTP, setShowOTP] = useState(false);
   const [loading, setLoading] = useState(false); // Introduce loading state

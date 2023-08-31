@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import { useAuthContext } from "../AuthContext";
 import { useNavigate } from 'react-router-dom';
 import Sidebar from "./Sidebar";
-import '../Css/client.css';
+// import '../Css/client.css';
 
 const ClientDetails = () => {
   const [clientData, setClientData] = useState(null);

@@ -1,7 +1,7 @@
 .sidebar {
   width: 250px;
   height: max;
-  background-color:  #ffffff;
+  background-color:  rgb(223, 223, 223);
   color: rgb(0, 0, 0);
   font-size: 24px;
   align-content: center;
@@ -59,4 +59,9 @@ background-color: rgb(2, 81, 252) ;
 
   .sidebar-icon {
     margin: 2px;
+  }
+
+  .logout-button{
+    margin-top: 210%;
+    margin-right: 200%;
   }

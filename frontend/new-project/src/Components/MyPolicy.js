@@ -455,8 +455,6 @@ if(error.response.status === 401){
                             <strong>Period:</strong> {policy.period}
                           </p>
                           <p>
-                            <strong> <FaArrowsRotate /> </strong>{" "}
-                            {policy.renewalPeriod}
                           </p>
                         </div>
 

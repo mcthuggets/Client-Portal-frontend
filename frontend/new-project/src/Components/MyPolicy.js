@@ -123,7 +123,7 @@ const Child = ({ name, section, renderIcon }) => {
     case "vehicleSection":
       nameToBeDisplayed = "Vehicle";
       imageToBeDisplayed = CarSvg;
-      flavortextToBeDisplayed = "Coverage for your cars, bikes and trucks (but not boats, planes or trains)"
+      flavortextToBeDisplayed = "Coverage for your cars, bikes and trucks."
       break;
   }
 
@@ -345,8 +345,6 @@ if(error.response.status === 401){
     setPolicyNo(polNo);
   };
 
-
-
   useEffect(() => {
     
     setFilteredPolicies(JSON.parse(Cookies.get("policies")));
@@ -411,6 +409,12 @@ if(error.response.status === 401){
         }
     }
   }
+
+  const [formattedInceptionDate, setFormattedInceptionDate] = useState('');
+  const [formattedRenewalDate, setFormattedRenewalDate] = useState('');
+  const [formattedEffectiveDate, setFormattedEffectiveDate] = useState('');
+
+  console.log(policy);
 
   return (
     <>

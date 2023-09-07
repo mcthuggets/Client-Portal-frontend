@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { useAuthContext } from "../AuthContext";
 import { useNavigate } from 'react-router-dom';
 import Sidebar from "./Sidebar";
+import {FaRegUserCircle} from 'react-icons/fa'
 import '../Css/client.css';
 
 const ClientDetails = () => {
@@ -57,7 +58,11 @@ const ClientDetails = () => {
     <div className='main-content'>
       <div className='client'>
         
-     <div className='client-heading'><h1>My Details</h1></div>
+     <div className='client-heading'>
+    
+      <div className='user-icon'><FaRegUserCircle style={{marginTop:"20px"}}/></div>
+      <p>My Details</p></div>
+     
       <div className='sub-client'>
       <p><strong>ID:</strong> {clientData?.id}</p>
       <p><strong>Name:</strong> {clientData?.firstName} {clientData?.surname}</p>

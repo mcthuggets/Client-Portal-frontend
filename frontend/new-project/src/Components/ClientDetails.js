@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Sidebar from "./Sidebar";
 import {FaRegUserCircle} from 'react-icons/fa'
 import '../Css/client.css';
+import Loading from './Loading';
 
 const ClientDetails = () => {
   const [clientData, setClientData] = useState(null);
@@ -45,7 +46,7 @@ const ClientDetails = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />
   }
 
   if (!clientData) {

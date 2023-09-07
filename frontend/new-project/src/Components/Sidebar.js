@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../Css/Sidebar.css";
 import { MdOutlineDashboard } from "react-icons/md";
 import { MdOutlinePolicy } from "react-icons/md";
-import { BiLogOutCircle } from "react-icons/bi";
+import { BiLogOutCircle, BiQuestionMark, BiUserCircle, BiNote } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import Cookies from "js-cookie";
 import axios from 'axios';
@@ -69,9 +69,21 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
+            <Link to="/claims">
+              <BiNote />
+              Claims
+            </Link>
+          </li>
+          <li>
             <Link to="/clientdetails">
-              <MdOutlinePolicy />
+              <BiUserCircle />
               Profile
+            </Link>
+          </li>
+          <li>
+            <Link to="/FAQs">
+              <BiQuestionMark />
+              FAQs
             </Link>
           </li>
           <li>

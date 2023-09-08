@@ -7,7 +7,15 @@ const VehicleDisplay = ({ vehicleData }) => {
   console.log(vehicleData);
 
   const calculateTotalPremium = (risks) => {
-    return risks.reduce((total, risk) => total + risk.riskPremiumAmount, 0);
+    return (
+      risks.reduce((total, risk) => total + risk.riskPremiumAmount, 0) / 100
+    );
+  };
+
+  const calculateTotalSum = (risks) => {
+    return (
+      risks.reduce((total, risk) => total + risk.sumInsuredAmount, 0) / 100
+    );
   };
 
   const [viewMore, setViewMore] = useState(false);
@@ -36,6 +44,10 @@ const VehicleDisplay = ({ vehicleData }) => {
                 <p>Total Premium:</p>
                 <p>R {calculateTotalPremium(vehicleData.risks)}</p>
               </div>
+              <div>
+                <p> Sum Insurered: </p>
+                <p>R {}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -53,16 +65,15 @@ const VehicleDisplay = ({ vehicleData }) => {
                 </h1>
                 <br />
                 <h2 className="item-subheading">
-                  {risk.vehicleDetails.yearManufactured}
-                </h2>
-                <br />
-                <h2 className="item-subheading">
                   {risk.vehicleDetails.registrationNumber}
                 </h2>
                 <br />
                 <h2 className="item-subheading">
-                  {" "}
                   Premium : R {risk.riskPremiumAmount / 100}
+                </h2>
+                <br />
+                <h2 className="item-subheading">
+                  Sum insured: R {risk.sumInsuredAmount / 100}
                 </h2>
               </div>
 
@@ -76,15 +87,16 @@ const VehicleDisplay = ({ vehicleData }) => {
             <h2>{risk.vehicleType} Details</h2>
 
             <p>
+                    <strong> Year of manufacture : </strong>
+              {risk.vehicleDetails.yearManufactured}
+            </p>
+            <p>
               <p>
                 <strong> Engine Number </strong>{" "}
                 {risk.vehicleDetails.engineNumber}
               </p>
               <p>
                 <strong> VIN </strong> {risk.vehicleDetails.vinNumber}
-              </p>
-              <p>
-                <strong> Make code </strong> {risk.vehicleDetails.makeCode}
               </p>
               <strong>Owner Name:</strong> {risk.registeredOwner.name}
             </p>
@@ -104,6 +116,9 @@ const VehicleDisplay = ({ vehicleData }) => {
                     <strong>Use Type:</strong> {risk.useType}
                   </p>
 
+                  <p>
+                    <strong> Make code </strong> {risk.vehicleDetails.makeCode}
+                  </p>
                   <p>
                     <strong>Residential Address:</strong>{" "}
                     {risk.residentialAddress.line1},{" "}

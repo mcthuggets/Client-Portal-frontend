@@ -1,0 +1,15 @@
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background-color: #ffffff;
+  font-family: "Avenir", sans-serif;
+}
+
+.claims-dropdown {
+  width: 100%;
+  border: 3px solid black;
+  border-radius: 8px;
+  margin: 4px;
+  padding: 12px;
+}

@@ -28,7 +28,6 @@ import PaymentDisplay from "./PolicySections/PaymentDisplay";
 import { SectionProvider } from "./sectionContext";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useSectionContext } from "./sectionContext";
-//import policy from "./data";
 //images
 import PolicyImg from "./images/PolicyImg.jpg";
 import AllRiskSvg from "./images/All-Risk.svg";
@@ -410,9 +409,12 @@ if(error.response.status === 401){
     }
   }
 
-  const [formattedInceptionDate, setFormattedInceptionDate] = useState('');
-  const [formattedRenewalDate, setFormattedRenewalDate] = useState('');
-  const [formattedEffectiveDate, setFormattedEffectiveDate] = useState('');
+  function dateFormatter(inputString) {
+    // Use the substring method to extract the first 8 characters
+    return inputString.substring(0, 10);
+  }
+  
+  
 
   console.log(policy);
 
@@ -459,19 +461,17 @@ if(error.response.status === 401){
                         </div>
 
                         <div className="text-container">
-
-                      
                           
                           <p>
                             <strong>First Inception Date:</strong>{" "}
-                            {policy.firstInceptionDate}
+                            {dateFormatter(policy.firstInceptionDate)}
                           </p>
                           <p>
                             <strong>Effective Date:</strong>{" "}
-                            {policy.effectiveDate}
+                            {dateFormatter(policy.effectiveDate)}
                           </p>
                           <p>
-                            <strong>Renewal Date:</strong> {policy.renewalDate}
+                            <strong>Renewal Date:</strong> {dateFormatter(policy.renewalDate)}
                           </p>
                           
                         </div>
@@ -481,7 +481,6 @@ if(error.response.status === 401){
                     </span>
                   </div>
               </div>
-
 
               <br /> 
 
@@ -601,6 +600,7 @@ if(error.response.status === 401){
             </div>
           )}
         </div>
+
       </div>
 
       <div className="right-sidebar">
@@ -644,6 +644,7 @@ if(error.response.status === 401){
                 </div> : <div></div>}
         </div>
       </div>
+
     </div>
     </>
   );

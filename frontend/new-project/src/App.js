@@ -6,6 +6,8 @@ import Login from './Components/Login';
 import Dashboard from './Components/Dashboard';
 import MyPolicy from './Components/MyPolicy';
 import ClientDetails from './Components/ClientDetails';
+import Claims from './Components/Claims';
+import FAQs from './Components/FAQs';
 
 const App = () => {
   const { authenticated } = useAuthContext();
@@ -19,6 +21,8 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/policies" element={<MyPolicy />} />
             <Route path="/clientdetails" element={<ClientDetails />} />
+            <Route path="/claims" element={<Claims />} />
+            <Route path="/FAQs" element={<FAQs />} />
           </>
         ) : (
           <Route path="*" element={<Navigate to="/" />} />

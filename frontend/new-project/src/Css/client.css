@@ -1,60 +1,26 @@
-.client{
-    border: 1px solid rgb(161, 161, 161);
-    width: 45%;
-    height: 70%;
-    margin: 10px;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(12, 22, 122);
-    margin-left: 30%;
-    display: flex;
-    margin-top: 10%;
-    justify-self: center;
-    box-shadow: 10px 10px 0px rgba(35, 37, 148, 0.125);
-
-}
-
-.client-heading{
-    background-color: rgb(228, 227, 227);
-    color: rgb(0, 0, 0);
-    text-align: center;
-    width: 150px;
-    font-size: 20px;
-    border-top-left-radius:  10px;
-    border-bottom-left-radius:  10px;
-}
 
 .user-icon{
-    font-size: 60px;
-    margin-top: 110px;
-    margin-left: 25px;
+    font-size: 150px;
+    margin-top: 40px;
+    margin-left: 80px;
     border-radius: 50%;
     height: 100px;
     width: 100px;
-    background-color: white;
-
+    background-color: white
 }
 
-.client-heading p{
-    font-size: 20px;
-    margin-top: 90px;
+.card{
     border: 1px solid rgb(13, 11, 101);
-    border-radius: 10px;
-    
-
-}
+    width: 700px;
+    height: 600px;
+    margin-left: 250px;
+    margin-top: 75px;
+}    
 
 .sub-client{
-    margin:15px;
+    margin-top: 100px;
+    margin-left: 80px;
     display: block;
     font-size: large;
     justify-content:start;
 }
-
-/* .client:hover{
-    transition: ease-in-out;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background-color: rgb(105, 105, 234);
-    color: rgb(251, 251, 251);
-} */
-

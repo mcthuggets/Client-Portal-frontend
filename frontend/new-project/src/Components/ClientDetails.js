@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -54,27 +55,21 @@ const ClientDetails = () => {
 
   return (
     <div className="app-container"> 
-    <Sidebar/>
-    <div className='main-content'>
-      <div className='client'>
-        
-     <div className='client-heading'>
-    
-      <div className='user-icon'><FaRegUserCircle style={{marginTop:"20px"}}/></div>
-      <p>My Details</p></div>
-     
-      <div className='sub-client'>
-      <p><strong>ID:</strong> {clientData?.id}</p>
-      <p><strong>Name:</strong> {clientData?.firstName} {clientData?.surname}</p>
-      <p><strong>Gender:</strong>  {clientData?.gender}</p>
-      <p><strong>Birthdate:</strong> {clientData?.dateOfBirth}</p>
-      <p><strong>Marital Status:</strong> {clientData?.maritalStatus}</p>
-      <p><strong>Occupation:</strong> {clientData?.occupation}</p>
-      <p><strong>Email Address:</strong> {clientData?.emailAddress}</p>
-      {/* Render other client data here */}</div>
-      
+      <Sidebar/>
+        <div className='card'>
+          <div className='user-icon'><FaRegUserCircle/></div>
+
+          <div className='sub-client'>
+        <p><strong>ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{clientData?.id}</p>
+        <p><strong>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {clientData?.firstName} {clientData?.surname}</p>
+        <p><strong>Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>  {clientData?.gender}</p>
+        <p><strong>Birthdate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {clientData?.dateOfBirth}</p>
+        <p><strong>Marital Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {clientData?.maritalStatus}</p>
+        <p><strong>Occupation:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {clientData?.occupation}</p>
+        <p><strong>Email Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {clientData?.emailAddress}</p>
+        </div>
       </div>
-    </div>
+
     </div>
   );
 };

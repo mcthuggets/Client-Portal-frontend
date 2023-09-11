@@ -11,14 +11,32 @@ function Claims() {
       <div className="app-container">
         <Sidebar />
 
-        <div>
+        <div className="claims-container">
           <div className="claims-dropdown">
-            <h4 onClick={() => setOpenClaims(!openClaims)}>Open</h4>
+            <div className="row" onClick={() => setOpenClaims(!openClaims)}>
+              <h2>Open</h2>
+              <div>
+                {openClaims ? (
+                  <div className="arrow-down"> </div>
+                ) : (
+                  <div className="arrow-right"> </div>
+                )}
+              </div>
+            </div>
             {openClaims && <p>Open claim 1</p>}
           </div>
 
           <div className="claims-dropdown">
-            <h4 onClick={() => setClosedClaims(!closedClaims)}>Closed</h4>
+            <div className="row" onClick={() => setClosedClaims(!closedClaims)}>
+              <h2>Closed</h2>
+              <div>
+                {closedClaims ? (
+                  <div className="arrow-down"> </div>
+                ) : (
+                  <div className="arrow-right"> </div>
+                )}
+              </div>
+            </div>
             {closedClaims && <p>Closed claim 1</p>}
           </div>
         </div>

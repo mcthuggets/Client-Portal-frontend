@@ -55,14 +55,14 @@ const ClientDetails = () => {
   }
 
   return (
-    <div className="app-container"> 
+    <div className="client-container"> 
       <Sidebar/>
         <div className='client-card'>
           <div className='user-icon'><FaRegUserCircle/></div>
 
           <div className='sub-client'>
         <p><strong>ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{clientData?.id}</p>
-        <p><strong>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {clientData?.firstName} {clientData?.surname}</p>
+        <p><strong>Fullname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {clientData?.firstName} {clientData?.surname}</p>
         <p><strong>Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>  {clientData?.gender}</p>
         <p><strong>Birthdate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {clientData?.dateOfBirth}</p>
         <p><strong>Marital Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> {clientData?.maritalStatus}</p>

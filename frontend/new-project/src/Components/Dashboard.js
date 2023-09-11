@@ -108,10 +108,10 @@ const Dashboard = () => {
               <h3>Quick Links</h3>
               <div className="quick-links">
                 <p>
-                  <Link to="/policies">View Policies</Link> <br />
+                  <Link className="scroll-link" to="/policies">Policies</Link> <br />
                 </p>
                 <p>
-                  <Link to="/clientdetails">View Profile</Link>
+                  <Link className="scroll-link"to="/clientdetails">Profile</Link>
                 </p>
               </div>
             </div>

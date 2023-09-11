@@ -13,3 +13,40 @@
   margin: 4px;
   padding: 12px;
 }
+
+.claims-dropdown h2 {
+  font-size: 24px;
+  color: #154FBF;
+}
+
+.claims-container {
+  width: 78%; /* 100% minus 16px for left and right margin */
+  margin: 8px;
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}.arrow-right {
+  display: block;
+  margin: 30px auto;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  transform: rotate(135deg);
+}
+
+.arrow-down {
+  display: block;
+  margin: 30px auto;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  transform: rotate(225deg);
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+

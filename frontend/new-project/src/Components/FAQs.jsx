@@ -1,10 +1,21 @@
-import React from 'react'
-import Sidebar from './Sidebar'
+import React from "react";
+import Sidebar from "./Sidebar";
+import PolicyFAQs from "./FAQs/PolicyFAQs";
+import ClaimsFAQs from "./FAQs/ClaimsFAQs";
+import "../Css/policy.css";
 
 export default function FAQs() {
   return (
     <>
-      <Sidebar />
+      <div className="app-container">
+        <Sidebar />
+
+        <div>
+          <PolicyFAQs />
+
+          <ClaimsFAQs />
+        </div>
+      </div>
     </>
-  )
+  );
 }

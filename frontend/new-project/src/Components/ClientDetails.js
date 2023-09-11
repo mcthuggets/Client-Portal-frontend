@@ -57,7 +57,7 @@ const ClientDetails = () => {
   return (
     <div className="app-container"> 
       <Sidebar/>
-        <div className='card'>
+        <div className='client-card'>
           <div className='user-icon'><FaRegUserCircle/></div>
 
           <div className='sub-client'>

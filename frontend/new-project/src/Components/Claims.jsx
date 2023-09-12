@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import "../Css/claims.css";
+import Claim from "./ClaimsComponents/Claim";
 
 function Claims() {
   const [openClaims, setOpenClaims] = useState(false);
@@ -23,7 +24,9 @@ function Claims() {
                 )}
               </div>
             </div>
-            {openClaims && <p>Open claim 1</p>}
+
+            
+            {openClaims && <Claim />}
           </div>
 
           <div className="claims-dropdown">

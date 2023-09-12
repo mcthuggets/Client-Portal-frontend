@@ -49,4 +49,13 @@
   align-items: center;
 }
 
+.single-claim {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border: rgb(143, 143, 143) solid 2px;
+  border-radius: 8px;
+}
+
 

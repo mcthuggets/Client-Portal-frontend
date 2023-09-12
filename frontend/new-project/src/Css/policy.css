@@ -673,7 +673,7 @@ list-style-type: circle;
   display: inline-block;
   border: 5px solid #7c7c7c;
 
-  border-right-color: #02117fd2;
+  border-right-color: #02117f;
   border-bottom-color: #02117fd2;
 
   border-radius: 50%;
@@ -714,9 +714,26 @@ list-style-type: circle;
   background-color: #f1f1f1;
 }
 
+.FAQ-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
 .FAQ {
-  border: 3px solid black;
-  border-radius: 8px;
   margin: 4px;
   padding: 12px;
+  max-width: 400px;
+}
+
+.policy-FAQ {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px black solid;
+  border-radius: 8px;
+  margin: 8px;
+  padding: 4px;
 }

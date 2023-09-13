@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import PolicyFAQs from "./FAQs/PolicyFAQs";
-import ClaimsFAQs from "./FAQs/ClaimsFAQs";
+import PolicyFAQs from "./FAQS/PolicyFAQs";
+import ClaimsFAQs from "./FAQS/ClaimsFAQs";
 import "../Css/policy.css";
 
 export default function FAQs() {

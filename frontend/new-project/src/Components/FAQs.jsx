@@ -10,7 +10,7 @@ export default function FAQs() {
       <div className="app-container">
         <Sidebar />
 
-        <div>
+        <div className="FAQ-container">
           <PolicyFAQs />
 
           <ClaimsFAQs />
